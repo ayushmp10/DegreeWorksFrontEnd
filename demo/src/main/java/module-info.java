@@ -4,4 +4,7 @@ module degreeworks {
 
     opens degreeworks to javafx.fxml;
     exports degreeworks;
+
+    opens model to javafx.fxml;
+    exports model;
 }
