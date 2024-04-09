@@ -1,3 +1,5 @@
+package model;
+
 public abstract class DataConstants {
 	protected static final String ADVISOR_FILE_NAME = "jsonfiles/Advisor.json";
 	protected static final String PARENT_FILE_NAME = "jsonfiles/Guardian.json";

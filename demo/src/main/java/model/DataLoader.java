@@ -1,3 +1,4 @@
+package model;
 
 import java.io.FileReader;
 import java.util.ArrayList;
