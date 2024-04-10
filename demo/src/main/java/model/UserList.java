@@ -1,9 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.UUID;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class UserList {
     private static UserList userList;
