@@ -54,6 +54,12 @@ public class signinController implements Initializable{
         profileType.equals("") || password.equals("") || confirmPassword.equals("")){
             lbl_error.setText("You cannot leave boxes blank");
         }
+
+        if(profileType.equals("adivsor") || profileType.equals("student") || profileType.equals("guardian")){
+            
+        }else {
+            lbl_error.setText("Not a profile type. Please input \" student \", \"advisor\", or \"guardian\"");
+        }
         
         if(password.equals(confirmPassword)){
 
