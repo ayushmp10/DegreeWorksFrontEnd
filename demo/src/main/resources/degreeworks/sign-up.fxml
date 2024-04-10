@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -19,22 +18,23 @@
             <Image url="@../../../../target/classes/images/uOfSc.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="307.0" layoutX="151.0" layoutY="83.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="296.0" />
-      <Text layoutX="263.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textAlignment="CENTER" wrappingWidth="73.23388671875" />
-      <Text layoutX="184.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP Id:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Type:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="115.6865234375" />
-      <Text layoutX="184.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" wrappingWidth="115.6865234375" />
-      <TextField layoutX="299.0" layoutY="119.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="299.0" layoutY="150.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="299.0" layoutY="181.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="299.0" layoutY="213.0" prefHeight="26.0" prefWidth="116.0" />
-      <ComboBox editable="true" layoutX="299.0" layoutY="244.0" prefHeight="26.0" prefWidth="116.0" promptText="None..." visibleRowCount="3" />
-      <PasswordField layoutX="299.0" layoutY="278.0" prefHeight="26.0" prefWidth="116.0" />
-      <PasswordField layoutX="299.0" layoutY="310.0" prefHeight="26.0" prefWidth="116.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="329.0" layoutX="151.0" layoutY="58.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="296.0" />
+      <Text layoutX="184.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP Id:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Type:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="115.6865234375" />
+      <Text layoutX="184.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" wrappingWidth="115.6865234375" />
+      <TextField layoutX="299.0" layoutY="74.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField layoutX="299.0" layoutY="107.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField layoutX="299.0" layoutY="139.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField layoutX="299.0" layoutY="203.0" prefHeight="26.0" prefWidth="116.0" />
+      <PasswordField layoutX="299.0" layoutY="269.0" prefHeight="26.0" prefWidth="116.0" />
+      <PasswordField layoutX="299.0" layoutY="302.0" prefHeight="26.0" prefWidth="116.0" />
       <Button layoutX="223.0" layoutY="346.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="153.0" text="Sign Up" />
+      <Text layoutX="184.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
+      <TextField layoutX="299.0" layoutY="171.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField layoutX="299.0" layoutY="236.0" prefHeight="26.0" prefWidth="116.0" />
    </children>
 </AnchorPane>
