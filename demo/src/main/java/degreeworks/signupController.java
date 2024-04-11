@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class signinController implements Initializable{
+public class signupController implements Initializable{
     @FXML
     private TextField txt_firstName;
 
