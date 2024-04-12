@@ -27,6 +27,9 @@ public class LoginController {
         if(UserList.getInstance().isValidUser(username, password)){
             //Log the user in
         }
+        else{
+            //Throw an error message: "Incorrect password or username"
+        }
     }
 }
 
