@@ -9,19 +9,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class homeController implements Initializable{
-
+    
     @FXML
     private void clickLogin(ActionEvent event) throws IOException {
         App.setRoot("login");
     }
 
-    @FXML 
-    private void signupClick(ActionEvent event) throws IOException {
+    
+    @FXML
+    private void signUp(ActionEvent event) throws IOException {
         App.setRoot("signup");
+        //System.out.println("YAY!");
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
     }
+
+
 }
