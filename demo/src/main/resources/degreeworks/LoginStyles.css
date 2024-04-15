@@ -1,8 +1,0 @@
-.vbox-with-background {
-    -fx-background-image: url('Images/LoginImagePage.jpg');
-    /* Compatibility */
-    -fx-background-image: url('Images/LoginImagePage.jpg');
-    background-image: url('Images/LoginImagePage.jpg');
-}
-
-
