@@ -8,7 +8,7 @@
 
 <AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #9A2A2A;" stylesheets="@homeStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.homeController">
    <children>
-      <Button id="logInButton" layoutX="377.0" layoutY="201.0" mnemonicParsing="false" onAction="#clickLogin" prefHeight="73.0" prefWidth="237.0" text="Log In" textFill="#0a0303" />
+      <Button id="logInButton" layoutX="377.0" layoutY="201.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="237.0" text="Log In" textFill="#0a0303" />
       <Button id="signUpButton" layoutX="377.0" layoutY="327.0" mnemonicParsing="false" onAction="#signUp" prefHeight="73.0" prefWidth="237.0" text="Sign Up" textFill="#0a0303" />
       <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="7.0" layoutY="4.0">
