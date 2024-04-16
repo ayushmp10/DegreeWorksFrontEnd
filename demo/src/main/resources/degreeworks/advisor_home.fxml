@@ -4,20 +4,36 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorController.java">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisorController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a2a2a" height="55.0" layoutY="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
-      <ImageView fitHeight="47.0" fitWidth="200.0" layoutY="4.0">
-         <image>
-            <Image url="@../images/uOfSc.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="270.0" layoutY="70.0" mnemonicParsing="false" onAction="#viewAdvisees" text="View Advisees" />
-      <Button layoutX="609.0" layoutY="70.0" mnemonicParsing="false" onAction="#viewAllStudents" text="View All Students" />
-      <Button layoutX="48.0" layoutY="70.0" mnemonicParsing="false" onAction="#backHome" text="Home" />
-      <Button layoutX="881.0" layoutY="70.0" mnemonicParsing="false" onAction="#moveComments" text="Comments" />
+      <VBox prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="995.0" style="-fx-background-color: rgb(0, 0, 0);">
+               <children>
+                  <ImageView fitHeight="47.0" fitWidth="200.0">
+                     <image>
+                        <Image url="@../images/uOfSc.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1000.0" spacing="100.0" style="-fx-background-color: rgb(115, 0, 10);">
+               <children>
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#goHome" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
+                  <Button fx:id="viewAdvisees" mnemonicParsing="false" onAction="#viewAdvisees" style="-fx-background-color: rgb(255, 255, 255);" text="View Advisees" />
+                  <Button fx:id="viewAllStudents" mnemonicParsing="false" onAction="#viewAllStudents" style="-fx-background-color: rgb(255, 255, 255);" text="View All Students" />
+                  <Button fx:id="comments" mnemonicParsing="false" onAction="#showComments" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
+               </children>
+            </HBox>
+            <ImageView fitHeight="508.0" fitWidth="1001.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/library.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
