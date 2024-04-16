@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advisorController.java">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a2a2a" height="55.0" layoutY="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
@@ -16,9 +15,9 @@
             <Image url="@../images/uOfSc.png" />
          </image>
       </ImageView>
-      <Button layoutX="270.0" layoutY="70.0" mnemonicParsing="false" text="View My Students" />
-      <Button layoutX="609.0" layoutY="70.0" mnemonicParsing="false" text="View All Students" />
+      <Button layoutX="270.0" layoutY="70.0" mnemonicParsing="false" onAction="#viewAdvisees" text="View Advisees" />
+      <Button layoutX="609.0" layoutY="70.0" mnemonicParsing="false" onAction="#viewAllStudents" text="View All Students" />
       <Button layoutX="48.0" layoutY="70.0" mnemonicParsing="false" onAction="#backHome" text="Home" />
-      <Button layoutX="881.0" layoutY="70.0" mnemonicParsing="false" text="Comments" />
+      <Button layoutX="881.0" layoutY="70.0" mnemonicParsing="false" onAction="#moveComments" text="Comments" />
    </children>
 </AnchorPane>
