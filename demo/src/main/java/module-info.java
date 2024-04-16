@@ -7,4 +7,6 @@ module degreeworks {
 
     opens model to javafx.fxml;
     exports model;
+
+    
 }
