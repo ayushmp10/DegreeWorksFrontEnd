@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class signinController implements Initializable{
+public class signupController implements Initializable{
     @FXML
     private TextField txt_firstName;
 
@@ -68,7 +68,7 @@ public class signinController implements Initializable{
         }
 
         //gotten from portia ask how it works
-        /* 
+        /*
         Library library = Library.getInstance();
 
         if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
@@ -80,15 +80,35 @@ public class signinController implements Initializable{
         User user = library.getCurrentUser();
         App.setRoot("user_home");
         */
+
+        if(profileType.equals("student")){
+            App.setRoot("student_home");
+        }else if(profileType.equals("adivsor")){
+            App.setRoot("advisor_home");
+        }else if(profileType.equals("guardian")){
+            App.setRoot("guradian_home");
+        }
     }
     
-
+    /* 
     @FXML
     private void back(MouseEvent event) throws IOException {
         App.setRoot("home");
     }
+    */
+
 
      @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 }
+
+/* 
+@FXML
+    void sign_up_button(MouseEvent event) {
+        if(profileType.equals("student")){
+            
+        }
+    }
+
+*/

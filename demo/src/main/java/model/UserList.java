@@ -64,7 +64,14 @@ public class UserList {
     }
 
     public boolean isValidUser(String username, String password) {
-        // Loop through users and compare data
+        /*
+        for(User user : users){
+            if(user.getUsername().toLowerCase().equals(username) && user.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+        */
         return true;
     }
 
