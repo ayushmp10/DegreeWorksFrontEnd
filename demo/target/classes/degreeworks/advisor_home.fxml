@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-600" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisorController">
    <children>
       <VBox prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -18,6 +18,7 @@
                         <Image url="@../images/uOfSc.png" />
                      </image>
                   </ImageView>
+                  <AnchorPane />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1000.0" spacing="100.0" style="-fx-background-color: rgb(115, 0, 10);">
@@ -35,5 +36,6 @@
             </ImageView>
          </children>
       </VBox>
+      <Button layoutX="937.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#onLogOutClicked" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
    </children>
 </AnchorPane>
