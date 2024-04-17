@@ -39,7 +39,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Login" textFill="WHITE" />
+                  <Button prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Login" textFill="WHITE" onAction="#handleLoginButtonAction" />
                </children>
             </HBox>
          </children>
