@@ -5,8 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #9A2A2A;" styleClass="student_home_background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #9A2A2A;" styleClass="student_home_background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.student_completedCoursesController">
    <children>
       <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="6.0" layoutY="4.0">
@@ -22,6 +23,7 @@
       <Button layoutX="302.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#planGeneratorClicked" prefHeight="31.0" prefWidth="132.0" text="Plan Generator" />
       <Button layoutX="170.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#majorMapClicked" prefHeight="31.0" prefWidth="132.0" text="Major Map" />
       <Button layoutX="38.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#homeClicked" prefHeight="31.0" prefWidth="132.0" text="Home" />
-      <Button layoutX="932.0" layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
+      <Button layoutX="938.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#onLogOutClicked" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="884.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Courses" />
    </children>
 </AnchorPane>

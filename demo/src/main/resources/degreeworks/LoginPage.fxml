@@ -34,12 +34,12 @@
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
                <children>
-                  <PasswordField fx:id = "passwordField" prefHeight="45.0" prefWidth="200.0" promptText="Password" />
+                  <PasswordField prefHeight="45.0" prefWidth="200.0" promptText="Password" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Login" textFill="WHITE" onAction = "#handleLoginButtonAction"/>
+                  <Button prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Login" textFill="WHITE" />
                </children>
             </HBox>
          </children>
