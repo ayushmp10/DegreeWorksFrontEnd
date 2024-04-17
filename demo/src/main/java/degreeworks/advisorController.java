@@ -14,20 +14,24 @@ import model.UserList;
 
 public class advisorController {
     @FXML
-    private void viewAdvisees(){
-
+    private void viewAdvisees() throws IOException {
+        App.setRoot("advisor_advisees");// create page for advisors to view their own students
     }
     @FXML
-    private void viewAllStudents(){
-
+    private void viewAllStudents() throws IOException {
+        App.setRoot("advisor_all_students");// create page for advisors to view students
     }
     @FXML
-    private void goHome(){
-
+    private void goHome() throws IOException {
+        App.setRoot("advisor_home");
     }
     @FXML
-    private void showComments(){
-
+    private void showComments() throws IOException {
+        App.setRoot("advisor_comments");// create page for advisors to view comments left by or for students
+    }
+    @FXML
+    private void onLogOutClicked() throws IOException{
+        App.setRoot("advisor_home");
     }
 
 }

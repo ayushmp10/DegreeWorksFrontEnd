@@ -42,7 +42,6 @@ public class student_planGeneratorController {
     @FXML
     void onLogoutClicked(MouseEvent event) throws IOException{
         App.setRoot("home");
-
     }
 
     @FXML
