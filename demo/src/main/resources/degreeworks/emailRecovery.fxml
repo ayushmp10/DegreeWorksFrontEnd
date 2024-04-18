@@ -4,22 +4,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmailRecoveryController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.emailRecoveryController">
    <children>
-      <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #9A2A2A;">
+      <StackPane style="-fx-background-color: #9A2A2A;" VBox.vgrow="ALWAYS">
          <BorderPane prefHeight="168.0" prefWidth="600.0">
             <center>
-               <VBox spacing="10" alignment="CENTER">
-                  <Label text="Enter your email address for recovery:" style="-fx-text-fill: white;" />
-                  <TextField fx:id="emailField" promptText="Email Address" prefHeight="40.0" prefWidth="200.0" />
-                  <Button text="Recover Email" onAction="#recoverEmail" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+               <VBox alignment="CENTER" spacing="10">
+                  <Label style="-fx-text-fill: white;" text="Enter your email address for recovery:" />
+                  <TextField fx:id="emailField" alignment="CENTER" maxWidth="300.0" minWidth="50.0" prefHeight="40.0" prefWidth="300.0" promptText="Email Address" />
+                  <Button onAction="#recoverEmail" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Recover Email" />
                   <Label fx:id="statusLabel" style="-fx-text-fill: white;" />
                </VBox>
             </center>
+            <top>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" height="88.0" stroke="BLACK" strokeType="INSIDE" width="603.0" BorderPane.alignment="CENTER" />
+            </top>
          </BorderPane>
       </StackPane>
    </children>
