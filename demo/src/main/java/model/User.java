@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class User {
@@ -20,7 +21,6 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.id = id;
         this.userList = UserList.getInstance();
-        userList.addUser(this);
     }
 
     public String getFirstName() {
@@ -71,3 +71,4 @@ public class User {
         this.id = id;
     }
 }
+

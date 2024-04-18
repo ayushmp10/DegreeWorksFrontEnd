@@ -6,6 +6,7 @@ public abstract class DataConstants {
 	protected static final String STUDENT_FILE_NAME = "jsonfiles/Student.json";
 	protected static final String COURSE_FILE_NAME = "jsonfiles/Course.json";
 	protected static final String REQUIREMENT_FILE_NAME = "json/requirement.json";
+	protected static final String DEGREE_FILE_NAME = "json/Degree.json";
 	protected static final String USER_UUID = "uuid";
 	protected static final String USER_USERNAME = "username";
 	protected static final String USER_PASSWORD = "password";
@@ -24,25 +25,19 @@ public abstract class DataConstants {
 	protected static final String STUDENT_YEAR = "year";
 	protected static final String STUDENT_ADVISOR = "advisor";
 	protected static final String STUDENT_GUARDIAN = "guardian";
-	protected static final String STUDENT_COMPLETED_CREDITS = "creditsCompleted";
+	protected static final String STUDENT_COMPLETED_CREDITS = "credits_completed";
 	protected static final String STUDENT_COMPLETED_COURSES = "completed_courses";
-	protected static final String STUDENT_TOTAL_CREDITS = "creditsToComplete";
+	protected static final String STUDENT_TOTAL_CREDITS = "total_credits";
 	protected static final String STUDENT_ADVISING_NOTES = "advising_notes";
 	protected static final String STUDENT_APPLICATION_AREA = "application_area";
 	protected static final String STUDENT_MAJOR = "major";
+	protected static final String STUDENT_DEGREE_ID = "degree";
+	protected static final String STUDENT_GPA = "gpa";
 	protected static final String ADVISING_NOTE_NOTE = "note";
 	protected static final String ADVISING_NOTE_AUTHOR = "author";
 	protected static final String ADVISING_NOTE_TIME = "time";
-	protected static final String STUDENT_SCHOLARSHIPS = "scholarships";
-	protected static final String SCHOLARSHIP_NAME = "name";
-	protected static final String SCHOLARSHIP_MIN_GPA = "min_gpa";
-	protected static final String SCHOLARSHIP_MIN_CREDIT_HOURS = "min_credit_hours";
-	protected static final String STUDENT_GRADUATION_PLAN = "graduation_plan";
-	protected static final String GRADUATION_PLAN_REQUIREMENT_SETS = "requirement_sets";
-	protected static final String GRADUATION_PLAN_PREFERRED_GRADUATION_YEAR = "preferred_graduation_year";
-	protected static final String GRADUATION_PLAN_PREFERRED_GRADUATION_SEMESTER = "preferred_graduation_semester";
-	protected static final String GRADUATION_PLAN_MIN_CREDIT_HOURS = "preferred_min_credit_hours";
-	protected static final String GRADUATION_PLAN_MAX_CREDIT_HOURS = "preferred_max_credit_hours";
+	protected static final String STUDENT_ALL_SEMESTERS = "all_semesters";
+	protected static final String STUDENT_CURRENT_SEMESTER = "current_semester";
 	/******  FIXME  ******/
 	protected static final String GRADUATION_PLAN_SELECTED_COURSES = "selected_courses";
 	protected static final String GRADUATION_PLAN_SEMESTER_SCHEDULE = "semester_schedule";
@@ -54,10 +49,32 @@ public abstract class DataConstants {
 	protected static final String COURSE_DESCRIPTION = "description";
 	protected static final String COURSE_CREDIT_HOURS = "credit_hours";
 	protected static final String COURSE_SEMESTER_OFFERED = "semesters_offered";
+	// Degree json file
+	protected static final String DEGREE_UUID = "uuid";
+	protected static final String DEGREE_CREDITS = "total_credit_required";
+	protected static final String DEGREE_MAJOR_COURSE = "major_courses";
+	protected static final String DEGREE_SUBJECT_NAME = "subject_name";
+	protected static final String DEGREE_TOTAL_REQ_CREDIT = "total_credits_required";
+	protected static final String DEGREE_ELECTIVES = "elective_list";
+	protected static final String DEGREE_ELECTIVE_TYPE = "type";
+	protected static final String DEGREE_ELECTIVE_CREDIT_REQ = "credit_required";
+	protected static final String DEGREE_ELECTIVE_CHOICES = "course_choice";
 	// TODO figure out what the object is that stores the prerequisites in the scraped file
 	// 	Potentially hashmap with the course saved as an array of UUIDs
 	protected static final String COURSE_PREREQUISITES = "prerequisites";
+	protected static final String COURSE_PREREQUISITE_CHOICES = "choices";
+	protected static final String COURSE_PREREQUISITES_MIN_GRADE = "min_grade";
+	protected static final String COURSE_PREREQUISITES_COURSE_OPTION = "course_options";
 	protected static final String COURSE_COREQUISITES = "corequisites";
+
+	protected static final String SEMESTER_SEASON = "season";
+	protected static final String SEMESTER_YEAR = "year";
+	protected static final String SEMESTER_LIMIT = "credit_limit";
+	protected static final String SEMESTER_COURSES = "courses";
 	// Do we need this?
 	protected static final String COURSE_CORE_CATEGORIES = "core_categories";
+
+	protected static final String ELECTIVE_TYPE = "type";
+	protected static final String ELECTIVE_CREDIT_REQ = "credit_required";
+	protected static final String ELECTIVE_COURSE_OPTIONS = "course_options";
 }
