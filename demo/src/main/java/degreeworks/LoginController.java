@@ -31,8 +31,8 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
         UserList userList = UserList.getInstance();
-        if(userList.isValidUser(username, password)){
-            System.out.println("We good");
+        if(username!=null && password!=null && userList.isValidUser(username, password)){
+            
             //Log the user in
             // this needs to be able to determine what type of user is logging in and move them to that page
             User currUser = userList.getUser(username, password);

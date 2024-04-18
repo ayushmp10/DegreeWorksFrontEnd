@@ -1,10 +1,14 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.UUID;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
+    private User currUser;
 
     private UserList() {
         this.users = new ArrayList<>();
@@ -31,6 +35,7 @@ public class UserList {
         for (User user : users) {
             if (user.getUsername().toLowerCase().equals(username.toLowerCase())
                     && user.getPassword().equals(password)) {
+                currUser = user;
                 return user;
             }
         }
@@ -49,6 +54,15 @@ public class UserList {
         return this.users;
     }
 
+    public Student getStudent(UUID id) {
+        for (User user : users) {
+            if (user.getID().equals(id) && user instanceof Student) {
+                return (Student) user;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Student> getStudents() {
         ArrayList<Student> returnStudents = new ArrayList<Student>();
         for (User user : users) {
@@ -64,15 +78,13 @@ public class UserList {
     }
 
     public boolean isValidUser(String username, String password) {
-        /*
-        for(User user : users){
-            if(user.getUsername().toLowerCase().equals(username) && user.getPassword().equals(password)){
+        // Loop through users and compare data
+        for (User user : users) {
+            if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
                 return true;
             }
         }
         return false;
-        */
-        return true;
     }
 
     public ArrayList<Advisor> getAdvisors() {
@@ -94,5 +106,16 @@ public class UserList {
         }
         return returnGuardians;
     }
+
+    public User getCurrUser() {
+        return currUser;
+    }
+
+    public void setCurrUser(User user) {
+        if (users.contains(user)) {
+            currUser = user;
+        }
+        System.out.println("This user does not exist");
+    } 
 
 }
