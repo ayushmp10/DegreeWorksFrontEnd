@@ -20,4 +20,9 @@ public class guardian_completedCourses {
     void onGuardianMajorMapClicked(MouseEvent event) throws IOException{
         App.setRoot("guardian_majorMap");
     }
+
+    @FXML
+    void onLogOutClicked(MouseEvent event) throws IOException{
+        App.setRoot("home");
+    }
 }
