@@ -1,7 +1,6 @@
 package degreeworks;
 
 import javafx.scene.control.Label;
-<<<<<<< HEAD
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -10,9 +9,6 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-=======
-import javafx.scene.layout.GridPane;
->>>>>>> 9c66bbcec4c454a8366def1bc4af587dd8a8787f
 import javafx.scene.text.Font;
 
 import java.io.IOException;
