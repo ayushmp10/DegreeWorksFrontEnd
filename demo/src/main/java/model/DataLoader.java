@@ -19,8 +19,7 @@ public class DataLoader extends DataConstants{
 		ArrayList<Student> students = new ArrayList<Student>();
 		try {
 			FileReader reader = new FileReader(STUDENT_FILE_NAME);
-			JSONParser parser = new JSONParser();	
-			JSONArray studentJSONArray = (JSONArray)new JSONParser().parse(reader);
+			JSONArray studentJSONArray = (JSONArray) new JSONParser().parse(reader);
 			
 			for(int i=0; i < studentJSONArray.size(); i++) {
 				JSONObject studentJSON = (JSONObject)studentJSONArray.get(i);
@@ -88,7 +87,7 @@ public class DataLoader extends DataConstants{
 										totalCredits, gpa, phoneNumber, advisorId, guardianId, uscID, applicationArea, advisorNotes,
 										completedCourses, currSemester, allSemesters));
 			}
-			
+			reader.close();
 			return students;
 			
 		} catch (Exception e) {

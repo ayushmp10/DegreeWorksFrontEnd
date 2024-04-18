@@ -1,12 +1,12 @@
 package model;
 
 public abstract class DataConstants {
-	protected static final String ADVISOR_FILE_NAME = ".src/main/java/data/Advisor.json";
-	protected static final String PARENT_FILE_NAME = ".src/main/java/data/Guardian.json";
-	protected static final String STUDENT_FILE_NAME = ".src/main/java/data/Student.json";
-	protected static final String COURSE_FILE_NAME = ".src/main/java/data/Course.json";
-	protected static final String REQUIREMENT_FILE_NAME = ".src/main/java/data/requirement.json";
-	protected static final String DEGREE_FILE_NAME = ".src/main/java/data/Degree.json";
+	protected static final String ADVISOR_FILE_NAME = "demo/src/main/java/data/Advisor.json";
+	protected static final String PARENT_FILE_NAME = "demo/src/main/java/data/Guardian.json";
+	protected static final String STUDENT_FILE_NAME = "demo/src/main/java/data/Student.json";
+	protected static final String COURSE_FILE_NAME = "demo/src/main/java/data/Course.json";
+	protected static final String REQUIREMENT_FILE_NAME = "demo/src/main/java/data/requirement.json";
+	protected static final String DEGREE_FILE_NAME = "demo/src/main/java/data/Degree.json";
 	protected static final String USER_UUID = "uuid";
 	protected static final String USER_USERNAME = "username";
 	protected static final String USER_PASSWORD = "password";
