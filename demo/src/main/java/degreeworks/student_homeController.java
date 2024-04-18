@@ -43,8 +43,10 @@ public class student_homeController implements Initializable {
                                 UUID.fromString("152004c3-c655-439d-bbc0-eeaa58f57874"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
                                 "Q313514", "robotics", "none", tempHashMap, tempSemester, tempSemesters);
         userList.addUser(tempStudent);
+        
         ArrayList<Student> allStudents = userList.getStudents();
         ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
+        DataWriter.saveUsers(userList.getUsers());
         System.out.println(allAdvisors.size());
         
         currStudent = allStudents.get(0);
