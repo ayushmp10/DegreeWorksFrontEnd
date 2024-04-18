@@ -33,7 +33,7 @@ public class DataWriter extends DataConstants {
         }
 
         // write to the file
-        writeData(".jsonfiles/Degree.json", degreesArray);
+        writeData(".src/main/java/data/Degree.json", degreesArray);
     }
 
     // save user
@@ -64,9 +64,9 @@ public class DataWriter extends DataConstants {
             }
         }
 
-        writeData("./jsonfiles/Student.json", allStudentsArray);
-        writeData("./jsonfiles/Advisor.json", allAdvisorsArray);
-        writeData("./jsonfiles/Guardian.json", allGuardiansArray);
+        writeData(".src/main/java/data/Student.json", allStudentsArray);
+        writeData(".src/main/java/data/Advisor.json", allAdvisorsArray);
+        writeData(".src/main/java/data/Guardian.json", allGuardiansArray);
     }
 
     private static void getStudentInformation(HashMap<String, Object> studentMap, Student student) {
