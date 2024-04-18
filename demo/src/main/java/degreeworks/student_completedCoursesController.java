@@ -50,7 +50,7 @@ public class student_completedCoursesController {
 
     @FXML
     void planGeneratorClicked(MouseEvent event) throws IOException{
-        App.setRoot("student_planGenreator");
+        App.setRoot("student_planGenerator");
 
     }
 }

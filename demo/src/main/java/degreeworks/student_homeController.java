@@ -91,7 +91,7 @@ public class student_homeController implements Initializable {
 
     @FXML
     void planGeneratorClicked(MouseEvent event) throws IOException{
-        App.setRoot("student_planGenreator");
+        App.setRoot("student_planGenerator");
 
     }
 }
