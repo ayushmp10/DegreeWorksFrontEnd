@@ -25,7 +25,7 @@
                   </ImageView>
                   <VBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="100.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#onLogOutClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
+                        <Button mnemonicParsing="false" onAction="#onLogOutClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER" wrappingWidth="100.0">
                            <font>
                               <Font size="10.0" />
@@ -36,13 +36,13 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="1000.0" spacing="15.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#homeClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
-                  <Button mnemonicParsing="false" onMouseClicked="#majorMapClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
-                  <Button mnemonicParsing="false" onAction="#planGeneratorClicked" onMouseClicked="#planGeneratorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Plan Generator" />
-                  <Button mnemonicParsing="false" onMouseClicked="#availableCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Available Courses" />
-                  <Button mnemonicParsing="false" onMouseClicked="#completedCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
-                  <Button mnemonicParsing="false" onMouseClicked="#changeMajorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Change Major" />
-                  <Button mnemonicParsing="false" onMouseClicked="#commentsClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
+                  <Button mnemonicParsing="false" onAction="#homeClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#majorMapClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
+                  <Button mnemonicParsing="false" onAction="#planGeneratorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Plan Generator" />
+                  <Button mnemonicParsing="false" onAction="#availableCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Available Courses" />
+                  <Button mnemonicParsing="false" onAction="#completedCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
+                  <Button mnemonicParsing="false" onAction="#changeMajorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Change Major" />
+                  <Button mnemonicParsing="false" onAction="#commentsClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
                </children>
             </HBox>
             <!--<ImageView fitHeight="504.0" fitWidth="1000.0" pickOnBounds="true">
