@@ -40,10 +40,15 @@ public class student_homeController implements Initializable {
         Semester tempSemester = new Semester("Fall", 2024, 120, courses);
         Student tempStudent = new Student(UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), "ayushmp", "1231",
                                 "Ayush", "Parambath", "Freshman", tempDegree, tempLong1, tempLong2, tempLong3, "0000",
-                                UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
+                                UUID.fromString("152004c3-c655-439d-bbc0-eeaa58f57874"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
                                 "Q313514", "robotics", "none", tempHashMap, tempSemester, tempSemesters);
         userList.addUser(tempStudent);
+        
         ArrayList<Student> allStudents = userList.getStudents();
+        ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
+        DataWriter.saveUsers(userList.getUsers());
+        System.out.println(allAdvisors.size());
+        
         currStudent = allStudents.get(0);
         //VBox vbox = new VBox();
         Label studentTitle = new Label(currStudent.getFirstName() + " " + currStudent.getLastName());
@@ -66,10 +71,17 @@ public class student_homeController implements Initializable {
         studentApplicationArea.setFont(new Font(20));
         studentApplicationArea.setMaxWidth(1000);
         GridPane.setHalignment(studentApplicationArea, HPos.CENTER);
+
         Label studentAdvisor = new Label(currStudent.getAdvisor().toString());// need to make this an advisor object
+        for (Advisor advisor : allAdvisors) {
+            if (advisor.getID().equals(currStudent.getAdvisor())) {
+                studentAdvisor = new Label(advisor.getFirstName() + advisor.getLastName());
+            }
+        }
         studentAdvisor.setFont(new Font(20));
         studentAdvisor.setMaxWidth(1000);
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
+
         Label studentGPA = new Label(currStudent.getGPA().toString());
         studentGPA.setFont(new Font(20));
         studentGPA.setMaxWidth(1000);
