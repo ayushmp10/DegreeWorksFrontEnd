@@ -204,7 +204,7 @@ public class DataLoader extends DataConstants{
 				String description = (String)courseJSON.get(COURSE_DESCRIPTION);
 				String credits = (String)courseJSON.get(COURSE_CREDIT_HOURS);
 				// TODO check if this is a valid way of reading an array from the json file
-				ArrayList<Season> semestersOffered = (ArrayList<Season>)courseJSON.get(COURSE_SEMESTER_OFFERED);
+				ArrayList<Season> semestersOffered = new ArrayList<Season>();
 				JSONArray semesterJSON = (JSONArray)courseJSON.get(COURSE_SEMESTER_OFFERED);
 				for (int j = 0; j < semesterJSON.size(); j++) {
 					semestersOffered.add(Season.valueOf(((String) semesterJSON.get(j)).toUpperCase()));
