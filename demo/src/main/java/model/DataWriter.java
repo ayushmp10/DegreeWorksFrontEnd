@@ -64,9 +64,9 @@ public class DataWriter extends DataConstants {
             }
         }
 
-        writeData(".src/main/java/data/Student.json", allStudentsArray);
-        writeData(".src/main/java/data/Advisor.json", allAdvisorsArray);
-        writeData(".src/main/java/data/Guardian.json", allGuardiansArray);
+        writeData(STUDENT_FILE_NAME, allStudentsArray);
+        writeData(ADVISOR_FILE_NAME, allAdvisorsArray);
+        writeData(PARENT_FILE_NAME, allGuardiansArray);
     }
 
     private static void getStudentInformation(HashMap<String, Object> studentMap, Student student) {
