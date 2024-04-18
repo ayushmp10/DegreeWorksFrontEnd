@@ -57,8 +57,10 @@ public class DataWriter extends DataConstants {
                 allStudentsArray.add(new JSONObject(userObject));
             } else if (user instanceof Advisor) {
                 getAdvisorInformation(userObject, (Advisor) user);
+                allAdvisorsArray.add(new JSONObject(userObject));
             } else if (user instanceof Guardian) {
                 getGuardianInformation(userObject, (Guardian) user);
+                allGuardiansArray.add(new JSONObject(userObject));
             }
         }
 
