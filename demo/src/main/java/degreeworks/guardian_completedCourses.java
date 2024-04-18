@@ -5,7 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 
-public class guardian_homeController {
+public class guardian_completedCourses {
     @FXML
     void onGuardianCompletedCoursesClicked(MouseEvent event) throws IOException{
         App.setRoot("guardian_completedCourses");

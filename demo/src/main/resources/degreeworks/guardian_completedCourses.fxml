@@ -21,5 +21,9 @@
       <Button layoutX="227.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianHomeClicked" prefHeight="31.0" prefWidth="145.0" text="Home" />
       <Button layoutX="428.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianMajorMapClicked" prefHeight="31.0" prefWidth="145.0" text="Major Map" />
       <Button layoutX="632.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianCompletedCoursesClicked" prefHeight="31.0" prefWidth="145.0" text="Completed Courses" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6906822f6209ece6e96245b35b8b1c26e660f38c
    </children>
 </AnchorPane>
