@@ -7,22 +7,22 @@ import javafx.scene.input.MouseEvent;
 
 public class guardian_homeController {
     @FXML
-    void onGuardianCompletedCoursesClicked(MouseEvent event) throws IOException{
+    void onGuardianCompletedCoursesClicked() throws IOException{
         App.setRoot("guardian_completedCourses");
     }
 
     @FXML
-    void onGuardianHomeClicked(MouseEvent event) throws IOException{
+    void onGuardianHomeClicked() throws IOException{
         App.setRoot("guardian_home");
     }
 
     @FXML
-    void onGuardianMajorMapClicked(MouseEvent event) throws IOException{
+    void onGuardianMajorMapClicked() throws IOException{
         App.setRoot("guardian_majorMap");
     }
 
     @FXML
-    void onLogOutClicked(MouseEvent event) throws IOException{
+    void onLogOutClicked() throws IOException{
         App.setRoot("home");
     }
 }
