@@ -63,6 +63,23 @@ public class Student extends User{
         setAllSemester(allSemesters);
     }
 
+    // another constructor - used for signing up
+    public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password) {
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        this.year = "Freshman";
+        this.degree = new Degree();
+        this.gpa = (long) 0.0;
+        this.completedCredits = (long) 0;
+        this.totalCredits = (long) 0;
+        this.advisor = null;
+        this.guardian = null;
+        this.applicationArea = "none";
+        this.USCid = "unassigned";
+        this.adviseeNotes = "No Notes";
+        this.currSemester = null;
+        this.allSemesters = null;
+    }
+
     /*public Grade getGrade() {
         return this.grade;
     }*/
