@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 public class student_completedCoursesController {
+    // call get completed courses for a student object
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");

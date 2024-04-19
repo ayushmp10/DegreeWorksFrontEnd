@@ -23,12 +23,14 @@ public class DegreeWorks {
     }
 
     public boolean createAccount(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password, String profileType) {
+        ArrayList<User> tempUserToSave = new ArrayList<User>();
         if (profileType.equalsIgnoreCase("student")) {
             // create a student and add it to the user list
             // substitute default values for other information
             Student tempStudent = new Student(firstName, lastName, phoneNumber, VIPid, userName, password);
             userList.addUser(tempStudent);
             userList.setCurrUser(tempStudent);
+            tempUserToSave.add(tempStudent);
             return true;
         }
         else if (profileType.equalsIgnoreCase("advisor")) {
@@ -37,6 +39,7 @@ public class DegreeWorks {
             Advisor tempAdvisor = new Advisor(firstName, lastName, phoneNumber, VIPid, userName, password);
             userList.addUser(tempAdvisor);
             userList.setCurrUser(tempAdvisor);
+            tempUserToSave.add(tempAdvisor);
             return true;
         }
         else if (profileType.equalsIgnoreCase("guardian")) {
@@ -44,6 +47,7 @@ public class DegreeWorks {
             // substitute default values for other information
             return true;
         }
+        DataWriter.saveUsers(tempUserToSave);
         return false;
     }
 

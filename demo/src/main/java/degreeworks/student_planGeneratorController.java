@@ -6,6 +6,8 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 public class student_planGeneratorController {
+    // get all courses from Degree
+    // create 8 semester plan for a student object
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
