@@ -15,9 +15,9 @@ public class Guardian extends User{
         this.student = student;
         this.authorized = authorized;
     }
-    public HashMap<Course, String> getStudentCurrentCourses(Student student) {
+    public HashMap<Course, String> getStudentCurrentCourses() {
         System.out.println("Getting current courses for student: " + student.getFirstName() + " " + student.getLastName());
-        return student.getCompletedCourses();
+        return this.student.getCompletedCourses();
     }
 
     public Student getStudent() {
