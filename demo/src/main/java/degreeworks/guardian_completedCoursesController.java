@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 
-public class guardian_completedCourses {
+public class guardian_completedCoursesController {
     @FXML
     void onGuardianCompletedCoursesClicked() throws IOException{
         App.setRoot("guardian_completedCourses");
