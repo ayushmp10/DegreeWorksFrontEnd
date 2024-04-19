@@ -3,10 +3,13 @@ package degreeworks;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +21,7 @@ import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import model.*;
 
@@ -40,40 +44,57 @@ public class student_homeController implements Initializable {
         Semester tempSemester = new Semester("Fall", 2024, 120, courses);
         Student tempStudent = new Student(UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), "ayushmp", "1231",
                                 "Ayush", "Parambath", "Freshman", tempDegree, tempLong1, tempLong2, tempLong3, "0000",
-                                UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
+                                UUID.fromString("152004c3-c655-439d-bbc0-eeaa58f57874"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
                                 "Q313514", "robotics", "none", tempHashMap, tempSemester, tempSemesters);
         userList.addUser(tempStudent);
+        
         ArrayList<Student> allStudents = userList.getStudents();
+        ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
+        DataWriter.saveUsers(userList.getUsers());
+        System.out.println(allAdvisors.size());
+        
         currStudent = allStudents.get(0);
         //VBox vbox = new VBox();
         Label studentTitle = new Label(currStudent.getFirstName() + " " + currStudent.getLastName());
         studentTitle.setFont(new Font(20));
         studentTitle.setMaxWidth(1000);
         GridPane.setHalignment(studentTitle, HPos.CENTER);
+
         Label studentID = new Label(currStudent.getUSCID());
         studentID.setFont(new Font(20));
         studentID.setMaxWidth(1000);
         GridPane.setHalignment(studentID, HPos.CENTER);
+
         Label studentClassification = new Label(currStudent.getYear());
         studentClassification.setFont(new Font(20));
         studentClassification.setMaxWidth(1000);
         GridPane.setHalignment(studentClassification, HPos.CENTER);
+
         Label studentMajor = new Label(currStudent.getDegree().getSubject());
         studentMajor.setFont(new Font(20));
         studentMajor.setMaxWidth(1000);
         GridPane.setHalignment(studentMajor, HPos.CENTER);
+
         Label studentApplicationArea = new Label(currStudent.getApplicationArea());
         studentApplicationArea.setFont(new Font(20));
         studentApplicationArea.setMaxWidth(1000);
         GridPane.setHalignment(studentApplicationArea, HPos.CENTER);
+
         Label studentAdvisor = new Label(currStudent.getAdvisor().toString());// need to make this an advisor object
+        for (Advisor advisor : allAdvisors) {
+            if (advisor.getID().equals(currStudent.getAdvisor())) {
+                studentAdvisor = new Label(advisor.getFirstName() + advisor.getLastName());
+            }
+        }
         studentAdvisor.setFont(new Font(20));
         studentAdvisor.setMaxWidth(1000);
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
+
         Label studentGPA = new Label(currStudent.getGPA().toString());
         studentGPA.setFont(new Font(20));
         studentGPA.setMaxWidth(1000);
         GridPane.setHalignment(studentGPA, HPos.CENTER);
+
         Label studentPhoneNumber = new Label(currStudent.getPhoneNumber());
         studentPhoneNumber.setFont(new Font(20));
         studentPhoneNumber.setMaxWidth(1000);
@@ -82,28 +103,44 @@ public class student_homeController implements Initializable {
         Label name = new Label("Student Name");
         name.setFont(new Font(20));
         name.setMaxWidth(1000);
+        GridPane.setHalignment(name, HPos.CENTER);
+
         Label id = new Label("USC ID");
         id.setFont(new Font(20));
         id.setMaxWidth(1000);
+        GridPane.setHalignment(id, HPos.CENTER);
+
         Label classification = new Label("Classification");
         classification.setFont(new Font(20));
         classification.setMaxWidth(1000);
+        GridPane.setHalignment(classification, HPos.CENTER);
+
         Label major = new Label("Major");
         major.setFont(new Font(20));
         major.setMaxWidth(1000);
+        GridPane.setHalignment(major, HPos.CENTER);
+
         Label applicationArea = new Label("Application Area");
         applicationArea.setFont(new Font(20));
         applicationArea.setMaxWidth(1000);
+        GridPane.setHalignment(applicationArea, HPos.CENTER);
+
         Label advisor = new Label("Advisor");
         advisor.setFont(new Font(20));
         advisor.setMaxWidth(1000);
+        // advisor.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+        GridPane.setHalignment(advisor, HPos.CENTER);
+
         Label gpa = new Label("GPA");
         gpa.setFont(new Font(20));
         gpa.setMaxWidth(1000);
+        GridPane.setHalignment(gpa, HPos.CENTER);
+
         Label phoneNumber = new Label("Phone Number");
         phoneNumber.setFont(new Font(20));
         phoneNumber.setMaxWidth(1000);
-        
+        GridPane.setHalignment(phoneNumber, HPos.CENTER);
+        // grid_studentInfo.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
         // add all the labels to the gridpane
         grid_studentInfo.add(name, 0,0);
         grid_studentInfo.add(id,0,1);
@@ -126,49 +163,49 @@ public class student_homeController implements Initializable {
         grid_studentInfo.add(studentPhoneNumber,3,3);
     }
     @FXML
-    void availableCoursesClicked(MouseEvent event) throws IOException{
+    void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
 
     }
 
     @FXML
-    void changeMajorClicked(MouseEvent event) throws IOException{
+    void changeMajorClicked() throws IOException{
         App.setRoot("student_changeMajor");
 
     }
 
     @FXML
-    void commentsClicked(MouseEvent event) throws IOException{
+    void commentsClicked() throws IOException{
         App.setRoot("student_comments");
 
     }
 
     @FXML
-    void completedCoursesClicked(MouseEvent event) throws IOException{
+    void completedCoursesClicked() throws IOException{
         App.setRoot("student_completedCourses");
 
     }
 
     @FXML
-    void homeClicked(MouseEvent event) throws IOException{
+    void homeClicked() throws IOException{
         App.setRoot("student_home");
 
     }
 
     @FXML
-    void majorMapClicked(MouseEvent event) throws IOException{
+    void majorMapClicked() throws IOException{
         App.setRoot("student_majorMap");
 
     }
 
     @FXML
-    void onLogOutClicked(MouseEvent event) throws IOException{
+    void onLogOutClicked() throws IOException{
         App.setRoot("home");
 
     }
 
     @FXML
-    void planGeneratorClicked(MouseEvent event) throws IOException{
+    void planGeneratorClicked() throws IOException{
         App.setRoot("student_planGenerator");
 
     }

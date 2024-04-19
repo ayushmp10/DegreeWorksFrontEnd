@@ -33,7 +33,7 @@ public class DataWriter extends DataConstants {
         }
 
         // write to the file
-        writeData(".src/main/java/data/Degree.json", degreesArray);
+        writeData(DEGREE_FILE_NAME, degreesArray);
     }
 
     // save user
@@ -75,7 +75,7 @@ public class DataWriter extends DataConstants {
         studentMap.put(STUDENT_YEAR, student.getYear());
         // assign an advisor to a student if they don't have one
         if (student.getAdvisor() != null) {
-            studentMap.put(STUDENT_ADVISOR, student.getAdvisor());
+            studentMap.put(STUDENT_ADVISOR, student.getAdvisor().toString());
         } else {
             studentMap.put(STUDENT_ADVISOR, "none");
         }
