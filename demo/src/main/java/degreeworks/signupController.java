@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.UserList;
 
 public class signupController implements Initializable{
     @FXML
@@ -39,7 +40,7 @@ public class signupController implements Initializable{
     private Label lbl_error;
 
     @FXML 
-    private void submitClicked(MouseEvent event) throws IOException {
+    private void submitClicked() throws IOException {
         String firstName = txt_firstName.getText();
         String lastName = txt_lastName.getText();
         String userName = txt_userName.getText();
@@ -49,6 +50,7 @@ public class signupController implements Initializable{
         String password = txt_password.getText();
         String confirmPassword = txt_confirmPassword.getText();
 
+        // checking for invalid inputs
         if(firstName.equals("") || lastName.equals("") || userName.equals("") ||
         phoneNumber.equals("") || VIPId.equals("") ||
         profileType.equals("") || password.equals("") || confirmPassword.equals("")){
@@ -60,7 +62,7 @@ public class signupController implements Initializable{
         }else {
             lbl_error.setText("Not a profile type. Please input \" student \", \"advisor\", or \"guardian\"");
         }
-        
+        // not needed because the user is signing up not logging there is no password to check
         if(password.equals(confirmPassword)){
 
         }else {
@@ -80,8 +82,9 @@ public class signupController implements Initializable{
         User user = library.getCurrentUser();
         App.setRoot("user_home");
         */
-
-        if(profileType.equals("student")){
+        // create user, add them to userlist, set currUser, and write them to the json
+        // call a facade to do all of these
+        if(profileType.equals("student")) {
             App.setRoot("student_home");
         }else if(profileType.equals("adivsor")){
             App.setRoot("advisor_home");

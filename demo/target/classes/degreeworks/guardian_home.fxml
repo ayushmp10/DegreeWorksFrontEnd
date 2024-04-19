@@ -45,19 +45,5 @@
             </ImageView>
          </children>
       </VBox>
-      <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
-      <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="8.0" layoutY="4.0">
-         <image>
-            <Image url="@../images/uOfSc.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d2d8dd" height="47.0" layoutY="55.0" stroke="#dad2d2" strokeType="INSIDE" width="1000.0" />
-      <Button layoutX="227.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianHomeClicked" prefHeight="31.0" prefWidth="145.0" text="Home" 
-              style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
-              />
-      <Button layoutX="428.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianMajorMapClicked" prefHeight="31.0" prefWidth="145.0" text="Major Map" />
-      <Button layoutX="632.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#onGuardianCompletedCoursesClicked" prefHeight="31.0" prefWidth="145.0" text="Completed Courses" />
-      <Button layoutX="939.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#onLogOutClicked" style="-fx-background-color: #000000;" text="Log Out" textFill="WHITE" />
-      <Text fill="WHITE" layoutX="947.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
    </children>
 </AnchorPane>
