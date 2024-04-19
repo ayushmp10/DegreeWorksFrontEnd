@@ -80,10 +80,6 @@ public class Student extends User{
         this.allSemesters = null;
     }
 
-    /*public Grade getGrade() {
-        return this.grade;
-    }*/
-
     private ArrayList<Course> getCurrentCourses() {
         return new ArrayList<>();
     }

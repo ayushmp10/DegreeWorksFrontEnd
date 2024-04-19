@@ -32,9 +32,11 @@ public class DegreeWorks {
         }
         else if (profileType.equalsIgnoreCase("advisor")) {
             // create an advisor and add it to the user list
+            // substitute default values for other information
         }
         else if (profileType.equalsIgnoreCase("guardian")) {
             // create a guardian and add it to the user list
+            // substitute default values for other information
         }
         return true;
     }
