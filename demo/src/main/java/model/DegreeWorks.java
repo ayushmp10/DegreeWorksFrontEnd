@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class DegreeWorks {
     private User currUser;
     private UserList userList;
@@ -27,6 +29,7 @@ public class DegreeWorks {
             Student tempStudent = new Student(firstName, lastName, phoneNumber, VIPid, userName, password);
             userList.addUser(tempStudent);
             userList.setCurrUser(tempStudent);
+            return true;
         }
         else if (profileType.equalsIgnoreCase("advisor")) {
             // create an advisor and add it to the user list
@@ -34,11 +37,40 @@ public class DegreeWorks {
             Advisor tempAdvisor = new Advisor(firstName, lastName, phoneNumber, VIPid, userName, password);
             userList.addUser(tempAdvisor);
             userList.setCurrUser(tempAdvisor);
+            return true;
         }
         else if (profileType.equalsIgnoreCase("guardian")) {
             // create a guardian and add it to the user list
             // substitute default values for other information
+            return true;
         }
-        return true;
+        return false;
+    }
+
+    public boolean login(String username, String password) {
+        ArrayList<User> allUsers = userList.getUsers();
+        // check all users for the username
+        for (User user : allUsers) {
+            if (user.getUsername().equalsIgnoreCase(username)) {
+                // user exists check if password matches
+                if (!user.getPassword().equals(password)) {
+                    System.out.println("incorrect password");
+                    return false;
+                }
+                // user is logged in
+                currUser = user;
+                return true;
+            }
+        }
+        System.out.println("User not found");
+        return false;
+    }
+
+    public User getCurrentUser() {
+        return currUser;
+    }
+
+    public void logout() {
+        currUser = null;
     }
 }
