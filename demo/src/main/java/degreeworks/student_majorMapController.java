@@ -1,12 +1,31 @@
 package degreeworks;
 
-
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.GridPane;
+import model.CourseList;
+import model.*;
 
-public class student_majorMapController {
+public class student_majorMapController implements Initializable {
+    @FXML private GridPane grid_majorMap;
+    private CourseList courseList;
+    private UserList userList;
+    private Student currStudent;
+    private DegreeList degree;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        userList = UserList.getInstance();
+        courseList = CourseList.getInstance();
+        currStudent = (Student) userList.getCurrUser();
+        degree = DegreeList.getInstance();
+        ArrayList<Degree> degrees = degree.getAllDegrees();
+        // get all courses regarding the degree
+    }
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
