@@ -19,26 +19,13 @@ public class student_availableCoursesController implements Initializable {
     private Student currStudent;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // there should a current user at this point
+        currStudent = (Student) userList.getCurrUser();
         courseList = CourseList.getInstance();
-        userList = UserList.getInstance();
-        Degree tempDegree = new Degree();
-        HashMap<Course, String> tempHashMap = new HashMap<Course, String>();
-        ArrayList<Semester> tempSemesters = new ArrayList<Semester>();
-        ArrayList<Course> courses = new ArrayList<Course>();
-        Long tempLong1 = Long.valueOf(1);
-        Long tempLong2 = Long.valueOf(1);
-        Long tempLong3 = Long.valueOf(1);
-        Semester tempSemester = new Semester("Fall", 2024, 120, courses);
-        Student tempStudent = new Student(UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), "ayushmp", "1231",
-                                "Ayush", "Parambath", "Freshman", tempDegree, tempLong1, tempLong2, tempLong3, "0000", UUID.fromString("13415"),
-                                UUID.fromString("1231231"), "Q313514", "robotics",
-                                "none", tempHashMap, tempSemester, tempSemesters);
-        userList.addUser(tempStudent);
-        ArrayList<Student> allStudents = userList.getStudents();
-        currStudent = allStudents.get(0);
-        VBox vbox = new VBox();
-        Label studentTitle = new Label(currStudent.getFirstName() + currStudent.getLastName());
-        vbox.getChildren().add(studentTitle);
+        // get all available courses
+        ArrayList<Course> allCourses = DataLoader.getCourses();
+        // display them in a scroll pane with a search box
+        
     }
     
     @FXML
