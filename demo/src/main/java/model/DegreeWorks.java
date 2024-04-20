@@ -62,7 +62,7 @@ public class DegreeWorks {
                     return false;
                 }
                 // user is logged in
-                currUser = user;
+                userList.setCurrUser(user);
                 return true;
             }
         }

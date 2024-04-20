@@ -5,13 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.Advisor;
-import model.Guardian;
-import model.Student;
-import model.User;
-import model.UserList;
+import model.*;
 
 public class LoginController {
+    private DegreeWorks degreeWorks;
 
     @FXML
     private TextField usernameField;
@@ -24,6 +21,7 @@ public class LoginController {
 
     @FXML
     private void initialize() {
+        degreeWorks = DegreeWorks.getInstance();
     }
 
     @FXML
@@ -34,19 +32,21 @@ public class LoginController {
         if(username!=null && password!=null && userList.isValidUser(username, password)){
             
             //Log the user in
-            // this needs to be able to determine what type of user is logging in and move them to that page
-            User currUser = userList.getUser(username, password);
-            if (currUser instanceof Student) {
-                // move to student page
-                App.setRoot("student_home");
-            }
-            else if (currUser instanceof Advisor) {
-                // move to advisor page
-                App.setRoot("advisor_home");// this is an empty unopenable page currently
-            }
-            else if (currUser instanceof Guardian) {
-                // move to guardian page
-                App.setRoot("guardian_home");
+            if (degreeWorks.login(username, password)) {
+                // this needs to be able to determine what type of user is logging in and move them to that page
+                User currUser = userList.getUser(username, password);
+                if (currUser instanceof Student) {
+                    // move to student page
+                    App.setRoot("student_home");
+                }
+                else if (currUser instanceof Advisor) {
+                    // move to advisor page
+                    App.setRoot("advisor_home");// this is an empty unopenable page currently
+                }
+                else if (currUser instanceof Guardian) {
+                    // move to guardian page
+                    App.setRoot("guardian_home");
+                }
             }
         }
         else{
