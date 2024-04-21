@@ -10,26 +10,29 @@ public class UserList {
 
     private UserList() {
         users = new ArrayList<User>();
-        try {
-            // add all saved users to users arraylist
-            ArrayList<Student> tempStudents = DataLoader.loadStudents();
-            ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
-            ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
+        // add all saved users to users arraylist
+        ArrayList<Student> tempStudents = DataLoader.loadStudents();
+        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
+        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
+
+        if (tempStudents != null ) {
             for (Student student : tempStudents) {
                 addUser(student);
             }
+        }
+
+        if (tempAdvisors != null ) {
             for (Advisor advisor : tempAdvisors) {
                 addUser(advisor);
             }
+        }
+        
+        if (tempGuardians != null ) {
             for (Guardian guardian : tempGuardians) {
                 addUser(guardian);
             }
-        } catch (Exception e) {
-            // Handle the exception
-            e.printStackTrace();
         }
     }
-    
 
     public static UserList getInstance() {
         if (userList == null) {
@@ -39,8 +42,11 @@ public class UserList {
     }
 
     public void addUser(User user) {
-        users.add(user);
+        if( user != null) {
+            users.add(user);
+        }
     }
+
     public User getUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().toLowerCase().equals(username.toLowerCase())
@@ -53,12 +59,10 @@ public class UserList {
     }
 
     public void saveUsers(){
-        DataWriter.saveUsers(userList.getUsers());
+        if (userList.getUsers() != null && userList.getUsers().size() > 0) {
+            DataWriter.saveUsers(userList.getUsers());
+        }
     }
-
-    // public void loadUsers(){
-    // setUsers(DataLoader.getUsers());
-    // }
 
     public ArrayList<User> getUsers() {
         return this.users;
@@ -128,6 +132,5 @@ public class UserList {
         }
         System.out.println("This user does not exist");
         return false;
-    } 
-
+    }
 }
