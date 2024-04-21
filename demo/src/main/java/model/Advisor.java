@@ -25,6 +25,10 @@ public class Advisor extends User{
         this.roomNumber = "1A01";
     }
 
+    public String getName() {
+        return super.getFirstName() + " " + super.getLastName();
+    }
+
     public String getBuilding() {
         return this.building;
     }
