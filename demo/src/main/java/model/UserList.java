@@ -48,9 +48,9 @@ public class UserList {
         return null;
     }
 
-    // public void saveUsers(){
-    // DataWriter.saveUsers(userList.getUsers());
-    // }
+    public void saveUsers(){
+        DataWriter.saveUsers(userList.getUsers());
+    }
 
     // public void loadUsers(){
     // setUsers(DataLoader.getUsers());
