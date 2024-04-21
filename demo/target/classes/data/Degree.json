@@ -1,6 +1,6 @@
 [
     {
-        "id": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
+        "uuid": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
         "totalCreditRequired": 125,
         "majorCourses": {
             "277c57bf-d5b8-4a69-941f-0f494c30d99e": 1,
@@ -18,7 +18,7 @@
             "0ee3fc1c-ec19-4637-aeb5-614577b6d22f": 1,
             "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd": 2
         },
-        "subjectName": "Computer Science",
+        "subject_name": "Computer Science",
         "electiveList": [
             {
                 "type": "AIU",
