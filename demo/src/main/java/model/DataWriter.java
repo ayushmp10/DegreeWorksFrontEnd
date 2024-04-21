@@ -105,11 +105,13 @@ public class DataWriter extends DataConstants {
 
     private static void getGuardianInformation(HashMap<String, Object> guardianMap, Guardian guardian) {
         // need implementation
-        guardianMap.put(PARENT_CHILDREN, guardian.getStudent().getID().toString());
-        guardianMap.put(PARENT_AUTHORIZATION, guardian.getAuthorization());
     }
 
     private static JSONObject createCoursePrefSemObject(HashMap<Course, Integer> coursePrefSem) {
+        if (coursePrefSem == null) {
+            return new JSONObject();
+        }
+
         JSONObject coursePrefSemObject = new JSONObject();
         coursePrefSem.forEach((Course, prefSemester) -> {
             coursePrefSemObject.put(Course.getUUID().toString(), prefSemester);
@@ -135,6 +137,10 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONObject createCompletedCoursesObject(HashMap<Course, String> completedCourses) {
+        if (completedCourses == null) {
+            return new JSONObject();
+        }
+
         HashMap<String, String> completedCoursesUUID = new HashMap<String, String>();
         // get each entry in the hashmap while holding the course and the grade together
         for (Map.Entry<Course, String> completedCourse : completedCourses.entrySet()) {
@@ -146,6 +152,10 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONArray createAllSemestersObject(ArrayList<Semester> allSemesters) {
+        if (allSemesters == null) {
+            return new JSONArray();
+        }
+
         JSONArray allSemestersArray = new JSONArray();
         for (Semester semester : allSemesters) {
             allSemestersArray.add(createSemesterObject(semester));
@@ -171,6 +181,10 @@ public class DataWriter extends DataConstants {
     }
     // writing courses
     public static void saveCourses(ArrayList<Course> allCourses) {
+        if (allCourses == null) {
+            return;
+        }
+
         JSONArray allCoursesArray = new JSONArray();
         for (Course course : allCourses) {
             // get all relevant course information for each course
@@ -201,6 +215,10 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONObject createPrerequisiteObject(Prerequisites prereqs) {
+        if (prereqs == null) {
+            return new JSONObject();
+        }
+
         HashMap<String, Object> prereqMap = new HashMap<String, Object>();
         prereqMap.put(COURSE_PREREQUISITES_COURSE_OPTION, prereqs.getChoices());
         prereqMap.put(COURSE_PREREQUISITES_MIN_GRADE, prereqs.getMinGrade());
