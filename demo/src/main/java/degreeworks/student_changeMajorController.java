@@ -3,6 +3,7 @@ package degreeworks;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -31,6 +32,15 @@ public class student_changeMajorController implements Initializable {
         if (!newMajor.getText().equalsIgnoreCase(currStudent.getDegree().getSubject())) {
             currStudent.setAdvisorNotes(currStudent.getFirstName() + " " + currStudent.getLastName() + 
                                     ": I would like to change my major to " + newMajor.getText());
+            // get the students advisor
+            ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
+            String advisorName = "";
+            for (Advisor advisor : allAdvisors) {
+                if (advisor.getUUID().equals(currStudent.getAdvisor())) {
+                    advisorName = advisor.getName();
+                }
+            }
+            message = new Label("Your request has been sent to " + advisorName);
         }
         else {
             message = new Label("You are already that major");
