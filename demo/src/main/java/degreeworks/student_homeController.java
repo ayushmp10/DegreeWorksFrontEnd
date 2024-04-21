@@ -22,12 +22,30 @@ public class student_homeController implements Initializable {
     private UserList userList;
     private Student currStudent;
     @FXML private GridPane grid_studentInfo;
+    @FXML
+    private Label studentName;
+    public student_homeController() {
+        // Initialize any default values or leave it empty
+    }
+    // Constructor to initialize currStudent
+    public student_homeController(Student currStudent) {
+        this.currStudent = currStudent;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // if the program has reached this far the current student
         userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         courseList = CourseList.getInstance();
+
+        if (currStudent != null) {
+            studentName.setText(currStudent.getFirstName());
+        } else {
+            // Handle the case when currStudent is null
+            studentName.setText("Student Not Found");
+        }
+    
         // Degree tempDegree = new Degree();
         // HashMap<Course, String> tempHashMap = new HashMap<Course, String>();
         // ArrayList<Semester> tempSemesters = new ArrayList<Semester>();
