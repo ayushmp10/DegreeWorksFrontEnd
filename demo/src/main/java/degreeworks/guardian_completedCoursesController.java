@@ -26,7 +26,8 @@ public class guardian_completedCoursesController implements Initializable {
         // call get completed courses for a student object
         // there should be a current user that is a student by now
         userList = UserList.getInstance();
-        currStudent = (Student) userList.getCurrUser();
+        currGuardian = (Guardian) userList.getCurrUser();
+        currStudent = currGuardian.getStudent();
         HashMap<Course, String> completedCourses = currStudent.getCompletedCourses();
         displayCompletedCourses(completedCourses);
     }
