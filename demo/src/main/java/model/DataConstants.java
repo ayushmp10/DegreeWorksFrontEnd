@@ -20,7 +20,7 @@ public abstract class DataConstants {
 	protected static final String ADVISOR_BUILDING = "building";
 	protected static final String ADVISOR_ROOM_NUMBER = "room_number";
 	protected static final String PARENT_CHILDREN = "children";
-	protected static final String PARENT_PENDING_ACCESS_REQUESTS = "pending_access_requests";
+	protected static final String PARENT_AUTHORIZATION = "authorization";
 	protected static final String STUDENT_USC_ID = "usc_id";
 	protected static final String STUDENT_YEAR = "year";
 	protected static final String STUDENT_ADVISOR = "advisor";
