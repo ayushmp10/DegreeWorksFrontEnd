@@ -39,9 +39,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="1000.0" spacing="100.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onGuardianHomeClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
-                  <Button mnemonicParsing="false" onAction="#onGuardianCompletedCoursesClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
-                  <Button mnemonicParsing="false" onAction="#onGuardianMajorMapClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianHomeClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianCompletedCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianMajorMapClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
                </children>
             </HBox>
             <TabPane prefHeight="510.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
