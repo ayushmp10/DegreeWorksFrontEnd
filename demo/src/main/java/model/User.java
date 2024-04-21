@@ -1,9 +1,9 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class User {
+
     protected String username;
     protected String password;
     private String firstName;

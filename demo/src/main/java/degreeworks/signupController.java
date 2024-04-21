@@ -3,13 +3,18 @@ package degreeworks;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import model.UserList;
+import model.Advisor;
+import model.Guardian;
+import model.Student;
+import model.User;
+import model.Utility;
 
 public class signupController implements Initializable{
     @FXML
@@ -51,38 +56,40 @@ public class signupController implements Initializable{
         String confirmPassword = txt_confirmPassword.getText();
 
         // checking for invalid inputs
-        if(firstName.equals("") || lastName.equals("") || userName.equals("") ||
-        phoneNumber.equals("") || VIPId.equals("") ||
-        profileType.equals("") || password.equals("") || confirmPassword.equals("")){
+        if(firstName.isBlank() || lastName.isBlank() || userName.isBlank() ||
+                phoneNumber.isBlank() || VIPId.isBlank() ||
+                profileType.isBlank() || password.isBlank() || confirmPassword.isBlank()){
             lbl_error.setText("You cannot leave boxes blank");
         }
 
-        if(profileType.equals("adivsor") || profileType.equals("student") || profileType.equals("guardian")){
-            
-        }else {
-            lbl_error.setText("Not a profile type. Please input \" student \", \"advisor\", or \"guardian\"");
-        }
-        // not needed because the user is signing up not logging there is no password to check
-        if(password.equals(confirmPassword)){
-
-        }else {
-            lbl_error.setText("Your passwords do not match");
+        if(!profileType.equalsIgnoreCase("advisor") && !profileType.equalsIgnoreCase("student") && !profileType.equalsIgnoreCase("guardian")){
+            Utility.showAlert("ERROR", "Invalid Profile Type", "Please input \" student \", \"advisor\", or \"guardian\"");
         }
 
-        //gotten from portia ask how it works
-        /*
-        Library library = Library.getInstance();
-
-        if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
-            lbl_error.setText("Sorry, this user couldn't be created.");
-            return;
+        // Confirming password with confirm password
+        if(!password.equals(confirmPassword)) {
+            Utility.showAlert("", "Password Mismatch", "Your passwords do not match");
         }
 
-        library.login(username);
-        User user = library.getCurrentUser();
-        App.setRoot("user_home");
-        */
         // create user, add them to userlist, set currUser, and write them to the json
+        User user = null;
+        if (profileType.equalsIgnoreCase("student")) {
+            user = new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
+        } 
+        else if (profileType.equalsIgnoreCase("advisor")) {
+            user = new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
+        }
+        else if (profileType.equalsIgnoreCase("guardian")) {
+            user = new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
+        }
+
+        // adding the new user to userlist
+        user.userList.addUser(user);
+
+        // writing to json
+        user.userList.saveUsers();
+
+
         // call a facade to do all of these
         if(profileType.equals("student")) {
             App.setRoot("student_home");
@@ -93,25 +100,16 @@ public class signupController implements Initializable{
         }
     }
     
-    /* 
     @FXML
-    private void back(MouseEvent event) throws IOException {
-        App.setRoot("home");
+    void backButtonClicked(ActionEvent event) {
+         try {
+            App.setRoot("home");
+        }catch (IOException ioe) {
+            Utility.showAlert("ERROR", "Exception loading home page", ioe.getLocalizedMessage());
+        }
     }
-    */
-
-
+    
      @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 }
-
-/* 
-@FXML
-    void sign_up_button(MouseEvent event) {
-        if(profileType.equals("student")){
-            
-        }
-    }
-
-*/
