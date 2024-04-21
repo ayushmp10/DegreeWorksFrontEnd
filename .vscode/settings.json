@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "lib",
+        ""
+    ],
+    "java.test.config": {
+        "workingDirectory": "${workspaceFolder}"
+    },
+    "java.debug.settings.onBuildFailureProceed": true
+}
