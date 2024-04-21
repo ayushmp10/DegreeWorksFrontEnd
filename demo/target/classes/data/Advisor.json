@@ -1,1 +1,15 @@
-[]
+[
+    {
+        "uuid": "59bb9b81-6139-4e3e-aa4a-b3b22c639661",
+        "first_name": "Wanda",
+        "last_name": "Mujica",
+        "username": "wmujica",
+        "password": "1234123",
+        "phone": "00000000",
+        "assigned_students": [
+            "6e30c187-5592-4d8a-91e4-e874f34a41cd"
+        ],
+        "building": "Swearingen",
+        "room_number": "1A01"
+    }
+]
