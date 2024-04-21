@@ -26,6 +26,10 @@ public class student_completedCoursesController implements Initializable{
         userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         HashMap<Course, String> completedCourses = currStudent.getCompletedCourses();
+        displayCompletedCourses(completedCourses);
+    }
+
+    private void displayCompletedCourses(HashMap<Course, String> completedCourses) {
         // set formatting for gridpane
         completedCoursePane.getRowConstraints().add(new RowConstraints(completedCourses.size()));
         completedCoursePane.getColumnConstraints().add(new ColumnConstraints(2));
@@ -40,6 +44,7 @@ public class student_completedCoursesController implements Initializable{
             row++;
         }
     }
+
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");

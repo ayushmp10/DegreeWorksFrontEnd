@@ -37,6 +37,11 @@ public class student_majorMapController implements Initializable {
         courseList = CourseList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         degree = currStudent.getDegree();
+        createMajorMap(degree);
+    }
+
+    private void createMajorMap(Degree degree) {
+        // following code is copied from student_majorMapController
         // get all courses regarding the degree
         HashMap<Course, Integer> majorCourses = degree.getMajorCourses();
         int semester1Rows = 0;
@@ -58,6 +63,14 @@ public class student_majorMapController implements Initializable {
                 semester3Rows++;
             else if (courseElement.getValue() == 4)
                 semester4Rows++;
+            else if (courseElement.getValue() == 5)
+                semester5Rows++;
+            else if (courseElement.getValue() == 6)
+                semester6Rows++;
+            else if (courseElement.getValue() == 7)
+                semester7Rows++;
+            else if (courseElement.getValue() == 8)
+                semester8Rows++;
         }
 
         // set all row numbers
@@ -136,6 +149,7 @@ public class student_majorMapController implements Initializable {
             }
         }
     }
+
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
