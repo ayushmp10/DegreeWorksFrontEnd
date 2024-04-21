@@ -105,6 +105,8 @@ public class DataWriter extends DataConstants {
 
     private static void getGuardianInformation(HashMap<String, Object> guardianMap, Guardian guardian) {
         // need implementation
+        guardianMap.put(PARENT_CHILDREN, guardian.getStudent().getID().toString());
+        guardianMap.put(PARENT_AUTHORIZATION, guardian.getAuthorization());
     }
 
     private static JSONObject createCoursePrefSemObject(HashMap<Course, Integer> coursePrefSem) {
