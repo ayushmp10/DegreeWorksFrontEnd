@@ -52,7 +52,16 @@ public class Course {
     }
 
     public void setNumber(String number) {
-        this.number = Integer.valueOf(number);
+        if (number.isBlank()) {
+            this.number = 0 ;
+        }
+
+        String strNumber[] = number.split(".");
+        if (strNumber.length > 0) {
+            this.number = Integer.valueOf(strNumber[0]);
+        } else {
+            this.number = Integer.valueOf(number);
+        }
     }
 
     public void setPrequisites(ArrayList<Prerequisites> prereqs) {
@@ -61,8 +70,19 @@ public class Course {
     }
 
     public void setCredits(String credits) {
-        if (Integer.valueOf(credits) > 0) {
-            this.creditHours = Integer.valueOf(credits);
+        if (credits.isBlank()) {
+            this.creditHours = 0;
+        }
+
+        String strCredits[] = credits.split(".");
+        if (strCredits.length > 0) {
+            if (Integer.valueOf(strCredits[0]) > 0) {
+                this.creditHours = Integer.valueOf(strCredits[0]);
+            }
+        } else {
+            if (Integer.valueOf(credits) > 0) {
+                this.creditHours = Integer.valueOf(credits);
+            }
         }
     }
 
