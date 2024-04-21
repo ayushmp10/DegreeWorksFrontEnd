@@ -53,7 +53,7 @@ public class LoginController {
         }
         else{
             //Throw an error message: "Incorrect password or username"
-
+            Utility.showAlert("Invalid Credentials", "ERROR", "Incorrect Username or Password");
         }
     }
 }
