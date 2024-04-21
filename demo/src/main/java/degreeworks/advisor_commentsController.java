@@ -32,6 +32,7 @@ public class advisor_commentsController implements Initializable {
     @FXML
     private void submitComment() {
         String studentUSCIDinput = studentUSCID.getText();
+        // do null checks 
         ArrayList<Student> students = currAdvisor.getStudents();
         boolean canSubmit = false;
         for (Student student : students) {
