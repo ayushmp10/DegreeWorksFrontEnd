@@ -2,8 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class UserList {
     private static UserList userList;
@@ -12,20 +10,26 @@ public class UserList {
 
     private UserList() {
         users = new ArrayList<User>();
-        // add all saved users to users arraylist
-        ArrayList<Student> tempStudents = DataLoader.loadStudents();
-        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
-        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
-        for (Student student : tempStudents) {
-            addUser(student);
-        }
-        for (Advisor advisor : tempAdvisors) {
-            addUser(advisor);
-        }
-        for (Guardian guardian : tempGuardians) {
-            addUser(guardian);
+        try {
+            // add all saved users to users arraylist
+            ArrayList<Student> tempStudents = DataLoader.loadStudents();
+            ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
+            ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
+            for (Student student : tempStudents) {
+                addUser(student);
+            }
+            for (Advisor advisor : tempAdvisors) {
+                addUser(advisor);
+            }
+            for (Guardian guardian : tempGuardians) {
+                addUser(guardian);
+            }
+        } catch (Exception e) {
+            // Handle the exception
+            e.printStackTrace();
         }
     }
+    
 
     public static UserList getInstance() {
         if (userList == null) {

@@ -1,35 +1,36 @@
 package degreeworks;
 
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import model.*;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import model.Advisor;
+import model.CourseList;
+import model.Student;
+import model.UserList;
 
 public class student_homeController implements Initializable {
     private CourseList courseList;
     private UserList userList;
     private Student currStudent;
     @FXML private GridPane grid_studentInfo;
+    @FXML
+    private Label studentName;
+    public student_homeController() {
+        // Initialize any default values or leave it empty
+    }
+    // Constructor to initialize currStudent
+    public student_homeController(Student currStudent) {
+        this.currStudent = currStudent;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // if the program has reached this far the current student
