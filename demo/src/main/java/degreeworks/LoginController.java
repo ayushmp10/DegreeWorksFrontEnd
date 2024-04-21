@@ -47,6 +47,8 @@ public class LoginController {
                     // move to guardian page
                     App.setRoot("guardian_home");
                 }
+            } else {
+                System.out.println("Could not login");
             }
         }
         else{
