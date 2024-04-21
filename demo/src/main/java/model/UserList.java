@@ -11,7 +11,20 @@ public class UserList {
     private User currUser;
 
     private UserList() {
-        this.users = new ArrayList<>();
+        users = new ArrayList<User>();
+        // add all saved users to users arraylist
+        ArrayList<Student> tempStudents = DataLoader.loadStudents();
+        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
+        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
+        for (Student student : tempStudents) {
+            addUser(student);
+        }
+        for (Advisor advisor : tempAdvisors) {
+            addUser(advisor);
+        }
+        for (Guardian guardian : tempGuardians) {
+            addUser(guardian);
+        }
     }
 
     public static UserList getInstance() {
@@ -24,13 +37,6 @@ public class UserList {
     public void addUser(User user) {
         users.add(user);
     }
-
-    // public void addUser(Student student){
-    // users.add(student);
-    // }
-    // public void addUser(Guardian guardian){
-    // users.add(guardian);
-    // }
     public User getUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().toLowerCase().equals(username.toLowerCase())
@@ -42,9 +48,9 @@ public class UserList {
         return null;
     }
 
-    // public void saveUsers(){
-    // DataWriter.saveUsers(userList.getUsers());
-    // }
+    public void saveUsers(){
+        DataWriter.saveUsers(userList.getUsers());
+    }
 
     // public void loadUsers(){
     // setUsers(DataLoader.getUsers());
