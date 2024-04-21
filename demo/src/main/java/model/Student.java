@@ -267,5 +267,18 @@ public class Student extends User{
             }
         }
     }
+    // public String getEightSemesterPlanToString() {
+    //     String eightSemesterPlan = "";
+    //     for (Semester semester : this.eightSemesterPlan) {
+    //         eightSemesterPlan += "\n" + semester.toString();
+    //     }
+    //     return eightSemesterPlan;
+    // }
+    public ArrayList<Semester> getEightSemesterPlan() {
+        if (this.eightSemesterPlan == null) {
+            generateEightSemesterPlan();
+        }
+        return eightSemesterPlan;
+    }
 }
 
