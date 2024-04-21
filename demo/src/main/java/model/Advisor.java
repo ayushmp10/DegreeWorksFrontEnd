@@ -17,6 +17,18 @@ public class Advisor extends User{
         this.roomNumber = roomNumber;
     }
 
+    // overloaded constructor for sign up
+    public Advisor(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password) {
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        this.students = new ArrayList<Student>();
+        this.building = "Swearingen";
+        this.roomNumber = "1A01";
+    }
+
+    public String getName() {
+        return super.getFirstName() + " " + super.getLastName();
+    }
+
     public String getBuilding() {
         return this.building;
     }

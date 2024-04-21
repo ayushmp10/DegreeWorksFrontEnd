@@ -111,11 +111,13 @@ public class UserList {
         return currUser;
     }
 
-    public void setCurrUser(User user) {
+    public boolean setCurrUser(User user) {
         if (users.contains(user)) {
             currUser = user;
+            return true;
         }
         System.out.println("This user does not exist");
+        return false;
     } 
 
 }
