@@ -7,15 +7,20 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import model.*;
 
 public class advisor_adviseesController implements Initializable {
@@ -44,6 +49,9 @@ public class advisor_adviseesController implements Initializable {
             studentImage.setImage(new Image("demo/src/main/resources/images/student" + count + ".jpg"));
             studentUSCID = new Label(student.getUSCID());
             studentDegree = new Label(student.getDegree().getSubject());
+            studentName.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            studentDegree.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            studentUSCID.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
             studentInfo = new VBox();
             studentInfo.getChildren().add(studentName);
             studentInfo.getChildren().add(studentImage);
