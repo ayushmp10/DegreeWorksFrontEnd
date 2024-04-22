@@ -29,8 +29,25 @@ public class test {
 
         // //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
-        // //System.out.println(allAdvisors.size());
-        ArrayList<Student> allStudents = DataLoader.loadStudents();
-        System.out.println(allStudents.size());
+        //System.out.println(allAdvisors.size());
+        ArrayList<User> allUsers = DataLoader.loadUser();
+        System.out.println("loaded");
+        System.out.println(allUsers.size());
+        for (User user : allUsers) {
+            System.out.println(user.getUsername());
+            if (user instanceof Advisor) {
+                Advisor tempAdvisor = (Advisor) user;
+                System.out.println("Advisor: " + tempAdvisor.getFirstName());
+            }
+            if (user instanceof Student) {
+                Student tempStudent = (Student) user;
+                System.out.println("Student " + tempStudent.getFirstName());
+            }
+            if (user instanceof Guardian) {
+                Guardian tempGuardian = (Guardian) user;
+                System.out.println("Guardian " + tempGuardian.getFirstName());
+            }
+        }
+        
     }
 }

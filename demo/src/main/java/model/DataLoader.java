@@ -12,28 +12,141 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
-	private static CourseList courseList = CourseList.getInstance();
-	private static DegreeList degreeList = DegreeList.getInstance();
-	private static UserList userList = UserList.getInstance();
 
 	public static ArrayList<User> loadUser() {
-		ArrayList<User> tempToReturn = new ArrayList<User>();
-		ArrayList<Student> allStudents = loadStudents();
-		// ArrayList<Advisor> allAdvisors = getAdvisors();
-		// ArrayList<Guardian> allGuardians = getGuardians();
-		for (Student student : allStudents) {
-			tempToReturn.add(student);
-		}
-		// for (Advisor advisor : allAdvisors) {
-		// 	tempToReturn.add(advisor);
-		// }
-		// for (Guardian guardian : allGuardians) {
-		// 	tempToReturn.add(guardian);
-		// }
-		return tempToReturn;
-	}
+		CourseList courseList = CourseList.getInstance();
+		DegreeList degreeList = DegreeList.getInstance();
+		
+		ArrayList<User> allUsers = new ArrayList<User>();
+		// HashMap<UUID, Integer> advisorToStudentMap = new HashMap<>();
+		String[] files = {ADVISOR_FILE_NAME, STUDENT_FILE_NAME, PARENT_FILE_NAME};
+		for (String file : files) {
+			try {
+				FileReader fileReader = new FileReader(file);
+				JSONArray readerJSON = (JSONArray) new JSONParser().parse(fileReader);
+				for (int i = 0; i < readerJSON.size(); i++) {
+					// read basic user information
+					JSONObject userJSONObject = (JSONObject) readerJSON.get(i);
+					UUID id = UUID.fromString((String) userJSONObject.get(USER_UUID));
+					String firstName = (String) userJSONObject.get(USER_FIRST_NAME);
+					String lastName = (String) userJSONObject.get(USER_LAST_NAME);
+					String phoneNumber = (String) userJSONObject.get(USER_PHONE_NUMBER);
+					String username = (String) userJSONObject.get(USER_USERNAME);
+					String password = (String) userJSONObject.get(USER_PASSWORD);
+					String userType = (String) userJSONObject.get(USER_TYPE);
+					if (userType.equalsIgnoreCase("student")) {
+						// assume god advisor is the first user in the list
+						// load student information
+						String yearClass = (String) userJSONObject.get(STUDENT_YEAR);
+						UUID advisorUUID = UUID.fromString((String) userJSONObject.get(STUDENT_ADVISOR));
+						String studentUSCID = (String) userJSONObject.get(STUDENT_USC_ID);
+						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
+						Advisor advisor = (Advisor) allUsers.get(0);
+						int completedCredits = ((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS)).intValue();
+						int totalCredits = ((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS)).intValue();
+						double gpa = ((Long) userJSONObject.get(STUDENT_GPA)).doubleValue();
+						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
 
-	public static ArrayList<Student> loadStudents() {
+						ArrayList<String> notes = new ArrayList<>();
+						JSONArray notesJSONArray = (JSONArray) userJSONObject.get(STUDENT_ADVISING_NOTES);
+						for (int j = 0; j < notesJSONArray.size(); j++) {
+							notes.add((String) notesJSONArray.get(j));
+						}
+						
+						UUID degreeUUID = UUID.fromString((String) userJSONObject.get(STUDENT_DEGREE_ID));
+						Degree degree = degreeList.getDegree(degreeUUID);
+
+						HashMap<Course, String> completedCourse = new HashMap<>();
+						JSONObject completedCoursesObject = (JSONObject) userJSONObject.get(STUDENT_COMPLETED_COURSES);
+						for (Object courseID : completedCoursesObject.keySet()) {
+							UUID courseUUID = UUID.fromString((String) courseID);
+							Course course = courseList.getCourse(courseUUID);
+							String grade = (String) completedCoursesObject.get(courseUUID);
+							completedCourse.put(course, grade);
+						}
+
+						JSONObject currSemesterObject = (JSONObject) userJSONObject.get(STUDENT_CURRENT_SEMESTER);
+						String season = (String) currSemesterObject.get(SEMESTER_SEASON);
+						int year = ((Long) currSemesterObject.get(SEMESTER_YEAR)).intValue();
+						int creditLimit = ((Long) currSemesterObject.get(SEMESTER_LIMIT)).intValue();
+						ArrayList<Course> courses = new ArrayList<>();
+						JSONArray coursesJSONArray = (JSONArray) currSemesterObject.get(SEMESTER_COURSES);
+						for (int j = 0; j < coursesJSONArray.size(); j++) {
+							Course course = courseList.getCourse(UUID.fromString((String) coursesJSONArray.get(j)));
+							courses.add(course);
+						}
+						Semester currSemester = new Semester(season, year, creditLimit, courses);
+
+						ArrayList<Semester> allSemesters = new ArrayList<>();
+						JSONArray allSemestersJSONArray = (JSONArray) userJSONObject.get(STUDENT_ALL_SEMESTERS);
+						for (int j = 0; j < allSemestersJSONArray.size(); j++) {
+							JSONObject allSemestersJSONObject = (JSONObject) allSemestersJSONArray.get(j);
+							String tempSeason = (String) allSemestersJSONObject.get(SEMESTER_SEASON);
+							int tempYear = ((Long) allSemestersJSONObject.get(SEMESTER_YEAR)).intValue();
+							int tempCreditLimit = ((Long) allSemestersJSONObject.get(SEMESTER_LIMIT)).intValue();
+							ArrayList<Course> tempCourses = new ArrayList<>();
+							JSONArray tempCoursesJSONArray = (JSONArray) allSemestersJSONObject.get(SEMESTER_COURSES);
+							for (int k = 0; k < tempCoursesJSONArray.size(); k++) {
+								Course course = courseList.getCourse(UUID.fromString((String) tempCoursesJSONArray.get(k)));
+								tempCourses.add(course);
+							}
+							Semester tempSemester = new Semester(tempSeason, tempYear, tempCreditLimit, tempCourses);
+							allSemesters.add(tempSemester);
+						}
+
+						Student student = new Student(id, username, password, firstName, lastName, phoneNumber, degree, completedCredits, totalCredits, gpa, phoneNumber, advisorUUID, studentUSCID,
+												applicationArea, notes, completedCourse, currSemester, allSemesters);
+						allUsers.add(student);
+						advisor.addStudent(student);
+					} 
+					else if (userType.equalsIgnoreCase("advisor")) {
+						// get advisor information
+						String building = (String) userJSONObject.get(ADVISOR_BUILDING);
+						String roomNumber = (String) userJSONObject.get(ADVISOR_ROOM_NUMBER);
+						ArrayList<Student> students = new ArrayList<Student>();
+
+						Advisor advisor = new Advisor(id, username, password, firstName, lastName, students, phoneNumber, building, roomNumber);
+
+						allUsers.add(advisor);
+						//advisorToStudentMap.put(advisor.getUUID(), allUsers.indexOf(advisor));
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return allUsers;
+	}
+	public static ArrayList<Advisor> getAdvisors() {
+        ArrayList<Advisor> advisors = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(ADVISOR_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray advisorJSONArray = (JSONArray) new JSONParser().parse(reader);
+
+            for (int i = 0; i < advisorJSONArray.size(); i++) {
+                JSONObject advisorJSON = (JSONObject) advisorJSONArray.get(i);
+                UUID id = UUID.fromString((String) advisorJSON.get(USER_UUID));
+                String username = (String) advisorJSON.get(USER_USERNAME);
+                String password = (String) advisorJSON.get(USER_PASSWORD);
+                String firstName = (String) advisorJSON.get(USER_FIRST_NAME);
+                String lastName = (String) advisorJSON.get(USER_LAST_NAME);
+                String phoneNumber = (String) advisorJSON.get(USER_PHONE_NUMBER);
+                String building = (String) advisorJSON.get(ADVISOR_BUILDING);
+                String roomNumber = (String) advisorJSON.get(ADVISOR_ROOM_NUMBER);
+                
+                // You may need to handle the list of assigned students here
+                
+                Advisor advisor = new Advisor(id, username, password, firstName, lastName, advisorJSONArray, phoneNumber, building, roomNumber);
+                advisors.add(advisor);
+            }
+            return advisors;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+	/*public static ArrayList<Student> loadStudents() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		try {
 			FileReader reader = new FileReader(STUDENT_FILE_NAME);
@@ -83,6 +196,7 @@ public class DataLoader extends DataConstants {
 				// update student class
 				UUID degreeUUID = UUID.fromString((String) studentJSON.get(STUDENT_DEGREE_ID));
 				Degree degree = degreeList.getDegree(degreeUUID);
+				System.out.println("Degree: " + degree.getSubject());
 
 				HashMap<Course, String> completedCourses = new HashMap<Course, String>();
 				JSONObject completedCourseObject = (JSONObject) studentJSON.get(STUDENT_COMPLETED_COURSES);
@@ -226,7 +340,7 @@ public class DataLoader extends DataConstants {
 		}
 
 		return null;
-	}
+	}*/
 
 	public static ArrayList<Course> getCourses() {
 		ArrayList<Course> courses = new ArrayList<Course>();

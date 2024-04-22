@@ -27,18 +27,29 @@ public class Student extends User {
     // private ArrayList<String> passedCourses = new ArrayList<String>(); // the
     // UUIDs will be stored as strings
     private String year;
-    private Long completedCredits;
-    private Long totalCredits;
+    private int completedCredits;
+    private int totalCredits;
     private UUID advisor;
     private UUID guardian;
     private String applicationArea;
     private String USCid;
-    private String adviseeNotes;
+    private ArrayList<String> adviseeNotes;
     private Degree degree;
     private Semester currSemester;
     private ArrayList<Semester> allSemesters;
     private HashMap<Course, String> completedCourses; // includes all complete courses with grades
     private ArrayList<Semester> eightSemesterPlan = new ArrayList<Semester>();
+
+    private double gpa;
+    
+    
+    // need to add advisor and guardian
+    public Student(UUID id, String username, String password, String firstName,
+                String lastName, String year, Degree degree,
+                int completedCredits, int totalCredits, double gpa, String phoneNumber, UUID advisor, String USCid,
+                String applicationArea, ArrayList<String> adviseeNotes, HashMap<Course, String> completedCourses, Semester currSemester,
+                ArrayList<Semester> allSemesters) {
+
     private Long gpa;
 
     // need to add advisor and guardian
@@ -49,6 +60,7 @@ public class Student extends User {
             String applicationArea, String adviseeNotes, HashMap<Course, String> completedCourses,
             Semester currSemester,
             ArrayList<Semester> allSemesters) {
+
         super(id, username, password, firstName, lastName, phoneNumber); // Call User constructor
         setCompletedCourses(completedCourses);
         this.year = year;
@@ -57,7 +69,7 @@ public class Student extends User {
         this.completedCredits = completedCredits;
         this.totalCredits = totalCredits;
         setAdvisor(advisor);
-        setGuardian(guardian);
+        //setGuardian(guardian);
         setApplicationArea(applicationArea);
         this.USCid = USCid;
         setAdvisorNotes(adviseeNotes);
@@ -71,14 +83,14 @@ public class Student extends User {
         super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
         this.year = "Freshman";
         this.degree = new Degree();
-        this.gpa = (long) 0.0;
-        this.completedCredits = (long) 0;
-        this.totalCredits = (long) 0;
+        this.gpa = 0.0;
+        this.completedCredits = 0;
+        this.totalCredits = 0;
         this.advisor = UUID.randomUUID();
         this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
         this.USCid = "unassigned";
-        this.adviseeNotes = "No Notes";
+        this.adviseeNotes = new ArrayList<>();
         this.currSemester = null;
         this.allSemesters = null;
     }
@@ -94,9 +106,14 @@ public class Student extends User {
     // calculateGPA();
     // }
 
-    public Long getGPA() {
+    public double getGPA() {
         return this.gpa;
     }
+
+    public int getCompletedCredits() {
+        return this.completedCredits;
+    }
+    public int getTotalCredits() {
 
     public Long getCompletedCredits() {
         return this.completedCredits;
@@ -130,7 +147,11 @@ public class Student extends User {
         return this.completedCourses;
     }
 
+    public ArrayList<String> getAdvisorNotes() {
+
+
     public String getAdvisorNotes() {
+
         return this.adviseeNotes;
     }
 
@@ -155,8 +176,13 @@ public class Student extends User {
         this.applicationArea = appArea;
     }
 
+    public void setAdvisorNotes(ArrayList<String> advisorNotes) {
+        this.adviseeNotes = advisorNotes;
+
+
     public void setAdvisorNotes(String advisorNotes) {
         this.adviseeNotes = this.adviseeNotes + advisorNotes;
+
     }
 
     public void setGuardian(UUID guardian) {
