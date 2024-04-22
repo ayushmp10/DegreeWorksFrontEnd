@@ -10,11 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.Advisor;
-import model.Guardian;
-import model.Student;
-import model.User;
-import model.Utility;
+import model.*;
 
 public class signupController implements Initializable {
 
@@ -44,6 +40,9 @@ public class signupController implements Initializable {
 
     @FXML
     private Label lbl_error;
+
+    private UserList userList;
+    private User currUser;
 
     @FXML 
     private void submitClicked() throws IOException {
@@ -78,14 +77,16 @@ public class signupController implements Initializable {
 
         // create user and handle exceptions
         try {
-            User user = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
-            user.userList.addUser(user);
-            user.userList.saveUsers();
+            currUser = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
+            userList.addUser(currUser);
+            userList.setCurrUser(currUser);
+            userList.saveUsers();
             Utility.showAlert("Info", "User Creation", "User " + userName + " successfully created");
             clearFields();
             navigateToHomePage(profileType);
         } catch (Exception e) {
             Utility.showAlert("ERROR", "User Creation error", "Unable to create user " + userName);
+            e.printStackTrace();
         }
     }
 
@@ -146,5 +147,6 @@ private User createUser(String firstName, String lastName, String phoneNumber, S
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        userList = UserList.getInstance();
     }
 }
