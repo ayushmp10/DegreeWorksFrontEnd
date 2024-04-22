@@ -14,10 +14,10 @@ import model.Advisor;
 import model.Guardian;
 import model.Student;
 import model.User;
-import model.UserList;
 import model.Utility;
 
-public class signupController implements Initializable{
+public class signupController implements Initializable {
+
     @FXML
     private TextField txt_firstName;
 
@@ -57,64 +57,80 @@ public class signupController implements Initializable{
         String confirmPassword = txt_confirmPassword.getText();
 
         // checking for invalid inputs
-        if(firstName.isBlank() || lastName.isBlank() || userName.isBlank() ||
-                phoneNumber.isBlank() || VIPId.isBlank() ||
-                profileType.isBlank() || password.isBlank() || confirmPassword.isBlank()){
-            Utility.showAlert("WARNING", "Empty Fields", "Pleae fill all the fields");
+        if(isFieldEmpty(firstName) || isFieldEmpty(lastName) || isFieldEmpty(userName) ||
+                isFieldEmpty(phoneNumber) || isFieldEmpty(VIPId) ||
+                isFieldEmpty(profileType) || isFieldEmpty(password) || isFieldEmpty(confirmPassword)){
+            Utility.showAlert("WARNING", "Empty Fields", "Please fill all the fields");
+            return;
         }
 
-        if(!profileType.equalsIgnoreCase("advisor") && !profileType.equalsIgnoreCase("student") && !profileType.equalsIgnoreCase("guardian")){
-            Utility.showAlert("ERROR", "Invalid Profile Type", "Please input \" student \", \"advisor\", or \"guardian\"");
+        // Validate profile type
+        if(!isValidProfileType(profileType)){
+            Utility.showAlert("ERROR", "Invalid Profile Type", "Please input 'student', 'advisor', or 'guardian'");
+            return;
         }
 
-        // Confirming password with confirm password
+        // Confirm password
         if(!password.equals(confirmPassword)) {
             Utility.showAlert("WARNING", "Password Mismatch", "Your passwords do not match");
+            return;
         }
 
-        // create user, add them to userlist, set currUser, and write them to the json
-        User user = null;
+        // create user and handle exceptions
         try {
-            if (profileType.equalsIgnoreCase("student")) {
-                user = new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
-            } 
-            else if (profileType.equalsIgnoreCase("advisor")) {
-                user = new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
-            }
-            else if (profileType.equalsIgnoreCase("guardian")) {
-                user = new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
-            }
-
-            // adding the new user to userlist
+            User user = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
             user.userList.addUser(user);
-
-            // writing to json
             user.userList.saveUsers();
-
-            Utility.showAlert("Info", "User Creation", "User " + userName + " Successfully created");
-
-            // This step is to populate the current user in repsective home controllers
-            User currUser = user.userList.getUser(userName, password);
-
-            txt_firstName.setText("");
-            txt_lastName.setText("");
-            txt_userName.setText("");
-            txt_phoneNumber.setText("");
-            txt_VIPId.setText("");
-            txt_profileType.setText("");
-            txt_password.setText("");
-            txt_confirmPassword.setText("");
-
+            Utility.showAlert("Info", "User Creation", "User " + userName + " successfully created");
+            clearFields();
+            navigateToHomePage(profileType);
         } catch (Exception e) {
             Utility.showAlert("ERROR", "User Creation error", "Unable to create user " + userName);
         }
+    }
 
-        // call a facade to do all of these
-        if(profileType.equals("student")) {
+    // Method to check if a field is empty
+    private boolean isFieldEmpty(String field){
+        return field.isBlank();
+    }
+
+    // Method to validate profile type
+    private boolean isValidProfileType(String profileType){
+        return profileType.equalsIgnoreCase("advisor") || profileType.equalsIgnoreCase("student") || profileType.equalsIgnoreCase("guardian");
+    }
+
+    // Method to create user based on profile type
+private User createUser(String firstName, String lastName, String phoneNumber, String VIPId, String userName, String password, String profileType){
+    if (profileType.equalsIgnoreCase("student")) {
+        return new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
+    } else if (profileType.equalsIgnoreCase("advisor")) {
+        return new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
+    } else if (profileType.equalsIgnoreCase("guardian")) {
+        return new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
+    }
+    return null; // Or handle the case if profile type is invalid
+}
+
+
+    // Method to clear input fields
+    private void clearFields(){
+        txt_firstName.clear();
+        txt_lastName.clear();
+        txt_userName.clear();
+        txt_phoneNumber.clear();
+        txt_VIPId.clear();
+        txt_profileType.clear();
+        txt_password.clear();
+        txt_confirmPassword.clear();
+    }
+
+    // Method to navigate to home page based on profile type
+    private void navigateToHomePage(String profileType) throws IOException {
+        if(profileType.equalsIgnoreCase("student")) {
             App.setRoot("student_home");
-        }else if(profileType.equals("adivsor")){
+        } else if(profileType.equalsIgnoreCase("advisor")){
             App.setRoot("advisor_home");
-        }else if(profileType.equals("guardian")){
+        } else if(profileType.equalsIgnoreCase("guardian")){
             App.setRoot("guardian_home");
         }
     }
@@ -123,13 +139,12 @@ public class signupController implements Initializable{
     void backButtonClicked(ActionEvent event) {
          try {
             App.setRoot("home");
-        }catch (IOException ioe) {
+        } catch (IOException ioe) {
             Utility.showAlert("ERROR", "Exception loading home page", ioe.getLocalizedMessage());
         }
     }
     
-     @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 }
-

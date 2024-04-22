@@ -1,1 +1,23 @@
-[{"completed_courses":{},"year":"Freshman","degree":"02d19481-6aa1-4c64-93da-e6b5f508a813","current_semester":{},"last_name":"parambath","type":"Student","uuid":"9493989a-26db-434c-a8ca-c8329ee921e7","all_semesters":[],"advisor":"none","password":"1234123","credits_completed":0,"phone":"000","gpa":0,"first_name":"ayush","username":"ayushmp","usc_id":"unassigned","advising_notes":["No Notes"]}]
+[
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "degree": "9b4ad0b4-2cee-4d37-9143-865baa238422",
+        "current_semester": {},
+        "last_name": "parambath",
+        "type": "Student",
+        "uuid": "31fce690-22c3-42eb-b455-ee25c4345c68",
+        "all_semesters": [],
+        "advisor": "none",
+        "password": "1234123",
+        "credits_completed": 0,
+        "phone": "0000",
+        "gpa": 0,
+        "first_name": "ayush",
+        "username": "ayushmp",
+        "usc_id": "unassigned",
+        "advising_notes": [
+            "No Notes"
+        ]
+    }
+]
