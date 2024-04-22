@@ -336,4 +336,3 @@ public class DataWriter extends DataConstants {
     // return userDetails;
     // }
 }
-

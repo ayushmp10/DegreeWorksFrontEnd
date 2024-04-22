@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"password":"123412","assigned_students":[],"phone":"0000","last_name":"adams","room_number":"1A01","uuid":"078a3beb-50f9-4cf8-9424-f4dda683ea16","first_name":"tam","building":"Swearingen","username":"tadams"},{"password":"123412","assigned_students":[],"phone":"0000","last_name":"adams","room_number":"1A01","uuid":"c22df797-44f3-43e6-8efc-ab1f72c88284","first_name":"tam","building":"Swearingen","username":"tadams"}]
+=======
+[{"password":"123412","assigned_students":[],"phone":"0000","last_name":"adams","room_number":"1A01","uuid":"45fdedf4-bc43-4d79-a5d6-4d6fdae5f3f7","first_name":"tam","building":"Swearingen","username":"tadams"}]
+>>>>>>> ea3d4600e9441acadefcaafe48066b935506d8ef
