@@ -1,12 +1,1 @@
-[
-    {
-        "uuid": "ccf7a424-2648-480e-8ff8-53a2a3445fbe",
-        "first_name": "George",
-        "last_name": "Smith",
-        "username": "gsmith",
-        "password": "1234123",
-        "phone": "0000000",
-        "children": "6e30c187-5592-4d8a-91e4-e874f34a41cd",
-        "authorization": true
-    }
-]
+[{"password":"123412","phone":"0000","last_name":"adams","uuid":"2682036d-4f27-42b3-ae6c-05047efda62c","first_name":"john","username":"jadams"}]

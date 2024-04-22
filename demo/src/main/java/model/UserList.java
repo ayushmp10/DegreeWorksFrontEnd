@@ -4,40 +4,18 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static UserList userList = new UserList();;
+    private static UserList userList;
     private ArrayList<User> users;
     private User currUser;
 
     private UserList() {
         users = new ArrayList<User>();
-        // add all saved users to users arraylist
-        ArrayList<Student> tempStudents = DataLoader.loadStudents();
-        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
-        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
-
-        if (tempStudents != null ) {
-            for (Student student : tempStudents) {
-                addUser(student);
-            }
-        }
-
-        if (tempAdvisors != null ) {
-            for (Advisor advisor : tempAdvisors) {
-                addUser(advisor);
-            }
-        }
-        
-        if (tempGuardians != null ) {
-            for (Guardian guardian : tempGuardians) {
-                addUser(guardian);
-            }
-        }
     }
 
     public static UserList getInstance() {
-        /*if (userList == null) {
+        if (userList == null) {
             userList = new UserList();
-        } */
+        }
         return userList;
     }
 
