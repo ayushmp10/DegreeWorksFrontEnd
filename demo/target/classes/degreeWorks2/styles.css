@@ -1,0 +1,27 @@
+
+
+/* Root grid pane styling */
+#root {
+    -fx-background-color: #65000B; /* USC garnet color */
+    -fx-font-family: 'EB Garamond', serif; /* Use USC-themed font */
+}
+
+/* Label styling */
+Label {
+    -fx-font-size: 24px;
+    -fx-text-fill: #FFFFFF; /* White text */
+}
+
+/* Button styling */
+Button {
+    -fx-background-color: #000000; /* Black */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 18px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+Button:hover {
+    -fx-background-color: #FFFFFF; /* White */
+    -fx-text-fill: #000000; /* Black text */
+}
