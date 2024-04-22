@@ -1,1 +1,17 @@
-[{"password":"password","assigned_students":["4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd","4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdc"],"phone":"0000000","last_name":"Odden","room_number":null,"uuid":"a6e0a427-72fd-490d-85df-5933c0ddb081","first_name":"Osbert","building":"Swearingen","username":"oodden"}]
+[
+    {
+        "password": "password",
+        "assigned_students": [
+            "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd",
+            "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdc"
+        ],
+        "phone": "0000000",
+        "last_name": "Odden",
+        "room_number": null,
+        "uuid": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "first_name": "Osbert",
+        "building": "Swearingen",
+        "username": "oodden",
+        "type": "advisor"
+    }
+]
