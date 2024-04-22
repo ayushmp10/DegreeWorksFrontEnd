@@ -16,6 +16,23 @@ public class DataLoader extends DataConstants {
 	private static DegreeList degreeList = DegreeList.getInstance();
 	private static UserList userList = UserList.getInstance();
 
+	public static ArrayList<User> loadUser() {
+		ArrayList<User> tempToReturn = new ArrayList<User>();
+		ArrayList<Student> allStudents = loadStudents();
+		// ArrayList<Advisor> allAdvisors = getAdvisors();
+		// ArrayList<Guardian> allGuardians = getGuardians();
+		for (Student student : allStudents) {
+			tempToReturn.add(student);
+		}
+		// for (Advisor advisor : allAdvisors) {
+		// 	tempToReturn.add(advisor);
+		// }
+		// for (Guardian guardian : allGuardians) {
+		// 	tempToReturn.add(guardian);
+		// }
+		return tempToReturn;
+	}
+
 	public static ArrayList<Student> loadStudents() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		try {
@@ -228,7 +245,7 @@ public class DataLoader extends DataConstants {
 				String number = (String) courseJSON.get(COURSE_NUMBER);
 				String name = (String) courseJSON.get(COURSE_NAME);
 				String description = (String) courseJSON.get(COURSE_DESCRIPTION);
-				String credits = (String) courseJSON.get(COURSE_CREDIT_HOURS);
+				int credits = ((Long) courseJSON.get(COURSE_CREDIT_HOURS)).intValue();
 				// TODO check if this is a valid way of reading an array from the json file
 				ArrayList<Season> semestersOffered = new ArrayList<Season>();
 				JSONArray semesterJSON = (JSONArray) courseJSON.get(COURSE_SEMESTER_OFFERED);
@@ -312,7 +329,7 @@ public class DataLoader extends DataConstants {
 			}
 		}
 
-		return null;
+		return courses;
 	}
 
 	private static class Pair<K, V> {
