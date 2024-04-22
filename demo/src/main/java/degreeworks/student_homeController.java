@@ -20,16 +20,16 @@ import model.UserList;
 
 public class student_homeController implements Initializable {
     private CourseList courseList;
-    private UserList userList = UserList.getInstance();;
+    private UserList userList;
     private Student currStudent;
     @FXML private GridPane grid_studentInfo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        userList = UserList.getInstance();
         // if the program has reached this far the current student
         currStudent = (Student) userList.getCurrUser();
         courseList = CourseList.getInstance();
-        userList = UserList.getInstance();
 
         ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
