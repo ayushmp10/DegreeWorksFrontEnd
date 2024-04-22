@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static UserList userList;
+    private static UserList userList = new UserList();;
     private ArrayList<User> users;
     private User currUser;
 
@@ -35,9 +35,9 @@ public class UserList {
     }
 
     public static UserList getInstance() {
-        if (userList == null) {
+        /*if (userList == null) {
             userList = new UserList();
-        }
+        } */
         return userList;
     }
 
