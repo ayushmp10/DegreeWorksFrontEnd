@@ -19,7 +19,7 @@ public class DataLoader extends DataConstants {
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
 		// HashMap<UUID, Integer> advisorToStudentMap = new HashMap<>();
-		String[] files = {ADVISOR_FILE_NAME, STUDENT_FILE_NAME, PARENT_FILE_NAME};
+		String[] files = {ADVISOR_FILE_NAME, PARENT_FILE_NAME, STUDENT_FILE_NAME};
 		for (String file : files) {
 			try {
 				FileReader fileReader = new FileReader(file);
@@ -39,19 +39,16 @@ public class DataLoader extends DataConstants {
 						// load student information
 						String yearClass = (String) userJSONObject.get(STUDENT_YEAR);
 						UUID advisorUUID = UUID.fromString((String) userJSONObject.get(STUDENT_ADVISOR));
+						UUID guardianUUID = UUID.fromString((String) userJSONObject.get(STUDENT_GUARDIAN));
 						String studentUSCID = (String) userJSONObject.get(STUDENT_USC_ID);
 						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
 						Advisor advisor = (Advisor) allUsers.get(0);
+						// Guardian guardian = (Guardian) allUsers.get(1);
 						int completedCredits = ((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS)).intValue();
 						int totalCredits = ((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS)).intValue();
 						double gpa = ((Long) userJSONObject.get(STUDENT_GPA)).doubleValue();
 						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
-
-						ArrayList<String> notes = new ArrayList<>();
-						JSONArray notesJSONArray = (JSONArray) userJSONObject.get(STUDENT_ADVISING_NOTES);
-						for (int j = 0; j < notesJSONArray.size(); j++) {
-							notes.add((String) notesJSONArray.get(j));
-						}
+						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
 						
 						UUID degreeUUID = UUID.fromString((String) userJSONObject.get(STUDENT_DEGREE_ID));
 						Degree degree = degreeList.getDegree(degreeUUID);
@@ -94,8 +91,9 @@ public class DataLoader extends DataConstants {
 							allSemesters.add(tempSemester);
 						}
 
-						Student student = new Student(id, username, password, firstName, lastName, phoneNumber, degree, completedCredits, totalCredits, gpa, phoneNumber, advisorUUID, studentUSCID,
-												applicationArea, notes, completedCourse, currSemester, allSemesters);
+						Student student = new Student(id, username, password, firstName, lastName, yearClass, degree, completedCredits,
+														totalCredits, gpa, phoneNumber, advisorUUID, guardianUUID, studentUSCID, applicationArea,
+														notes, completedCourse, currSemester, allSemesters);
 						allUsers.add(student);
 						advisor.addStudent(student);
 					} 

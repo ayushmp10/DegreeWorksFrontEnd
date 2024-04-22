@@ -23,9 +23,8 @@
         "first_name": "tawnie",
         "username": "tsmith",
         "usc_id": "Q123",
-        "advising_notes": [
-            "Something"
-        ]
+        "advising_notes": "Something",
+        "guardian": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701"
     },
     {
         "completed_courses": {},
@@ -50,8 +49,7 @@
         "first_name": "tam",
         "username": "tasmith",
         "usc_id": "Q123",
-        "advising_notes": [
-            "Something"
-        ]
+        "advising_notes": "Something",
+        "guardian": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701"
     }
 ]
