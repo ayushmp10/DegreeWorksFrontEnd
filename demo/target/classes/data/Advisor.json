@@ -1,15 +1,13 @@
 [
     {
-        "uuid": "59bb9b81-6139-4e3e-aa4a-b3b22c639661",
-        "first_name": "Wanda",
-        "last_name": "Mujica",
-        "username": "wmujica",
-        "password": "1234123",
-        "phone": "00000000",
-        "assigned_students": [
-            "6e30c187-5592-4d8a-91e4-e874f34a41cd"
-        ],
+        "password": "123",
+        "assigned_students": [],
+        "phone": "123",
+        "last_name": "smith",
+        "room_number": "1A01",
+        "uuid": "5704b272-6bdb-4f0a-a8be-f59aca833430",
+        "first_name": "jack",
         "building": "Swearingen",
-        "room_number": "1A01"
+        "username": "jasmith"
     }
 ]

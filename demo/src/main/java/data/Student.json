@@ -1,28 +1,28 @@
 [
     {
         "completed_courses": {},
-        "year": "Freshman",
-        "degree": "b9e20ec7-73ad-4e43-b748-499708a3679b",
+        "year": "2024",
+        "degree": "e9da10d9-0c7e-45db-acd5-bb0801312d23",
         "current_semester": {
             "credit_limit": 120,
-            "season": "FALL",
+            "season": "SPRING",
             "courses": [],
             "year": 2024
         },
-        "last_name": "Parambath",
+        "last_name": "smith",
         "type": "Student",
-        "uuid": "6e30c187-5592-4d8a-91e4-e874f34a41cd",
+        "uuid": "fd5731db-4b7c-47e5-a85e-4fb449e6cc94",
         "all_semesters": [],
-        "advisor": "152004c3-c655-439d-bbc0-eeaa58f57874",
-        "password": "1231",
-        "credits_completed": 1,
+        "advisor": "6629f041-01dd-423e-b94b-04d86b54aa22",
+        "password": "1234123",
+        "credits_completed": 21,
         "phone": "0000",
-        "gpa": 1,
-        "first_name": "Ayush",
-        "username": "ayushmp",
-        "usc_id": "Q313514",
+        "gpa": 3,
+        "first_name": "tawnie",
+        "username": "tsmith",
+        "usc_id": "Q123",
         "advising_notes": [
-            "none"
+            "Something"
         ]
     }
 ]

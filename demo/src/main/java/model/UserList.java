@@ -4,40 +4,18 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList {
-    private static UserList userList = new UserList();;
+    private static UserList userList;
     private ArrayList<User> users;
     private User currUser;
 
     private UserList() {
         users = new ArrayList<User>();
-        // add all saved users to users arraylist
-        ArrayList<Student> tempStudents = DataLoader.loadStudents();
-        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
-        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
-
-        if (tempStudents != null ) {
-            for (Student student : tempStudents) {
-                addUser(student);
-            }
-        }
-
-        if (tempAdvisors != null ) {
-            for (Advisor advisor : tempAdvisors) {
-                addUser(advisor);
-            }
-        }
-        
-        if (tempGuardians != null ) {
-            for (Guardian guardian : tempGuardians) {
-                addUser(guardian);
-            }
-        }
     }
 
     public static UserList getInstance() {
-        /*if (userList == null) {
+        if (userList == null) {
             userList = new UserList();
-        } */
+        }
         return userList;
     }
 
@@ -90,8 +68,9 @@ public class UserList {
     public void setUsers(ArrayList<User> users) {
         this.users = users;
     }
-
-    public boolean isValidUser(String username, String password) {
+    //Don't need this method anymore because of login method in DegreeWorks.java
+    /* 
+        public boolean isValidUser(String username, String password) {
         // Loop through users and compare data
         for (User user : users) {
             if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
@@ -100,6 +79,7 @@ public class UserList {
         }
         return false;
     }
+    */
 
     public ArrayList<Advisor> getAdvisors() {
         ArrayList<Advisor> returnAdvisors = new ArrayList<Advisor>();
