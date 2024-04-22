@@ -26,6 +26,7 @@ public class test {
                                 "000000", "Swearingen", "1A01");
         userList.addUser(tempAdvisor);
         DataWriter.saveUsers(userList.getUsers());
+
         //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
         //System.out.println(allAdvisors.size());
