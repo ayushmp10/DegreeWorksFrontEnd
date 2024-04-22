@@ -34,7 +34,7 @@ public class Course {
     // }
 
     public Course(UUID id, String subject, String number, String name,
-            String description, String creditHours,
+            String description, int creditHours,
             ArrayList<Season> semestersOffered, ArrayList<Prerequisites> prerequisites) {
         // creating all the variables with the this.
         setUUID(id);
@@ -52,7 +52,16 @@ public class Course {
     }
 
     public void setNumber(String number) {
-        this.number = Utility.DecimalStringToInteger(number);
+        if (number.isBlank()) {
+            this.number = 0 ;
+        }
+
+        String strNumber[] = number.split(".");
+        if (strNumber.length > 0) {
+            this.number = Integer.valueOf(strNumber[0]);
+        } else {
+            this.number = Integer.valueOf(number);
+        }
     }
 
     public void setPrequisites(ArrayList<Prerequisites> prereqs) {
@@ -60,8 +69,19 @@ public class Course {
             this.prerequisites = prereqs;
     }
 
-    public void setCredits(String credits) {
-        this.creditHours = Utility.DecimalStringToInteger(credits) ;
+    public void setCredits(int credits) {
+        creditHours = credits;
+
+        // String strCredits[] = credits.split(".");
+        // if (strCredits.length > 0) {
+        //     if (Integer.valueOf(strCredits[0]) > 0) {
+        //         this.creditHours = Integer.valueOf(strCredits[0]);
+        //     }
+        // } else {
+        //     if (Integer.valueOf(credits) > 0) {
+        //         this.creditHours = Integer.valueOf(credits);
+        //     }
+        // }
     }
 
     public void setSubject(String subject) {
