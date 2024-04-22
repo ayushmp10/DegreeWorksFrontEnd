@@ -1,15 +1,17 @@
 [
     {
-        "uuid": "a6e0a427-72fd-490d-85df-5933c0ddb081",
-        "type": "Advisor",
-        "first_name": "Osbert",
-        "last_name": "Odden",
-        "phone": "0000000",
         "password": "password",
-        "studentList": [
-            "6e30c187-5592-4d8a-91e4-e874f34a41cd"
+        "assigned_students": [
+            "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd",
+            "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdc"
         ],
+        "phone": "0000000",
+        "last_name": "Odden",
+        "room_number": null,
+        "uuid": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "first_name": "Osbert",
+        "building": "Swearingen",
         "username": "oodden",
-        "building": "Swearingen"
-      }
+        "type": "advisor"
+    }
 ]

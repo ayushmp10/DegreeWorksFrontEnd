@@ -26,7 +26,7 @@ public abstract class DataConstants {
 	protected static final String STUDENT_YEAR = "year";
 	protected static final String STUDENT_ADVISOR = "advisor";
 	protected static final String STUDENT_GUARDIAN = "guardian";
-	protected static final String STUDENT_COMPLETED_CREDITS = "credits_completed";
+	protected static final String STUDENT_COMPLETED_CREDITS = "completed_credits";
 	protected static final String STUDENT_COMPLETED_COURSES = "completed_courses";
 	protected static final String STUDENT_TOTAL_CREDITS = "total_credits";
 	protected static final String STUDENT_ADVISING_NOTES = "advising_notes";
@@ -69,7 +69,7 @@ public abstract class DataConstants {
 	protected static final String COURSE_COREQUISITES = "corequisites";
 
 	protected static final String SEMESTER_SEASON = "season";
-	protected static final String SEMESTER_YEAR = "year";
+	protected static final String SEMESTER_YEAR = "semester_year";
 	protected static final String SEMESTER_LIMIT = "credit_limit";
 	protected static final String SEMESTER_COURSES = "courses";
 	// Do we need this?
