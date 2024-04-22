@@ -34,8 +34,11 @@
         "usc_id": "X33457890",
         "year": "SOPHOMORE",
         "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
-        "advising_notes": 
-            "Bob is a great student\nBob is a hard worker,\nBob should consider taking more classes next semester",
+        "advising_notes": [
+            "Bob is a great student",
+            "Bob is a hard worker",
+            "Bob should consider taking more classes next semester"
+        ],
         "degreeID": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
         "instituteGPA": 3.5,
         "programGPA": 3.0,
