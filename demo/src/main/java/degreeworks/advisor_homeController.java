@@ -34,10 +34,12 @@ public class advisor_homeController implements Initializable {
         advisorName.setText(currAdvisor.getFirstName() + " " + currAdvisor.getLastName());
         buildingName.setText(currAdvisor.getBuilding());
         roomNumber.setText(currAdvisor.getRoomNumber());
+        /* 
         if (currAdvisor.getFirstName().equals("Wanda") && currAdvisor.getLastName().equals("Mujica"))
-            advisorImage.setImage(new Image("demo/src/main/resources/images/wandaMujica.jpg"));
+            advisorImage.setImage(new Image("./demo/src/main/resources/images/wandaMujica.jpg"));
         else
-            advisorImage.setImage(new Image("demo/src/main/resources/images/anotherAdvisor.jpg"));
+            advisorImage.setImage(new Image(""));
+        */
     }
     @FXML
     private void viewAdvisees() throws IOException {
