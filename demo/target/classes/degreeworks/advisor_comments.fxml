@@ -40,8 +40,8 @@
                </children>
             </VBox>
             <Button layoutX="937.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#onLogOutClicked" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
-            <TextField fx:id="studentUSCID" promptText="Enter Student USC ID" translateX="250.0" translateY="200.0" />
-            <TextField fx:id="advisorComment" alignment="TOP_LEFT" prefHeight="217.0" prefWidth="491.0" promptText="Enter your comment here" translateX="250.0" translateY="250.0" />
+            <TextField fx:id="studentUSCID" promptText="Enter Student USC ID" style="-fx-background-color: white;" translateX="250.0" translateY="200.0" />
+            <TextField fx:id="advisorComment" alignment="TOP_LEFT" prefHeight="217.0" prefWidth="491.0" promptText="Enter your comment here" style="-fx-background-color: white;" translateX="250.0" translateY="250.0" />
             <Button fx:id="submit" layoutX="436.0" layoutY="427.0" onAction="#submitComment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Submit" textFill="WHITE" translateY="50.0" />
          </children>
       </AnchorPane>
