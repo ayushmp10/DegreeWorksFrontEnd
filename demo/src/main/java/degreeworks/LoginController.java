@@ -1,6 +1,7 @@
 package degreeworks;
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -48,12 +49,21 @@ public class LoginController {
                     App.setRoot("guardian_home");
                 }
             } else {
-                System.out.println("Could not login");
+                Utility.showAlert("ERROR", "Invalid Credentials", "Incorrect Username or Password.");
             }
         }
         else{
             //Throw an error message: "Incorrect password or username"
-            Utility.showAlert("Invalid Credentials", "ERROR", "Incorrect Username or Password");
+            Utility.showAlert("ERROR", "Invalid Credentials", "Incorrect Username or Password.");
+        }
+    }
+
+    @FXML
+    void backButtonClicked(ActionEvent event) {
+         try {
+            App.setRoot("home");
+        }catch (IOException ioe) {
+            Utility.showAlert("ERROR", "Exception loading home page", ioe.getLocalizedMessage());
         }
     }
 }
