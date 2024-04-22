@@ -10,28 +10,6 @@ public class UserList {
 
     private UserList() {
         users = new ArrayList<User>();
-        // add all saved users to users arraylist
-        ArrayList<Student> tempStudents = DataLoader.loadStudents();
-        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
-        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
-
-        if (tempStudents != null ) {
-            for (Student student : tempStudents) {
-                addUser(student);
-            }
-        }
-
-        if (tempAdvisors != null ) {
-            for (Advisor advisor : tempAdvisors) {
-                addUser(advisor);
-            }
-        }
-        
-        if (tempGuardians != null ) {
-            for (Guardian guardian : tempGuardians) {
-                addUser(guardian);
-            }
-        }
     }
 
     public static UserList getInstance() {
