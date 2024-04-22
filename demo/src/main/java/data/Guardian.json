@@ -1,1 +1,15 @@
+<<<<<<< HEAD
+[
+    {
+        "password": "123412",
+        "phone": "0000",
+        "last_name": "adams",
+        "uuid": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701",
+        "first_name": "john",
+        "username": "jadams",
+        "type": "Guardian"
+    }
+]
+=======
 [{"password":"123412","phone":"0000","last_name":"adams","uuid":"dc5cce57-8352-4ef0-ba69-3ff187cfa741","first_name":"john","username":"jadams"},{"password":"123412","phone":"0000","last_name":"adams","uuid":"c6b320e7-598e-4ed6-b199-32c2fa42fbac","first_name":"john","username":"jadams"}]
+>>>>>>> fe7ff81e1586b0541c9c7f40bbc373e7ce8127b5

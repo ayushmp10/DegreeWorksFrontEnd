@@ -30,11 +30,22 @@ public class test {
         // //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
         //System.out.println(allAdvisors.size());
-        DegreeList degreeList = DegreeList.getInstance();
-        System.out.println(degreeList.getAllDegrees().get(0).getSubject());
-        ArrayList<Student> allStudents = DataLoader.loadStudents();
-        allStudents.get(0).generateEightSemesterPlan();
-        System.out.println("Eight Semester plan:\n" + allStudents.get(0).getEightSemesterPlanToString());
+        ArrayList<User> allUsers = DataLoader.loadUser();
+        System.out.println("loaded");
+        System.out.println(allUsers.size());
+        for (User user : allUsers) {
+            System.out.println(user.getUsername());
+            if (user instanceof Advisor) {
+                Advisor tempStudent = (Advisor) user;
+                System.out.println(tempStudent.getBuilding());
+            }
+            if (user instanceof Student) {
+                Student tempStudent = (Student) user;
+                System.out.println(tempStudent.getApplicationArea());
+                System.out.println(tempStudent.getCompletedCredits());
+                System.out.println(tempStudent.getGPA());
+            }
+        }
         
     }
 }

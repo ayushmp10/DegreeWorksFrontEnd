@@ -32,11 +32,11 @@ public class UserList {
         electives.add(elective);
         Degree degree = new Degree("Bachelor of Science", "Computer Science", 123, majorCourses, electives);
         Semester currSemester = new Semester("Fall", 2024, 123, courseList);
-        Student baseStudent = new Student(UUID.randomUUID(), "tsmith", "1234", "tam", "smith", "Freshman", degree, Long.valueOf("11"),
-                                            Long.valueOf("123"), Long.valueOf("3.0"), "0000", UUID.fromString("351c0f45-1c42-4412-bd1c-ad19f50320b1"),
-                                            UUID.fromString("46ec90a8-ea87-491d-ae9f-3f2e4da4a701"), "Q123", "robotics", "Behind on credits", completedCourses,
-                                            currSemester, allSemesters);
-        users.add(baseStudent);
+        // Student baseStudent = new Student(UUID.randomUUID(), "tsmith", "1234", "tam", "smith", "Freshman", degree, Long.valueOf("11"),
+        //                                     123, 3.0, "0000", UUID.fromString("351c0f45-1c42-4412-bd1c-ad19f50320b1"),
+        //                                     UUID.fromString("46ec90a8-ea87-491d-ae9f-3f2e4da4a701"), "Q123", "robotics", "Behind on credits", completedCourses,
+        //                                     currSemester, allSemesters);
+        //users.add(baseStudent);
     }
 
     public static UserList getInstance() {
