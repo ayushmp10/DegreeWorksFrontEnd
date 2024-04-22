@@ -116,6 +116,9 @@ public class DataLoader extends DataConstants {
 				e.printStackTrace();
 			}
 		}
+		for (User user : allUsers) {
+			System.out.println(user.getFirstName());
+		}
 		return allUsers;
 	}
 	public static ArrayList<Advisor> getAdvisors() {

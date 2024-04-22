@@ -11,8 +11,7 @@ public class UserList {
     private User currUser;
 
     private UserList() {
-        if (users == null)
-            this.users = DataLoader.loadUser();
+        this.users = DataLoader.loadUser();
     }
 
     public static UserList getInstance() {

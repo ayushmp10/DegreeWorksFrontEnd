@@ -1,9 +1,8 @@
-
 [
     {
         "completed_courses": {},
         "year": "2024",
-        "degree": "12e2a378-37f1-4eb0-a1fb-4e4a152c54ac",
+        "degree": "42ba6ab3-69b3-40b2-91cf-211fa9c6427a",
         "current_semester": {
             "credit_limit": 120,
             "season": "SPRING",
@@ -11,25 +10,23 @@
             "year": 2024
         },
         "last_name": "smith",
-        "type": "student",
+        "type": "Student",
         "uuid": "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd",
         "all_semesters": [],
         "advisor": "351c0f45-1c42-4412-bd1c-ad19f50320b1",
         "password": "1234123",
         "credits_completed": 21,
-        "total_credits": 123,
         "phone": "0000",
-        "gpa": 3,
+        "gpa": 3.0,
         "first_name": "tawnie",
         "username": "tsmith",
         "usc_id": "Q123",
-        "advising_notes": "Something",
-        "guardian": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701"
+        "advising_notes": "nullSomething"
     },
     {
         "completed_courses": {},
         "year": "2024",
-        "degree": "12e2a378-37f1-4eb0-a1fb-4e4a152c54ac",
+        "degree": "b549ad4c-6850-4bc4-9cfb-d0fdd50d4431",
         "current_semester": {
             "credit_limit": 120,
             "season": "SPRING",
@@ -37,19 +34,36 @@
             "year": 2024
         },
         "last_name": "smith",
-        "type": "student",
+        "type": "Student",
         "uuid": "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdc",
         "all_semesters": [],
         "advisor": "351c0f45-1c42-4412-bd1c-ad19f50320b1",
         "password": "1234123",
         "credits_completed": 21,
-        "total_credits": 123,
         "phone": "0000",
-        "gpa": 3,
+        "gpa": 3.0,
         "first_name": "tam",
         "username": "tasmith",
         "usc_id": "Q123",
-        "advising_notes": "Something",
-        "guardian": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701"
+        "advising_notes": "nullSomething"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "degree": "bee1170e-f07d-4c6c-aa9f-f335a21959ff",
+        "current_semester": {},
+        "last_name": "p",
+        "type": "Student",
+        "uuid": "b75d5fe7-ad84-4e09-ae71-5d4cf88097d2",
+        "all_semesters": [],
+        "advisor": "30524052-9a32-4b26-98f4-b72f6dd95321",
+        "password": "1234",
+        "credits_completed": 0,
+        "phone": "123",
+        "gpa": 0.0,
+        "first_name": "ayush",
+        "username": "ayushmp",
+        "usc_id": "unassigned",
+        "advising_notes": "no comments"
     }
 ]

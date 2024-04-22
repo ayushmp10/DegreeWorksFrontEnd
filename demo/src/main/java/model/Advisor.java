@@ -12,16 +12,16 @@ public class Advisor extends User{
     private String roomNumber;
     public Advisor(UUID id, String username, String password, String firstName, String lastName,
                     ArrayList<Student> students, String phoneNumber, String building, String roomNumber) {
-        super(id, username, password, firstName, lastName, phoneNumber);// already adds the user to the userlist
+        super(id, username, password, firstName, lastName, phoneNumber, "advisor");// already adds the user to the userlist
         this.students = students;
         this.building = building;
         this.roomNumber = roomNumber;
-        
+        this.students = students;
     }
 
     // overloaded constructor for sign up
     public Advisor(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password) {
-        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, "advisor");
         this.students = new ArrayList<Student>();
         this.building = "Swearingen";
         this.roomNumber = "1A01";
@@ -54,6 +54,8 @@ public class Advisor extends User{
         // }
         userList = UserList.getInstance();
         allUsers = userList.getUsers();
+        allStudents = new ArrayList<Student>();
+        students = new ArrayList<Student>();
         for (User user : allUsers) {
             if (user instanceof Student) {
                 Student tempStudent = (Student) user;
@@ -69,7 +71,7 @@ public class Advisor extends User{
         return this.currStudent;
     }
     public void setCurrentStudent(Student student) {
-        if (allStudents.contains(student) && student.getAdvisor().equals(this.getID())) {
+        if (student.getAdvisor().equals(this.getID())) {
             currStudent = student;
         } else if (!allStudents.contains(student)) {
             System.out.println("This student does not exist in our system");
@@ -87,8 +89,7 @@ public class Advisor extends User{
         return new ArrayList<>();
     }
     public void addStudent(Student student) {
-        if (allStudents.contains(student))
-            students.add(student);
+        students.add(student);
     }
     public void removeStudent(Student student) {
         if (students.contains(student))

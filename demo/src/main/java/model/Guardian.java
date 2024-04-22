@@ -11,7 +11,7 @@ public class Guardian extends User{
     public Guardian(UUID id, String username, String password, String firstName,
                     String lastName, String phoneNumber, Student student,
                     boolean authorized) {
-        super(id,username,password,firstName,lastName,phoneNumber);
+        super(id,username,password,firstName,lastName,phoneNumber, "guardian");
         this.student = student;
         this.authorized = authorized;
     }
