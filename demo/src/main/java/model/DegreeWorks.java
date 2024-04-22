@@ -65,6 +65,7 @@ public class DegreeWorks {
         ArrayList<User> allUsers = userList.getUsers();
         // check all users for the username
         for (User user : allUsers) {
+            System.out.println(user.getUsername() + "\n" + user.getPassword());
             if (user.getUsername().equalsIgnoreCase(username)) {
                 // user exists check if password matches
                 if (!user.getPassword().equals(password)) {
