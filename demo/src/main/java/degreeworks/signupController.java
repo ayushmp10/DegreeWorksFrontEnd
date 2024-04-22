@@ -14,6 +14,7 @@ import model.Advisor;
 import model.Guardian;
 import model.Student;
 import model.User;
+import model.UserList;
 import model.Utility;
 
 public class signupController implements Initializable{
@@ -91,6 +92,9 @@ public class signupController implements Initializable{
             user.userList.saveUsers();
 
             Utility.showAlert("Info", "User Creation", "User " + userName + " Successfully created");
+
+            // This step is to populate the current user in repsective home controllers
+            User currUser = user.userList.getUser(userName, password);
 
             txt_firstName.setText("");
             txt_lastName.setText("");
