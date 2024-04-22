@@ -74,16 +74,18 @@ public class Course {
             this.creditHours = 0;
         }
 
-        String strCredits[] = credits.split(".");
-        if (strCredits.length > 0) {
-            if (Integer.valueOf(strCredits[0]) > 0) {
-                this.creditHours = Integer.valueOf(strCredits[0]);
-            }
-        } else {
-            if (Integer.valueOf(credits) > 0) {
-                this.creditHours = Integer.valueOf(credits);
-            }
-        }
+        creditHours = Integer.valueOf(credits);
+
+        // String strCredits[] = credits.split(".");
+        // if (strCredits.length > 0) {
+        //     if (Integer.valueOf(strCredits[0]) > 0) {
+        //         this.creditHours = Integer.valueOf(strCredits[0]);
+        //     }
+        // } else {
+        //     if (Integer.valueOf(credits) > 0) {
+        //         this.creditHours = Integer.valueOf(credits);
+        //     }
+        // }
     }
 
     public void setSubject(String subject) {
