@@ -29,13 +29,12 @@ public class test {
 
         // //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
-        // //System.out.println(allAdvisors.size());
-        // DegreeList degreeList = DegreeList.getInstance();
-        // System.out.println(degreeList.getAllDegrees().get(0).getSubject());
-        // ArrayList<Student> allStudents = DataLoader.loadStudents();
-        // allStudents.get(0).generateEightSemesterPlan();
-        // System.out.println("Eight Semester plan:\n" + allStudents.get(0).getEightSemesterPlanToString());
-        Degree degree = DegreeList.getInstance().getDegree(UUID.fromString("dfa84645-4278-44a3-8b3b-c6b4fc6257c5"));
-        System.out.println(degree.getSubject());
+        //System.out.println(allAdvisors.size());
+        DegreeList degreeList = DegreeList.getInstance();
+        System.out.println(degreeList.getAllDegrees().get(0).getSubject());
+        ArrayList<Student> allStudents = DataLoader.loadStudents();
+        allStudents.get(0).generateEightSemesterPlan();
+        System.out.println("Eight Semester plan:\n" + allStudents.get(0).getEightSemesterPlanToString());
+        
     }
 }

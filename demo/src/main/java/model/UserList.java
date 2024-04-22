@@ -36,7 +36,7 @@ public class UserList {
                                             Long.valueOf("123"), Long.valueOf("3.0"), "0000", UUID.fromString("351c0f45-1c42-4412-bd1c-ad19f50320b1"),
                                             UUID.fromString("46ec90a8-ea87-491d-ae9f-3f2e4da4a701"), "Q123", "robotics", "Behind on credits", completedCourses,
                                             currSemester, allSemesters);
-        
+        users.add(baseStudent);
     }
 
     public static UserList getInstance() {
