@@ -4,6 +4,7 @@
         "type": "Student",
         "first_name": "Tawnie",
         "last_name": "Hill",
+        "username": "thill",
         "password": "password",
         "usc_id": "X33457890",
         "year": "SOPHOMORE",
