@@ -71,8 +71,8 @@ public class Student extends User{
         this.gpa = (long) 0.0;
         this.completedCredits = (long) 0;
         this.totalCredits = (long) 0;
-        this.advisor = null;
-        this.guardian = null;
+        this.advisor = UUID.randomUUID();
+        this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
         this.USCid = "unassigned";
         this.adviseeNotes = "No Notes";
