@@ -27,11 +27,12 @@ public class student_availableCoursesController implements Initializable {
     @FXML ScrollPane majorCoursesScrollPane;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        userList = UserList.getInstance();
         // there should a current user at this point
         currStudent = (Student) userList.getCurrUser();
         courseList = CourseList.getInstance();
         // get all available courses
-        ArrayList<Course> allCourses = DataLoader.getCourses();
+        ArrayList<Course> allCourses = courseList.getCourses();
         // set formatting for coursePane and scrollPane
         allCoursesPane.getColumnConstraints().add(new ColumnConstraints(2));
         allCoursesPane.getRowConstraints().add(new RowConstraints(allCourses.size()));
