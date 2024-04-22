@@ -9,8 +9,13 @@ import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Advisor;
 import model.CourseList;
@@ -41,6 +46,7 @@ public class student_homeController implements Initializable {
         Label studentID = new Label(currStudent.getUSCID());
         studentID.setFont(new Font(20));
         studentID.setMaxWidth(1000);
+        studentID.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentID, HPos.CENTER);
 
         Label studentClassification = new Label(currStudent.getYear());
