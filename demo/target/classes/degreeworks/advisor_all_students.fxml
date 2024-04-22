@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="student_home_background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisor_allStudentsController">
    <children>
@@ -58,6 +59,7 @@
                   </GridPane>
                </content>
             </ScrollPane>
+            <Text fill="WHITE" layoutX="899.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View All Students" />
          </children>
       </AnchorPane>
    </children>

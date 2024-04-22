@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-600" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisor_homeController">
    <children>
@@ -70,5 +71,6 @@
          </children>
       </GridPane>
       <ImageView fitHeight="398.0" fitWidth="436.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" translateX="525.0" translateY="125.0" />
+      <Text fill="WHITE" layoutX="957.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
    </children>
 </AnchorPane>

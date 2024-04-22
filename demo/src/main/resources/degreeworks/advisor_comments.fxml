@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="student_home_background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisor_commentsController">
    <children>
@@ -43,6 +44,7 @@
             <TextField fx:id="studentUSCID" promptText="Enter Student USC ID" style="-fx-background-color: white;" translateX="250.0" translateY="200.0" />
             <TextField fx:id="advisorComment" alignment="TOP_LEFT" prefHeight="217.0" prefWidth="491.0" promptText="Enter your comment here" style="-fx-background-color: white;" translateX="250.0" translateY="250.0" />
             <Button fx:id="submit" layoutX="436.0" layoutY="427.0" onAction="#submitComment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Submit" textFill="WHITE" translateY="50.0" />
+            <Text fill="WHITE" layoutX="934.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments" />
          </children>
       </AnchorPane>
    </children>

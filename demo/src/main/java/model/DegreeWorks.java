@@ -13,6 +13,7 @@ public class DegreeWorks {
         userList = UserList.getInstance();
         courseList = CourseList.getInstance();
         degreeList = DegreeList.getInstance();
+        currUser = userList.getCurrUser();
     }
 
     public static DegreeWorks getInstance() {
@@ -20,6 +21,15 @@ public class DegreeWorks {
             degreeWorks = new DegreeWorks();
         }
         return degreeWorks;
+    }
+
+    public String displayEightSemesterPlan() {
+        if (this.currUser instanceof Student) {
+            return ((Student) this.currUser).getEightSemesterPlanToString();
+        } else if (this.currUser instanceof Advisor) {
+            return ((Advisor) this.currUser).getCurrentStudent().getEightSemesterPlanToString();
+        }
+        return "No information to display";
     }
 
     public boolean createAccount(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password, String profileType) {

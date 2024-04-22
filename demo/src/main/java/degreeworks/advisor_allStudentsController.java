@@ -30,8 +30,9 @@ public class advisor_allStudentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         userList = UserList.getInstance();
-        currAdvisor = (Advisor) userList.getCurrUser(); // could technically get rid of
-        ArrayList<Student> allStudents = userList.getStudents();
+        //currAdvisor = (Advisor) userList.getCurrUser(); // could technically get rid of
+        //ArrayList<Student> allStudents = userList.getStudents();
+        ArrayList<Student> allStudents = DataLoader.loadStudents();
         allStudentInfo.getColumnConstraints().add(new ColumnConstraints(3));
         allStudentInfo.getRowConstraints().add(new RowConstraints(allStudents.size()));
         int rowCount = 0;
