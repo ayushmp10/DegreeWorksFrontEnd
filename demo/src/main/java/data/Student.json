@@ -1,1 +1,28 @@
-[{"completed_courses":{},"year":"2024","degree":"12e2a378-37f1-4eb0-a1fb-4e4a152c54ac","current_semester":{"credit_limit":120,"season":"SPRING","courses":[],"year":2024},"last_name":"smith","type":"Student","uuid":"4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd","all_semesters":[],"advisor":"351c0f45-1c42-4412-bd1c-ad19f50320b1","password":"1234123","credits_completed":21,"phone":"0000","gpa":3,"first_name":"tawnie","username":"tsmith","usc_id":"Q123","advising_notes":["Something"]}]
+[
+    {
+        "completed_courses": {},
+        "year": "2024",
+        "degree": "12e2a378-37f1-4eb0-a1fb-4e4a152c54ac",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "SPRING",
+            "courses": [],
+            "year": 2024
+        },
+        "last_name": "smith",
+        "type": "Student",
+        "uuid": "4a38d28b-4e2b-4dc1-949f-e7e48fd1bcdd",
+        "all_semesters": [],
+        "advisor": "351c0f45-1c42-4412-bd1c-ad19f50320b1",
+        "password": "1234123",
+        "credits_completed": 21,
+        "phone": "0000",
+        "gpa": 3,
+        "first_name": "tawnie",
+        "username": "tsmith",
+        "usc_id": "Q123",
+        "advising_notes": [
+            "Something"
+        ]
+    }
+]
