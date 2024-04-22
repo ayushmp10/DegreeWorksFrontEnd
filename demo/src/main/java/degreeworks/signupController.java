@@ -59,7 +59,7 @@ public class signupController implements Initializable{
         if(firstName.isBlank() || lastName.isBlank() || userName.isBlank() ||
                 phoneNumber.isBlank() || VIPId.isBlank() ||
                 profileType.isBlank() || password.isBlank() || confirmPassword.isBlank()){
-            lbl_error.setText("You cannot leave boxes blank");
+            Utility.showAlert("WARNING", "Empty Fields", "Pleae fill all the fields");
         }
 
         if(!profileType.equalsIgnoreCase("advisor") && !profileType.equalsIgnoreCase("student") && !profileType.equalsIgnoreCase("guardian")){
@@ -68,27 +68,42 @@ public class signupController implements Initializable{
 
         // Confirming password with confirm password
         if(!password.equals(confirmPassword)) {
-            Utility.showAlert("", "Password Mismatch", "Your passwords do not match");
+            Utility.showAlert("WARNING", "Password Mismatch", "Your passwords do not match");
         }
 
         // create user, add them to userlist, set currUser, and write them to the json
         User user = null;
-        if (profileType.equalsIgnoreCase("student")) {
-            user = new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
-        } 
-        else if (profileType.equalsIgnoreCase("advisor")) {
-            user = new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
+        try {
+            if (profileType.equalsIgnoreCase("student")) {
+                user = new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
+            } 
+            else if (profileType.equalsIgnoreCase("advisor")) {
+                user = new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
+            }
+            else if (profileType.equalsIgnoreCase("guardian")) {
+                user = new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
+            }
+
+            // adding the new user to userlist
+            user.userList.addUser(user);
+
+            // writing to json
+            user.userList.saveUsers();
+
+            Utility.showAlert("Info", "User Creation", "User " + userName + " Successfully created");
+
+            txt_firstName.setText("");
+            txt_lastName.setText("");
+            txt_userName.setText("");
+            txt_phoneNumber.setText("");
+            txt_VIPId.setText("");
+            txt_profileType.setText("");
+            txt_password.setText("");
+            txt_confirmPassword.setText("");
+
+        } catch (Exception e) {
+            Utility.showAlert("ERROR", "User Creation error", "Unable to create user " + userName);
         }
-        else if (profileType.equalsIgnoreCase("guardian")) {
-            user = new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
-        }
-
-        // adding the new user to userlist
-        user.userList.addUser(user);
-
-        // writing to json
-        user.userList.saveUsers();
-
 
         // call a facade to do all of these
         if(profileType.equals("student")) {
@@ -96,7 +111,7 @@ public class signupController implements Initializable{
         }else if(profileType.equals("adivsor")){
             App.setRoot("advisor_home");
         }else if(profileType.equals("guardian")){
-            App.setRoot("guradian_home");
+            App.setRoot("guardian_home");
         }
     }
     
@@ -113,3 +128,4 @@ public class signupController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
     }
 }
+

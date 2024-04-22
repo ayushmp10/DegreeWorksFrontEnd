@@ -1,45 +1,61 @@
 package degreeworks;
 
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import model.Advisor;
-import model.CourseList;
-import model.Student;
-import model.UserList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import model.*;
 
 public class student_homeController implements Initializable {
     private CourseList courseList;
-    private UserList userList;
+    private UserList userList = UserList.getInstance();;
     private Student currStudent;
     @FXML private GridPane grid_studentInfo;
-    @FXML
-    private Label studentName;
-    public student_homeController() {
-        // Initialize any default values or leave it empty
-    }
-    // Constructor to initialize currStudent
-    public student_homeController(Student currStudent) {
-        this.currStudent = currStudent;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // if the program has reached this far the current student
-        userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         courseList = CourseList.getInstance();
+        userList = UserList.getInstance();
+        // Degree tempDegree = new Degree();
+        // HashMap<Course, String> tempHashMap = new HashMap<Course, String>();
+        // ArrayList<Semester> tempSemesters = new ArrayList<Semester>();
+        // ArrayList<Course> courses = new ArrayList<Course>();
+        // Long tempLong1 = Long.valueOf(1);
+        // Long tempLong2 = Long.valueOf(1);
+        // Long tempLong3 = Long.valueOf(1);
+        // Semester tempSemester = new Semester("Fall", 2024, 120, courses);
+        // Student tempStudent = new Student(UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"), "ayushmp", "1231",
+        //                         "Ayush", "Parambath", "Freshman", tempDegree, tempLong1, tempLong2, tempLong3, "0000",
+        //                         UUID.fromString("152004c3-c655-439d-bbc0-eeaa58f57874"), UUID.fromString("6e30c187-5592-4d8a-91e4-e874f34a41cd"),
+        //                         "Q313514", "robotics", "none", tempHashMap, tempSemester, tempSemesters);
+        // userList.addUser(tempStudent);
         
-        ArrayList<Advisor> allAdvisors = userList.getAdvisors();
-
+        // ArrayList<Student> allStudents = userList.getStudents();
+        ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
+        // System.out.println(allAdvisors.size());
+        
+        // currStudent = allStudents.get(0);
+        //VBox vbox = new VBox();
         Label studentTitle = new Label(currStudent.getFirstName() + " " + currStudent.getLastName());
         studentTitle.setFont(new Font(20));
         studentTitle.setMaxWidth(1000);
