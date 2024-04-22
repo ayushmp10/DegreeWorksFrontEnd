@@ -33,29 +33,18 @@ public class Student extends User {
     private UUID guardian;
     private String applicationArea;
     private String USCid;
-    private ArrayList<String> adviseeNotes;
+    private String adviseeNotes;
     private Degree degree;
     private Semester currSemester;
     private ArrayList<Semester> allSemesters;
     private HashMap<Course, String> completedCourses; // includes all complete courses with grades
     private ArrayList<Semester> eightSemesterPlan = new ArrayList<Semester>();
-
     private double gpa;
-    
-    
-    // need to add advisor and guardian
-    public Student(UUID id, String username, String password, String firstName,
-                String lastName, String year, Degree degree,
-                int completedCredits, int totalCredits, double gpa, String phoneNumber, UUID advisor, String USCid,
-                String applicationArea, ArrayList<String> adviseeNotes, HashMap<Course, String> completedCourses, Semester currSemester,
-                ArrayList<Semester> allSemesters) {
-
-    private Long gpa;
 
     // need to add advisor and guardian
     public Student(UUID id, String username, String password, String firstName,
             String lastName, String year, Degree degree,
-            Long completedCredits, Long totalCredits, Long gpa, String phoneNumber, UUID advisor, UUID guardian,
+            int completedCredits, int totalCredits, double gpa, String phoneNumber, UUID advisor, UUID guardian,
             String USCid,
             String applicationArea, String adviseeNotes, HashMap<Course, String> completedCourses,
             Semester currSemester,
@@ -90,7 +79,7 @@ public class Student extends User {
         this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
         this.USCid = "unassigned";
-        this.adviseeNotes = new ArrayList<>();
+        this.adviseeNotes = "no comments";
         this.currSemester = null;
         this.allSemesters = null;
     }
@@ -114,12 +103,6 @@ public class Student extends User {
         return this.completedCredits;
     }
     public int getTotalCredits() {
-
-    public Long getCompletedCredits() {
-        return this.completedCredits;
-    }
-
-    public Long getTotalCredits() {
         return this.totalCredits;
     }
 
@@ -147,11 +130,7 @@ public class Student extends User {
         return this.completedCourses;
     }
 
-    public ArrayList<String> getAdvisorNotes() {
-
-
     public String getAdvisorNotes() {
-
         return this.adviseeNotes;
     }
 
@@ -175,10 +154,6 @@ public class Student extends User {
     public void setApplicationArea(String appArea) {
         this.applicationArea = appArea;
     }
-
-    public void setAdvisorNotes(ArrayList<String> advisorNotes) {
-        this.adviseeNotes = advisorNotes;
-
 
     public void setAdvisorNotes(String advisorNotes) {
         this.adviseeNotes = this.adviseeNotes + advisorNotes;
