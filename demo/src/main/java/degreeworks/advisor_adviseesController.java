@@ -9,19 +9,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import model.*;
+import model.Advisor;
+import model.Student;
+import model.UserList;
 
 public class advisor_adviseesController implements Initializable {
     @FXML private VBox studentInfo;
@@ -85,6 +83,6 @@ public class advisor_adviseesController implements Initializable {
     }
     @FXML
     private void onLogOutClicked() throws IOException{
-        App.setRoot("advisor_home");
+        App.setRoot("home");
     }
 }
