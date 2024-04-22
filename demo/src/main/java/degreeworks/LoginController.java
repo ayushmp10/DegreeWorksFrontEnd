@@ -30,7 +30,7 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
         UserList userList = UserList.getInstance();
-        if(username!=null && password!=null && userList.isValidUser(username, password)){
+        if(username!=null && password!=null){
             
             //Log the user in
             if (degreeWorks.login(username, password)) {
@@ -48,7 +48,8 @@ public class LoginController {
                     // move to guardian page
                     App.setRoot("guardian_home");
                 }
-            } else {
+            }
+            else {
                 Utility.showAlert("ERROR", "Invalid Credentials", "Incorrect Username or Password.");
             }
         }
