@@ -9,7 +9,6 @@ public class DegreeList {
 
     private DegreeList() {
         degrees = DataLoader.getDegrees();
-        System.out.println("Degrees number: " + degrees.size());
     }
 
     public static DegreeList getInstance() {

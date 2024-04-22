@@ -21,7 +21,6 @@ public class DataLoader extends DataConstants {
 		// HashMap<UUID, Integer> advisorToStudentMap = new HashMap<>();
 		String[] files = {ADVISOR_FILE_NAME, STUDENT_FILE_NAME, PARENT_FILE_NAME};
 		for (String file : files) {
-			System.out.println(file);
 			try {
 				FileReader fileReader = new FileReader(file);
 				JSONArray readerJSON = (JSONArray) new JSONParser().parse(fileReader);
@@ -35,7 +34,6 @@ public class DataLoader extends DataConstants {
 					String username = (String) userJSONObject.get(USER_USERNAME);
 					String password = (String) userJSONObject.get(USER_PASSWORD);
 					String userType = (String) userJSONObject.get(USER_TYPE);
-					System.out.println(userType);
 					if (userType.equalsIgnoreCase("student")) {
 						// assume god advisor is the first user in the list
 						// load student information
@@ -99,7 +97,6 @@ public class DataLoader extends DataConstants {
 						Student student = new Student(id, username, password, firstName, lastName, phoneNumber, degree, completedCredits, totalCredits, gpa, phoneNumber, advisorUUID, studentUSCID,
 												applicationArea, notes, completedCourse, currSemester, allSemesters);
 						allUsers.add(student);
-						System.out.println("added student");
 						advisor.addStudent(student);
 					} 
 					else if (userType.equalsIgnoreCase("advisor")) {

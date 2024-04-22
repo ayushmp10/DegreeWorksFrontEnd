@@ -36,14 +36,16 @@ public class test {
         for (User user : allUsers) {
             System.out.println(user.getUsername());
             if (user instanceof Advisor) {
-                Advisor tempStudent = (Advisor) user;
-                System.out.println(tempStudent.getBuilding());
+                Advisor tempAdvisor = (Advisor) user;
+                System.out.println("Advisor: " + tempAdvisor.getFirstName());
             }
             if (user instanceof Student) {
                 Student tempStudent = (Student) user;
-                System.out.println(tempStudent.getApplicationArea());
-                System.out.println(tempStudent.getCompletedCredits());
-                System.out.println(tempStudent.getGPA());
+                System.out.println("Student " + tempStudent.getFirstName());
+            }
+            if (user instanceof Guardian) {
+                Guardian tempGuardian = (Guardian) user;
+                System.out.println("Guardian " + tempGuardian.getFirstName());
             }
         }
         
