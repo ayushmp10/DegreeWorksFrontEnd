@@ -72,21 +72,21 @@ public class student_homeController implements Initializable {
         studentApplicationArea.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentApplicationArea, HPos.CENTER);
 
-        Label studentAdvisor = new Label("none");
+        String studentAdvisorName = "none";
         for (Advisor advisor : allAdvisors) {
             if (advisor.getUUID().equals(currStudent.getAdvisor())) {
-                studentAdvisor = new Label(advisor.getFirstName() + " " + advisor.getLastName());
+                studentAdvisorName = advisor.getFirstName() + " " + advisor.getLastName();
             }
             
         }
-        // need to make this an advisor object
+        Label studentAdvisor = new Label(studentAdvisorName);
         studentAdvisor.setFont(new Font(20));
         studentAdvisor.setMaxWidth(1000);
         studentAdvisor.setMaxHeight(grid_studentInfo.getMaxHeight());
         studentAdvisor.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
 
-        Label studentGPA = new Label(currStudent.getGPA().toString());
+        Label studentGPA = new Label(Double.toString(currStudent.getGPA()));
         studentGPA.setFont(new Font(20));
         studentGPA.setMaxWidth(1000);
         studentGPA.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
