@@ -68,8 +68,9 @@ public class UserList {
     public void setUsers(ArrayList<User> users) {
         this.users = users;
     }
-
-    public boolean isValidUser(String username, String password) {
+    //Don't need this method anymore because of login method in DegreeWorks.java
+    /* 
+        public boolean isValidUser(String username, String password) {
         // Loop through users and compare data
         for (User user : users) {
             if (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) {
@@ -78,6 +79,7 @@ public class UserList {
         }
         return false;
     }
+    */
 
     public ArrayList<Advisor> getAdvisors() {
         ArrayList<Advisor> returnAdvisors = new ArrayList<Advisor>();
