@@ -4,8 +4,9 @@ import java.util.UUID;
 
 public class Advisor extends User{
     private ArrayList<Student> students;
-    private UserList userList = UserList.getInstance();
-    private ArrayList<Student> allStudents = userList.getStudents();
+    private static UserList userList;
+    private ArrayList<User> allUsers;
+    private ArrayList<Student> allStudents;
     private Student currStudent;
     private String building;
     private String roomNumber;
@@ -15,6 +16,7 @@ public class Advisor extends User{
         this.students = students;
         this.building = building;
         this.roomNumber = roomNumber;
+        
     }
 
     // overloaded constructor for sign up
@@ -40,15 +42,26 @@ public class Advisor extends User{
     }
 
     public void populateStudents() {
-        for (Student student : allStudents) {
-            if (student.getAdvisor().equals(this.getID())) {
-                students.add(student);
+        // for (Student student : allStudents) {
+        //     if (student.getAdvisor().equals(this.getID())) {
+        //         students.add(student);
+        //     }
+        // }
+        // if (allStudents.size() > 0) {
+        //     currStudent = allStudents.get(0);
+        // } else {
+        //     currStudent = null;
+        // }
+        userList = UserList.getInstance();
+        allUsers = userList.getUsers();
+        for (User user : allUsers) {
+            if (user instanceof Student) {
+                Student tempStudent = (Student) user;
+                allStudents.add(tempStudent);
+                if (tempStudent.getAdvisor().equals(super.getID())) {
+                    students.add(tempStudent);
+                }
             }
-        }
-        if (allStudents.size() > 0) {
-            currStudent = allStudents.get(0);
-        } else {
-            currStudent = null;
         }
     }
 

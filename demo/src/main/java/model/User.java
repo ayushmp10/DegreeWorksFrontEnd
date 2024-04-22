@@ -10,7 +10,7 @@ public class User {
     private String lastName;
     private String phoneNumber;
     private UUID id; // memory address id
-    public UserList userList;
+    // public UserList userList;
 
     public User(UUID id, String username, String password,
             String firstname, String lastName, String phoneNumber) {
@@ -20,7 +20,7 @@ public class User {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.id = id;
-        this.userList = UserList.getInstance();
+        //this.userList = UserList.getInstance();
     }
 
     public String getFirstName() {

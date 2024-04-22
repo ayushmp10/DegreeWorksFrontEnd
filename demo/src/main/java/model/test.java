@@ -30,7 +30,8 @@ public class test {
         // //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
         //System.out.println(allAdvisors.size());
-        ArrayList<User> allUsers = DataLoader.loadUser();
+        UserList userList = UserList.getInstance();
+        ArrayList<User> allUsers = userList.getUsers();
         System.out.println("loaded");
         System.out.println(allUsers.size());
         for (User user : allUsers) {
