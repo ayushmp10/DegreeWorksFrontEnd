@@ -2,7 +2,11 @@
     {
         "completed_courses": {},
         "year": "2024",
+<<<<<<< HEAD
+        "degree": "a943ef55-4176-4ae4-8544-64032431e032",
+=======
         "degree": "26736836-51cc-426e-b66c-1347f8adbf74",
+>>>>>>> ea3d4600e9441acadefcaafe48066b935506d8ef
         "current_semester": {
             "credit_limit": 120,
             "season": "SPRING",
@@ -11,9 +15,15 @@
         },
         "last_name": "smith",
         "type": "Student",
+<<<<<<< HEAD
+        "uuid": "74923773-bef2-4fbc-9b87-eacc367ee215",
+        "all_semesters": [],
+        "advisor": "078a3beb-50f9-4cf8-9424-f4dda683ea16",
+=======
         "uuid": "dc41ccce-d0ed-42ed-a89a-c2c5e6805596",
         "all_semesters": [],
         "advisor": "45fdedf4-bc43-4d79-a5d6-4d6fdae5f3f7",
+>>>>>>> ea3d4600e9441acadefcaafe48066b935506d8ef
         "password": "1234123",
         "credits_completed": 21,
         "phone": "0000",
@@ -26,6 +36,32 @@
         ]
     },
     {
+<<<<<<< HEAD
+        "completed_courses": {},
+        "year": "2024",
+        "degree": "56c7a0d6-753e-4c08-a19c-151fcdccd93a",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "SPRING",
+            "courses": [],
+            "year": 2024
+        },
+        "last_name": "smith",
+        "type": "Student",
+        "uuid": "ffe9d4b5-b340-430f-b2b5-457674f94eac",
+        "all_semesters": [],
+        "advisor": "c22df797-44f3-43e6-8efc-ab1f72c88284",
+        "password": "1234123",
+        "credits_completed": 21,
+        "phone": "0000",
+        "gpa": 3,
+        "first_name": "tawnie",
+        "username": "tsmith",
+        "usc_id": "Q123",
+        "advising_notes": [
+            "Something"
+        ]
+=======
         "id": "6e30c187-5592-4d8a-91e4-e874f34a41cd",
         "type": "Student",
         "first_name": "Tawnie",
@@ -70,5 +106,6 @@
                 "fd91716d-1525-4d0a-a7ef-1a17b505d76a"
             ]
         }
+>>>>>>> ea3d4600e9441acadefcaafe48066b935506d8ef
     }
 ]
