@@ -43,7 +43,7 @@ public class student_homeController implements Initializable {
         studentTitle.setMaxWidth(1000);
         studentTitle.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentTitle, HPos.CENTER);
-
+        
         Label studentID = new Label(currStudent.getUSCID());
         studentID.setFont(new Font(20));
         studentID.setMaxWidth(1000);
