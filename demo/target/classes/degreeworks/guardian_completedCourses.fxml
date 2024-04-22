@@ -29,7 +29,7 @@
                         <Button mnemonicParsing="false" onAction="#onLogOutClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Completed Courses" textAlignment="CENTER" wrappingWidth="100.0">
                            <font>
-                              <Font size="10.0" />
+                              <Font size="11.0" />
                            </font>
                         </Text>
                      </children>
@@ -38,9 +38,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="1000.0" spacing="100.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onGuardianHomeClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
-                  <Button mnemonicParsing="false" onAction="#onGuardianCompletedCoursesClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
-                  <Button mnemonicParsing="false" onAction="#onGuardianMajorMapClicked" prefWidth="125.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianHomeClicked" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianCompletedCoursesClicked" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
+                  <Button mnemonicParsing="false" onAction="#onGuardianMajorMapClicked" prefHeight="26.0" prefWidth="156.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
                </children>
             </HBox>
             <ScrollPane prefHeight="460.0" prefWidth="1000.0" translateY="50.0">
