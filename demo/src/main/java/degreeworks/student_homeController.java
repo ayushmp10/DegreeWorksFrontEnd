@@ -9,8 +9,13 @@ import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Advisor;
 import model.CourseList;
@@ -41,76 +46,91 @@ public class student_homeController implements Initializable {
         Label studentID = new Label(currStudent.getUSCID());
         studentID.setFont(new Font(20));
         studentID.setMaxWidth(1000);
+        studentID.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentID, HPos.CENTER);
 
         Label studentClassification = new Label(currStudent.getYear());
         studentClassification.setFont(new Font(20));
         studentClassification.setMaxWidth(1000);
+        studentClassification.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentClassification, HPos.CENTER);
 
         Label studentMajor = new Label(currStudent.getDegree().getSubject());
         studentMajor.setFont(new Font(20));
         studentMajor.setMaxWidth(1000);
+        studentMajor.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentMajor, HPos.CENTER);
 
         Label studentApplicationArea = new Label(currStudent.getApplicationArea());
         studentApplicationArea.setFont(new Font(20));
         studentApplicationArea.setMaxWidth(1000);
+        studentApplicationArea.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentApplicationArea, HPos.CENTER);
 
         Label studentAdvisor = new Label(currStudent.getAdvisor().toString());// need to make this an advisor object
         studentAdvisor.setFont(new Font(20));
         studentAdvisor.setMaxWidth(1000);
+        studentAdvisor.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
 
         Label studentGPA = new Label(currStudent.getGPA().toString());
         studentGPA.setFont(new Font(20));
         studentGPA.setMaxWidth(1000);
+        studentGPA.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentGPA, HPos.CENTER);
 
         Label studentPhoneNumber = new Label(currStudent.getPhoneNumber());
         studentPhoneNumber.setFont(new Font(20));
         studentPhoneNumber.setMaxWidth(1000);
+        studentPhoneNumber.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentPhoneNumber, HPos.CENTER);
 
         Label name = new Label("Student Name");
         name.setFont(new Font(20));
         name.setMaxWidth(1000);
+        name.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(name, HPos.CENTER);
 
         Label id = new Label("USC ID");
         id.setFont(new Font(20));
         id.setMaxWidth(1000);
+        id.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(id, HPos.CENTER);
 
         Label classification = new Label("Classification");
         classification.setFont(new Font(20));
         classification.setMaxWidth(1000);
+        classification.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(classification, HPos.CENTER);
 
         Label major = new Label("Major");
         major.setFont(new Font(20));
         major.setMaxWidth(1000);
+        major.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(major, HPos.CENTER);
 
         Label applicationArea = new Label("Application Area");
         applicationArea.setFont(new Font(20));
         applicationArea.setMaxWidth(1000);
+        applicationArea.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(applicationArea, HPos.CENTER);
 
         Label advisor = new Label("Advisor");
         advisor.setFont(new Font(20));
         advisor.setMaxWidth(1000);
+        advisor.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(advisor, HPos.CENTER);
 
         Label gpa = new Label("GPA");
         gpa.setFont(new Font(20));
         gpa.setMaxWidth(1000);
+        gpa.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(gpa, HPos.CENTER);
 
         Label phoneNumber = new Label("Phone Number");
         phoneNumber.setFont(new Font(20));
         phoneNumber.setMaxWidth(1000);
+        phoneNumber.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(phoneNumber, HPos.CENTER);
 
         grid_studentInfo.add(name, 0,0);
