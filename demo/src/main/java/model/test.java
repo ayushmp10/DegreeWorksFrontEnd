@@ -29,8 +29,12 @@ public class test {
 
         // //ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
         
-        // //System.out.println(allAdvisors.size());
+        //System.out.println(allAdvisors.size());
+        DegreeList degreeList = DegreeList.getInstance();
+        System.out.println(degreeList.getAllDegrees().get(0).getSubject());
         ArrayList<Student> allStudents = DataLoader.loadStudents();
-        System.out.println(allStudents.size());
+        allStudents.get(0).generateEightSemesterPlan();
+        System.out.println("Eight Semester plan:\n" + allStudents.get(0).getEightSemesterPlanToString());
+        
     }
 }

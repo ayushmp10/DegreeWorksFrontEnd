@@ -83,6 +83,7 @@ public class DataLoader extends DataConstants {
 				// update student class
 				UUID degreeUUID = UUID.fromString((String) studentJSON.get(STUDENT_DEGREE_ID));
 				Degree degree = degreeList.getDegree(degreeUUID);
+				System.out.println("Degree: " + degree.getSubject());
 
 				HashMap<Course, String> completedCourses = new HashMap<Course, String>();
 				JSONObject completedCourseObject = (JSONObject) studentJSON.get(STUDENT_COMPLETED_COURSES);
@@ -245,7 +246,7 @@ public class DataLoader extends DataConstants {
 				String number = (String) courseJSON.get(COURSE_NUMBER);
 				String name = (String) courseJSON.get(COURSE_NAME);
 				String description = (String) courseJSON.get(COURSE_DESCRIPTION);
-				int credits = ((Long) courseJSON.get(COURSE_CREDIT_HOURS)).intValue();
+				int credits = Integer.valueOf((String) courseJSON.get(COURSE_CREDIT_HOURS));
 				// TODO check if this is a valid way of reading an array from the json file
 				ArrayList<Season> semestersOffered = new ArrayList<Season>();
 				JSONArray semesterJSON = (JSONArray) courseJSON.get(COURSE_SEMESTER_OFFERED);

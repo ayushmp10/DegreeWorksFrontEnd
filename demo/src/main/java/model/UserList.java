@@ -2,6 +2,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class UserList {
@@ -11,6 +12,31 @@ public class UserList {
 
     private UserList() {
         users = new ArrayList<User>();
+        ArrayList<Course> courseList = new ArrayList<Course>();
+        ArrayList<Season> semestersOffered = new ArrayList<Season>();
+        ArrayList<Prerequisites> prerequisites = new ArrayList<Prerequisites>();
+        ArrayList<Semester> allSemesters = new ArrayList<Semester>();
+        Course course = new Course(UUID.fromString("730005f1-113d-446e-865c-31b46dfbc924"), "CSCE", "247", "Software Engineering",
+                                    "Fundamentals of software design and development; software implementation strategies; object-oriented design techniques; functional design techniques; design patterns; design process; source control; testing.    FS: 12/6/2017.   CL: 2020.",
+                                    3, semestersOffered, prerequisites);
+        HashMap<Course, Integer> majorCourses = new HashMap<Course, Integer>();
+        majorCourses.put(course, 3);
+        HashMap<Course, String> completedCourses = new HashMap<Course, String>();
+        Course completedCourse = new Course(UUID.fromString("2e2ebf3f-c4d3-4dae-956b-d8afa7fca627"), "CSCE", "146", "Algorithmic Design I",
+                                            "Problem-solving, algorithmic design, and programming. Three lectures and two laboratory hours per week.   FS: 12/04/2013.   CL: 2020.",
+                                            3, semestersOffered, prerequisites);
+        completedCourses.put(completedCourse, "A");
+        HashMap<Course, Integer> courseOptions = new HashMap<Course, Integer>();
+        Elective elective = new Elective("AIU", 2, courseOptions);
+        ArrayList<Elective> electives = new ArrayList<Elective>();
+        electives.add(elective);
+        Degree degree = new Degree("Bachelor of Science", "Computer Science", 123, majorCourses, electives);
+        Semester currSemester = new Semester("Fall", 2024, 123, courseList);
+        Student baseStudent = new Student(UUID.randomUUID(), "tsmith", "1234", "tam", "smith", "Freshman", degree, Long.valueOf("11"),
+                                            Long.valueOf("123"), Long.valueOf("3.0"), "0000", UUID.fromString("351c0f45-1c42-4412-bd1c-ad19f50320b1"),
+                                            UUID.fromString("46ec90a8-ea87-491d-ae9f-3f2e4da4a701"), "Q123", "robotics", "Behind on credits", completedCourses,
+                                            currSemester, allSemesters);
+        users.add(baseStudent);
     }
 
     public static UserList getInstance() {
