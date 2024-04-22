@@ -17,14 +17,15 @@ enum Grade {
 //     CIS
 // }
 
-public class Student extends User{
+public class Student extends User {
     // don't need this since they are part of the User
     // private String username;
     // private String password;
     // don't know if we should include minor yet
     // public Minor minor;
     // public Grade grade; removed for now
-    // private ArrayList<String> passedCourses = new ArrayList<String>(); // the UUIDs will be stored as strings
+    // private ArrayList<String> passedCourses = new ArrayList<String>(); // the
+    // UUIDs will be stored as strings
     private String year;
     private int completedCredits;
     private int totalCredits;
@@ -38,6 +39,7 @@ public class Student extends User{
     private ArrayList<Semester> allSemesters;
     private HashMap<Course, String> completedCourses; // includes all complete courses with grades
     private ArrayList<Semester> eightSemesterPlan = new ArrayList<Semester>();
+
     private double gpa;
     
     
@@ -47,6 +49,18 @@ public class Student extends User{
                 int completedCredits, int totalCredits, double gpa, String phoneNumber, UUID advisor, String USCid,
                 String applicationArea, ArrayList<String> adviseeNotes, HashMap<Course, String> completedCourses, Semester currSemester,
                 ArrayList<Semester> allSemesters) {
+
+    private Long gpa;
+
+    // need to add advisor and guardian
+    public Student(UUID id, String username, String password, String firstName,
+            String lastName, String year, Degree degree,
+            Long completedCredits, Long totalCredits, Long gpa, String phoneNumber, UUID advisor, UUID guardian,
+            String USCid,
+            String applicationArea, String adviseeNotes, HashMap<Course, String> completedCourses,
+            Semester currSemester,
+            ArrayList<Semester> allSemesters) {
+
         super(id, username, password, firstName, lastName, phoneNumber); // Call User constructor
         setCompletedCourses(completedCourses);
         this.year = year;
@@ -64,7 +78,8 @@ public class Student extends User{
     }
 
     // another constructor - used for signing up
-    public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password) {
+    public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName,
+            String password) {
         super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
         this.year = "Freshman";
         this.degree = new Degree();
@@ -85,48 +100,69 @@ public class Student extends User{
     }
     // FIX ME
     // public void addCompletedCourse(Course course, double grade) {
-    //     passedCourses.add(course);
-    //     // update HashMap with course and grade
-    //     updateTotalCredits(course.getCredits());
-    //     calculateGPA();
+    // passedCourses.add(course);
+    // // update HashMap with course and grade
+    // updateTotalCredits(course.getCredits());
+    // calculateGPA();
     // }
 
     public double getGPA() {
         return this.gpa;
     }
+
     public int getCompletedCredits() {
         return this.completedCredits;
     }
     public int getTotalCredits() {
+
+    public Long getCompletedCredits() {
+        return this.completedCredits;
+    }
+
+    public Long getTotalCredits() {
         return this.totalCredits;
     }
+
     public Degree getDegree() {
         return this.degree;
     }
+
     public UUID getAdvisor() {
         return this.advisor;
     }
+
     public UUID getGuardian() {
         return this.guardian;
     }
+
     public String getYear() {
         return this.year;
     }
+
     public String getApplicationArea() {
         return this.applicationArea;
     }
+
     public HashMap<Course, String> getCompletedCourses() {
         return this.completedCourses;
     }
+
     public ArrayList<String> getAdvisorNotes() {
+
+
+    public String getAdvisorNotes() {
+
         return this.adviseeNotes;
     }
+
     public String getUSCID() {
         return this.USCid;
     }
+
     public Semester getCurrSemester() {
         return this.currSemester;
     }
+
     public ArrayList<Semester> getAllSemesters() {
         return this.allSemesters;
     }
@@ -135,33 +171,44 @@ public class Student extends User{
         if (advisor != null)
             this.advisor = advisor;
     }
+
     public void setApplicationArea(String appArea) {
         this.applicationArea = appArea;
     }
+
     public void setAdvisorNotes(ArrayList<String> advisorNotes) {
         this.adviseeNotes = advisorNotes;
+
+
+    public void setAdvisorNotes(String advisorNotes) {
+        this.adviseeNotes = this.adviseeNotes + advisorNotes;
+
     }
+
     public void setGuardian(UUID guardian) {
         if (guardian != null)
             this.guardian = guardian;
     }
+
     public void setCurrSemester(Semester semester) {
         if (semester != null)
             this.currSemester = semester;
     }
+
     public void setAllSemester(ArrayList<Semester> newAllSemesters) {
         if (newAllSemesters != null)
             allSemesters = newAllSemesters;
     }
+
     public void setCompletedCourses(HashMap<Course, String> completedCourses) {
         if (completedCourses != null)
             this.completedCourses = completedCourses;
     }
+
     public void setDegree(Degree degree) {
         if (degree != null)
             this.degree = degree;
     }
-
 
     public void addCourse(Course course, String grade) {
         if (this.completedCourses == null) {
@@ -180,19 +227,19 @@ public class Student extends User{
         this.currSemester = null;
         generateEightSemesterPlan();
     }
-    
 
     // private double calculateGPA() {
-    //     return 4.0;
+    // return 4.0;
     // }
     // public void updateTotalCredits(int credits) {
-    //     // implementation
+    // // implementation
     // }
     public String toString() {
         return "Student: " + super.getFirstName() + " " + super.getLastName() + " " + this.year +
                 " " + "USC ID: " + this.USCid;
-                
+
     }
+
     public void generateEightSemesterPlan() {
         this.eightSemesterPlan.clear();
         // account for all the completed courses
@@ -202,7 +249,7 @@ public class Student extends User{
 
         HashMap<UUID, Integer> toTakeCourses = new HashMap<UUID, Integer>();
         ArrayList<Course> courseQueue = new ArrayList<Course>();
-        
+
         // load all the courses that need to be taken
         HashMap<Course, Integer> majorCourses = this.degree.getMajorCourses();
         for (Course course : majorCourses.keySet()) {
@@ -221,7 +268,7 @@ public class Student extends User{
                 }
             }
         }
-        
+
         // determine what course is next
         ArrayList<Course> semesterCourses = new ArrayList<Course>();
         String currSeason;
@@ -247,13 +294,14 @@ public class Student extends User{
                 }
 
                 int courseCredit = course.getCredits();
-                if (courseCredit  <= creditLimit) {
+                if (courseCredit <= creditLimit) {
                     // taking this course update the credits remaining
                     creditLimit -= courseCredit;
                     semesterCourses.add(course);
                     courseQueue.remove(course);
                 } else {
-                    Semester tempSem = new Semester(currSeason, currYear, 18 - creditLimit, new ArrayList<>(semesterCourses));
+                    Semester tempSem = new Semester(currSeason, currYear, 18 - creditLimit,
+                            new ArrayList<>(semesterCourses));
                     this.eightSemesterPlan.add(tempSem);
                     if (currSeason.equalsIgnoreCase("fall")) {
                         currSeason = "Spring";
@@ -267,6 +315,7 @@ public class Student extends User{
             }
         }
     }
+
     public String getEightSemesterPlanToString() {
         String eightSemesterPlan = "";
         for (Semester semester : this.eightSemesterPlan) {
@@ -274,6 +323,7 @@ public class Student extends User{
         }
         return eightSemesterPlan;
     }
+
     public ArrayList<Semester> getEightSemesterPlan() {
         if (this.eightSemesterPlan == null) {
             generateEightSemesterPlan();
@@ -281,4 +331,3 @@ public class Student extends User{
         return eightSemesterPlan;
     }
 }
-
