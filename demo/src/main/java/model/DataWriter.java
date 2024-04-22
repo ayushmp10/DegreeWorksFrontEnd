@@ -1,7 +1,7 @@
 package model;
 
 import java.io.FileWriter;
-import java.io.IOException; 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -83,7 +83,13 @@ public class DataWriter extends DataConstants {
         JSONArray notes = new JSONArray();
         notes.add(student.getAdvisorNotes());
         studentMap.put(STUDENT_ADVISING_NOTES, notes);
-        studentMap.put(STUDENT_DEGREE_ID, student.getDegree().getUUID().toString());
+
+        if (student.getDegree() != null) {
+            studentMap.put(STUDENT_DEGREE_ID, student.getDegree().getUUID().toString());
+        } else {
+            studentMap.put(STUDENT_DEGREE_ID, UUID.randomUUID().toString());
+        }
+
         studentMap.put(STUDENT_GPA, student.getGPA());
         studentMap.put(STUDENT_COMPLETED_COURSES, createCompletedCoursesObject(student.getCompletedCourses()));
         studentMap.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
