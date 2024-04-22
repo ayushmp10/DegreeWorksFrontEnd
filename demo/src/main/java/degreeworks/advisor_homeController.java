@@ -59,7 +59,7 @@ public class advisor_homeController implements Initializable {
     }
     @FXML
     private void onLogOutClicked() throws IOException{
-        App.setRoot("advisor_home");
+        App.setRoot("home");
     }
 
 }
