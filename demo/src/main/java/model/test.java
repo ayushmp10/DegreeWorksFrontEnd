@@ -31,24 +31,9 @@ public class test {
         
         //System.out.println(allAdvisors.size());
         UserList userList = UserList.getInstance();
-        ArrayList<User> allUsers = userList.getUsers();
-        System.out.println("loaded");
-        System.out.println(allUsers.size());
-        for (User user : allUsers) {
-            System.out.println(user.getUsername());
-            if (user instanceof Advisor) {
-                Advisor tempAdvisor = (Advisor) user;
-                System.out.println("Advisor: " + tempAdvisor.getFirstName());
-            }
-            if (user instanceof Student) {
-                Student tempStudent = (Student) user;
-                System.out.println("Student " + tempStudent.getFirstName());
-            }
-            if (user instanceof Guardian) {
-                Guardian tempGuardian = (Guardian) user;
-                System.out.println("Guardian " + tempGuardian.getFirstName());
-            }
+        ArrayList<User> users = userList.getUsers();
+        for (User user : users) {
+            System.out.println(user.getFirstName());
         }
-        
     }
 }

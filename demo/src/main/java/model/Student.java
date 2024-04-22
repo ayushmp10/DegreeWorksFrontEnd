@@ -50,7 +50,7 @@ public class Student extends User {
             Semester currSemester,
             ArrayList<Semester> allSemesters) {
 
-        super(id, username, password, firstName, lastName, phoneNumber); // Call User constructor
+        super(id, username, password, firstName, lastName, phoneNumber, "student"); // Call User constructor
         setCompletedCourses(completedCourses);
         this.year = year;
         setDegree(degree);
@@ -69,7 +69,7 @@ public class Student extends User {
     // another constructor - used for signing up
     public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName,
             String password) {
-        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, "student");
         this.year = "Freshman";
         this.degree = new Degree();
         this.gpa = 0.0;
