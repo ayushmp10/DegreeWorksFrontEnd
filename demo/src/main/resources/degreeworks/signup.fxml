@@ -9,31 +9,32 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="background-sign-up" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #9A2A2A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.signupController">
+<AnchorPane id="background-sign-up" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #9A2A2A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.signupController">
    <children>
       <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="329.0" layoutX="352.0" layoutY="105.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="296.0" />
       <Text layoutX="385.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
-      <Text layoutX="385.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP Id:" wrappingWidth="115.6865234375" />
-      <Text layoutX="385.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Type:" wrappingWidth="115.6865234375" />
+      <Text layoutX="385.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP ID:" wrappingWidth="115.6865234375" />
+      <Text layoutX="385.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Type:" wrappingWidth="115.6865234375" />
+      <Text layoutX="385.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" wrappingWidth="115.6865234375" />
-      <TextField layoutX="500.0" layoutY="121.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="500.0" layoutY="154.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="500.0" layoutY="186.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="500.0" layoutY="250.0" prefHeight="26.0" prefWidth="116.0" />
-      <PasswordField layoutX="500.0" layoutY="316.0" prefHeight="26.0" prefWidth="116.0" />
-      <PasswordField layoutX="500.0" layoutY="349.0" prefHeight="26.0" prefWidth="116.0" />
-      <Button layoutX="424.0" layoutY="393.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="153.0" text="Sign Up" />
-      <Text layoutX="385.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
-      <TextField layoutX="500.0" layoutY="218.0" prefHeight="26.0" prefWidth="116.0" />
-      <TextField layoutX="500.0" layoutY="283.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_firstName" fx:id="txt_firstName" layoutX="500.0" layoutY="121.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_lastName" fx:id="txt_lastName" layoutX="500.0" layoutY="154.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_phoneNumber" fx:id="txt_phoneNumber" layoutX="500.0" layoutY="186.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_VIPId" fx:id="txt_VIPId" layoutX="500.0" layoutY="218.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_profileType" fx:id="txt_profileType" layoutX="500.0" layoutY="250.0" prefHeight="26.0" prefWidth="116.0" />
+      <TextField id="txt_userName" fx:id="txt_userName" layoutX="500.0" layoutY="283.0" prefHeight="26.0" prefWidth="116.0" />
+      <PasswordField id="txt_password" fx:id="txt_password" layoutX="500.0" layoutY="316.0" prefHeight="26.0" prefWidth="116.0" />
+      <PasswordField id="txt_confirmPassword" fx:id="txt_confirmPassword" layoutX="500.0" layoutY="349.0" prefHeight="26.0" prefWidth="116.0" />
+      <Button fx:id="btnSignUp" layoutX="424.0" layoutY="393.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="153.0" text="Sign Up" />
       <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="7.0" layoutY="9.0">
          <image>
             <Image url="@../images/uOfSc.png" />
          </image>
       </ImageView>
+      <Button fx:id="backButton" layoutX="924.0" layoutY="18.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="26.0" prefWidth="62.0" text="Back" />
    </children>
 </AnchorPane>

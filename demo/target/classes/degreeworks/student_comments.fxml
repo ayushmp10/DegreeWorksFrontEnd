@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,21 +34,23 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="1000.0" spacing="15.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#homeClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
-                  <Button mnemonicParsing="false" onMouseClicked="#majorMapClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
-                  <Button mnemonicParsing="false" onMouseClicked="#planGeneratorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Plan Generator" />
-                  <Button mnemonicParsing="false" onMouseClicked="#availableCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Available Courses" />
-                  <Button mnemonicParsing="false" onMouseClicked="#completedCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
-                  <Button mnemonicParsing="false" onMouseClicked="#changeMajorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Change Major" />
-                  <Button mnemonicParsing="false" onMouseClicked="#commentsClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
+                  <Button mnemonicParsing="false" onAction="#homeClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#majorMapClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Major Map" />
+                  <Button mnemonicParsing="false" onAction="#planGeneratorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Plan Generator" />
+                  <Button mnemonicParsing="false" onAction="#availableCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Available Courses" />
+                  <Button mnemonicParsing="false" onAction="#completedCoursesClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Completed Courses" />
+                  <Button mnemonicParsing="false" onAction="#changeMajorClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Change Major" />
+                  <Button mnemonicParsing="false" onAction="#commentsClicked" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
                </children>
             </HBox>
-            <ImageView fitHeight="504.0" fitWidth="1000.0" pickOnBounds="true">
+            <ImageView fitHeight="504.0" fitWidth="1000.0" opacity="0.5" pickOnBounds="true">
                <image>
                   <Image url="@../images/library.jpg" />
                </image>
             </ImageView>
          </children>
       </VBox>
+      <TextField fx:id="comment" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="217.0" prefWidth="491.0" promptText="Enter your comment here" style="-fx-background-color: white;" translateX="250.0" translateY="200.0" />
+      <Button fx:id="submit" layoutX="446.0" layoutY="437.0" onAction="#submitComment" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: rgb(115, 0, 10);" text="Submit" textFill="WHITE" />
    </children>
 </AnchorPane>

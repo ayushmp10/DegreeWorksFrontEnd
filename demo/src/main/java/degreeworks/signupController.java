@@ -3,14 +3,21 @@ package degreeworks;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import model.Advisor;
+import model.Guardian;
+import model.Student;
+import model.User;
+import model.Utility;
 
-public class signupController implements Initializable{
+public class signupController implements Initializable {
+
     @FXML
     private TextField txt_firstName;
 
@@ -39,7 +46,7 @@ public class signupController implements Initializable{
     private Label lbl_error;
 
     @FXML 
-    private void submitClicked(MouseEvent event) throws IOException {
+    private void submitClicked() throws IOException {
         String firstName = txt_firstName.getText();
         String lastName = txt_lastName.getText();
         String userName = txt_userName.getText();
@@ -49,66 +56,95 @@ public class signupController implements Initializable{
         String password = txt_password.getText();
         String confirmPassword = txt_confirmPassword.getText();
 
-        if(firstName.equals("") || lastName.equals("") || userName.equals("") ||
-        phoneNumber.equals("") || VIPId.equals("") ||
-        profileType.equals("") || password.equals("") || confirmPassword.equals("")){
-            lbl_error.setText("You cannot leave boxes blank");
-        }
-
-        if(profileType.equals("adivsor") || profileType.equals("student") || profileType.equals("guardian")){
-            
-        }else {
-            lbl_error.setText("Not a profile type. Please input \" student \", \"advisor\", or \"guardian\"");
-        }
-        
-        if(password.equals(confirmPassword)){
-
-        }else {
-            lbl_error.setText("Your passwords do not match");
-        }
-
-        //gotten from portia ask how it works
-        /*
-        Library library = Library.getInstance();
-
-        if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
-            lbl_error.setText("Sorry, this user couldn't be created.");
+        // checking for invalid inputs
+        if(isFieldEmpty(firstName) || isFieldEmpty(lastName) || isFieldEmpty(userName) ||
+                isFieldEmpty(phoneNumber) || isFieldEmpty(VIPId) ||
+                isFieldEmpty(profileType) || isFieldEmpty(password) || isFieldEmpty(confirmPassword)){
+            Utility.showAlert("WARNING", "Empty Fields", "Please fill all the fields");
             return;
         }
 
-        library.login(username);
-        User user = library.getCurrentUser();
-        App.setRoot("user_home");
-        */
+        // Validate profile type
+        if(!isValidProfileType(profileType)){
+            Utility.showAlert("ERROR", "Invalid Profile Type", "Please input 'student', 'advisor', or 'guardian'");
+            return;
+        }
 
-        if(profileType.equals("student")){
+        // Confirm password
+        if(!password.equals(confirmPassword)) {
+            Utility.showAlert("WARNING", "Password Mismatch", "Your passwords do not match");
+            return;
+        }
+
+        // create user and handle exceptions
+        try {
+            User user = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
+            user.userList.addUser(user);
+            user.userList.saveUsers();
+            Utility.showAlert("Info", "User Creation", "User " + userName + " successfully created");
+            clearFields();
+            navigateToHomePage(profileType);
+        } catch (Exception e) {
+            Utility.showAlert("ERROR", "User Creation error", "Unable to create user " + userName);
+        }
+    }
+
+    // Method to check if a field is empty
+    private boolean isFieldEmpty(String field){
+        return field.isBlank();
+    }
+
+    // Method to validate profile type
+    private boolean isValidProfileType(String profileType){
+        return profileType.equalsIgnoreCase("advisor") || profileType.equalsIgnoreCase("student") || profileType.equalsIgnoreCase("guardian");
+    }
+
+    // Method to create user based on profile type
+private User createUser(String firstName, String lastName, String phoneNumber, String VIPId, String userName, String password, String profileType){
+    if (profileType.equalsIgnoreCase("student")) {
+        return new Student(firstName, lastName, phoneNumber, VIPId, userName, password);
+    } else if (profileType.equalsIgnoreCase("advisor")) {
+        return new Advisor(firstName, lastName, phoneNumber, VIPId, userName, password);
+    } else if (profileType.equalsIgnoreCase("guardian")) {
+        return new Guardian(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, null, true);
+    }
+    return null; // Or handle the case if profile type is invalid
+}
+
+
+    // Method to clear input fields
+    private void clearFields(){
+        txt_firstName.clear();
+        txt_lastName.clear();
+        txt_userName.clear();
+        txt_phoneNumber.clear();
+        txt_VIPId.clear();
+        txt_profileType.clear();
+        txt_password.clear();
+        txt_confirmPassword.clear();
+    }
+
+    // Method to navigate to home page based on profile type
+    private void navigateToHomePage(String profileType) throws IOException {
+        if(profileType.equalsIgnoreCase("student")) {
             App.setRoot("student_home");
-        }else if(profileType.equals("adivsor")){
+        } else if(profileType.equalsIgnoreCase("advisor")){
             App.setRoot("advisor_home");
-        }else if(profileType.equals("guardian")){
-            App.setRoot("guradian_home");
+        } else if(profileType.equalsIgnoreCase("guardian")){
+            App.setRoot("guardian_home");
         }
     }
     
-    /* 
     @FXML
-    private void back(MouseEvent event) throws IOException {
-        App.setRoot("home");
+    void backButtonClicked(ActionEvent event) {
+         try {
+            App.setRoot("home");
+        } catch (IOException ioe) {
+            Utility.showAlert("ERROR", "Exception loading home page", ioe.getLocalizedMessage());
+        }
     }
-    */
-
-
-     @Override
+    
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 }
-
-/* 
-@FXML
-    void sign_up_button(MouseEvent event) {
-        if(profileType.equals("student")){
-            
-        }
-    }
-
-*/

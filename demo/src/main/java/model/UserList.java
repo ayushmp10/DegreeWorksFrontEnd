@@ -2,35 +2,51 @@ package model;
 
 import java.util.ArrayList;
 import java.util.UUID;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class UserList {
-    private static UserList userList;
+    private static UserList userList = new UserList();;
     private ArrayList<User> users;
     private User currUser;
 
     private UserList() {
-        this.users = new ArrayList<>();
+        users = new ArrayList<User>();
+        // add all saved users to users arraylist
+        ArrayList<Student> tempStudents = DataLoader.loadStudents();
+        ArrayList<Advisor> tempAdvisors = DataLoader.getAdvisors();
+        ArrayList<Guardian> tempGuardians = DataLoader.getGuardians();
+
+        if (tempStudents != null ) {
+            for (Student student : tempStudents) {
+                addUser(student);
+            }
+        }
+
+        if (tempAdvisors != null ) {
+            for (Advisor advisor : tempAdvisors) {
+                addUser(advisor);
+            }
+        }
+        
+        if (tempGuardians != null ) {
+            for (Guardian guardian : tempGuardians) {
+                addUser(guardian);
+            }
+        }
     }
 
     public static UserList getInstance() {
-        if (userList == null) {
+        /*if (userList == null) {
             userList = new UserList();
-        }
+        } */
         return userList;
     }
 
     public void addUser(User user) {
-        users.add(user);
+        if( user != null) {
+            users.add(user);
+        }
     }
 
-    // public void addUser(Student student){
-    // users.add(student);
-    // }
-    // public void addUser(Guardian guardian){
-    // users.add(guardian);
-    // }
     public User getUser(String username, String password) {
         for (User user : users) {
             if (user.getUsername().toLowerCase().equals(username.toLowerCase())
@@ -42,13 +58,11 @@ public class UserList {
         return null;
     }
 
-    // public void saveUsers(){
-    // DataWriter.saveUsers(userList.getUsers());
-    // }
-
-    // public void loadUsers(){
-    // setUsers(DataLoader.getUsers());
-    // }
+    public void saveUsers(){
+        if (userList.getUsers() != null && userList.getUsers().size() > 0) {
+            DataWriter.saveUsers(userList.getUsers());
+        }
+    }
 
     public ArrayList<User> getUsers() {
         return this.users;
@@ -111,11 +125,12 @@ public class UserList {
         return currUser;
     }
 
-    public void setCurrUser(User user) {
+    public boolean setCurrUser(User user) {
         if (users.contains(user)) {
             currUser = user;
+            return true;
         }
         System.out.println("This user does not exist");
-    } 
-
+        return false;
+    }
 }

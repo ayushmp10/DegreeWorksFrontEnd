@@ -63,9 +63,22 @@ public class Student extends User{
         setAllSemester(allSemesters);
     }
 
-    /*public Grade getGrade() {
-        return this.grade;
-    }*/
+    // another constructor - used for signing up
+    public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName, String password) {
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        this.year = "Freshman";
+        this.degree = new Degree();
+        this.gpa = (long) 0.0;
+        this.completedCredits = (long) 0;
+        this.totalCredits = (long) 0;
+        this.advisor = null;
+        this.guardian = null;
+        this.applicationArea = "none";
+        this.USCid = "unassigned";
+        this.adviseeNotes = "No Notes";
+        this.currSemester = null;
+        this.allSemesters = null;
+    }
 
     private ArrayList<Course> getCurrentCourses() {
         return new ArrayList<>();
@@ -253,6 +266,19 @@ public class Student extends User{
                 }
             }
         }
+    }
+    // public String getEightSemesterPlanToString() {
+    //     String eightSemesterPlan = "";
+    //     for (Semester semester : this.eightSemesterPlan) {
+    //         eightSemesterPlan += "\n" + semester.toString();
+    //     }
+    //     return eightSemesterPlan;
+    // }
+    public ArrayList<Semester> getEightSemesterPlan() {
+        if (this.eightSemesterPlan == null) {
+            generateEightSemesterPlan();
+        }
+        return eightSemesterPlan;
     }
 }
 

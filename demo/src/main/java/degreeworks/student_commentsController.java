@@ -1,62 +1,81 @@
 package degreeworks;
 
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.util.UUID;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import model.*;
 
-public class student_commentsController {
+public class student_commentsController implements Initializable {
+    private Student currStudent;
+    private UserList userList;
+    @FXML private TextField comment;
+    @FXML private Button submit;
+    // use the same formatting used for advisor
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        userList = UserList.getInstance();
+        currStudent = (Student) userList.getCurrUser();
+    }
+
     @FXML
-    void availableCoursesClicked(MouseEvent event) throws IOException{
+    private void submitComment() {
+        // do null checks 
+        currStudent.setAdvisorNotes(comment.getText());
+        submit.setText("Your request has been sent to your advisor");
+    }
+
+    @FXML
+    void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
 
     }
 
     @FXML
-    void changeMajorClicked(MouseEvent event) throws IOException{
+    void changeMajorClicked() throws IOException{
         App.setRoot("student_changeMajor");
 
     }
 
     @FXML
-    void commentsClicked(MouseEvent event) throws IOException{
+    void commentsClicked() throws IOException{
         App.setRoot("student_comments");
 
     }
 
     @FXML
-    void completedCoursesClicked(MouseEvent event) throws IOException{
+    void completedCoursesClicked() throws IOException{
         App.setRoot("student_completedCourses");
 
     }
 
     @FXML
-    void homeClicked(MouseEvent event) throws IOException{
+    void homeClicked() throws IOException{
         App.setRoot("student_home");
 
     }
 
     @FXML
-    void majorMapClicked(MouseEvent event) throws IOException{
+    void majorMapClicked() throws IOException{
         App.setRoot("student_majorMap");
 
     }
 
     @FXML
-    void onLogOutClicked(MouseEvent event) throws IOException{
+    void onLogOutClicked() throws IOException{
         App.setRoot("home");
 
     }
 
     @FXML
-    void planGeneratorClicked(MouseEvent event) throws IOException{
+    void planGeneratorClicked() throws IOException{
         App.setRoot("student_planGenerator");
 
     }
