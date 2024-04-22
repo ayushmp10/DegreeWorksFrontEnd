@@ -120,7 +120,35 @@ public class DataLoader extends DataConstants {
 		}
 		return allUsers;
 	}
+	public static ArrayList<Advisor> getAdvisors() {
+        ArrayList<Advisor> advisors = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(ADVISOR_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray advisorJSONArray = (JSONArray) new JSONParser().parse(reader);
 
+            for (int i = 0; i < advisorJSONArray.size(); i++) {
+                JSONObject advisorJSON = (JSONObject) advisorJSONArray.get(i);
+                UUID id = UUID.fromString((String) advisorJSON.get(USER_UUID));
+                String username = (String) advisorJSON.get(USER_USERNAME);
+                String password = (String) advisorJSON.get(USER_PASSWORD);
+                String firstName = (String) advisorJSON.get(USER_FIRST_NAME);
+                String lastName = (String) advisorJSON.get(USER_LAST_NAME);
+                String phoneNumber = (String) advisorJSON.get(USER_PHONE_NUMBER);
+                String building = (String) advisorJSON.get(ADVISOR_BUILDING);
+                String roomNumber = (String) advisorJSON.get(ADVISOR_ROOM_NUMBER);
+                
+                // You may need to handle the list of assigned students here
+                
+                Advisor advisor = new Advisor(id, username, password, firstName, lastName, advisorJSONArray, phoneNumber, building, roomNumber);
+                advisors.add(advisor);
+            }
+            return advisors;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 	/*public static ArrayList<Student> loadStudents() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		try {
