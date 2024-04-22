@@ -1,1 +1,11 @@
-[{"password":"123412","phone":"0000","last_name":"adams","uuid":"46ec90a8-ea87-491d-ae9f-3f2e4da4a701","first_name":"john","username":"jadams"}]
+[
+    {
+        "password": "123412",
+        "phone": "0000",
+        "last_name": "adams",
+        "uuid": "46ec90a8-ea87-491d-ae9f-3f2e4da4a701",
+        "first_name": "john",
+        "username": "jadams",
+        "type": "Guardian"
+    }
+]
