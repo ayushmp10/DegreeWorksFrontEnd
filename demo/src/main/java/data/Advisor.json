@@ -1,13 +1,1 @@
-[
-    {
-        "password": "123",
-        "assigned_students": [],
-        "phone": "123",
-        "last_name": "smith",
-        "room_number": "1A01",
-        "uuid": "5704b272-6bdb-4f0a-a8be-f59aca833430",
-        "first_name": "jack",
-        "building": "Swearingen",
-        "username": "jasmith"
-    }
-]
+[]
