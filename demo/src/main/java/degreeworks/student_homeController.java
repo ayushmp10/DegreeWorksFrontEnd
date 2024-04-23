@@ -9,15 +9,9 @@ import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Advisor;
 import model.CourseList;
@@ -45,6 +39,7 @@ public class student_homeController implements Initializable {
         studentTitle.setFont(Font.font("Arial Black", 14));
         studentTitle.setMaxWidth(1000);
         studentTitle.setMaxHeight(grid_studentInfo.getMaxHeight());
+        studentTitle.setMinHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentTitle, HPos.CENTER);
         studentTitle.setAlignment(Pos.CENTER);
 
