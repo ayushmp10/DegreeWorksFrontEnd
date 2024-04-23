@@ -10,17 +10,27 @@ public class User {
     private String lastName;
     private String phoneNumber;
     private UUID id; // memory address id
+    private String type;
     // public UserList userList;
 
     public User(UUID id, String username, String password,
-            String firstname, String lastName, String phoneNumber) {
+            String firstname, String lastName, String phoneNumber, String type) {
         this.firstName = firstname;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.id = id;
+        this.type = type;
         //this.userList = UserList.getInstance();
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return this.type;
     }
 
     public String getFirstName() {
