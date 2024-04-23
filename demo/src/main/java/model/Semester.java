@@ -55,5 +55,13 @@ public class Semester {
     public void setYear(int year) {
         this.year = year;
     }
+    
+    public String toString() {
+        String toReturn = "";
+        for (Course course : this.courses) {
+            toReturn += course.toString() + "\n";
+        }
+        return toReturn;
+    }
 }
 
