@@ -67,7 +67,7 @@ public class guardian_homeController implements Initializable {
         studentAdvisor.setMaxWidth(1000);
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
 
-        Label studentGPA = new Label(currStudent.getGPA().toString());
+        Label studentGPA = new Label(String.valueOf(currStudent.getGPA()));
         studentGPA.setFont(new Font(20));
         studentGPA.setMaxWidth(1000);
         GridPane.setHalignment(studentGPA, HPos.CENTER);
