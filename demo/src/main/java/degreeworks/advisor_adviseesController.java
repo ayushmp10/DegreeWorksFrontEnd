@@ -80,7 +80,7 @@ public class advisor_adviseesController implements Initializable {
         studentInfo.setAlignment(Pos.CENTER);
     
         // Hardcoded image path
-        String imagePath = "/images/student.jpg";
+        String imagePath = "/images/student2.jpg";
     
         // Create image view with hardcoded image path
         ImageView imageView = new ImageView(new Image(getClass().getResource(imagePath).toExternalForm()));
