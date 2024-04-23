@@ -10,7 +10,11 @@ public class UserList {
     private User currUser;
 
     private UserList() {
+<<<<<<< HEAD
         users = DataLoader.loadUser();
+=======
+        this.users = DataLoader.loadUser();
+>>>>>>> bdc560e1b086571506b1c58eabb7b46434de6ee8
     }
 
     public static UserList getInstance() {
