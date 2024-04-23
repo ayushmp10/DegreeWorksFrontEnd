@@ -23,8 +23,7 @@ public class student_homeController implements Initializable {
     private CourseList courseList;
     private UserList userList;
     private Student currStudent;
-    @FXML
-    private GridPane grid_studentInfo;
+    @FXML private GridPane grid_studentInfo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -99,84 +98,10 @@ public class student_homeController implements Initializable {
         GridPane.setHalignment(studentPhoneNumber, HPos.CENTER);
         studentPhoneNumber.setAlignment(Pos.CENTER);
 
-        /*
-         * Label name = new Label("Student Name");
-         * name.setFont(new Font(14));
-         * name.setMaxWidth(1000);
-         * name.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * name.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(name, HPos.CENTER);
-         * 
-         * Label id = new Label("USC ID");
-         * id.setFont(new Font(14));
-         * id.setMaxWidth(1000);
-         * id.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * id.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(id, HPos.CENTER);
-         * 
-         * Label classification = new Label("Classification");
-         * classification.setFont(new Font(14));
-         * classification.setMaxWidth(1000);
-         * classification.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * classification.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(classification, HPos.CENTER);
-         * 
-         * Label major = new Label("Major");
-         * major.setFont(new Font(14));
-         * major.setMaxWidth(1000);
-         * major.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * major.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(major, HPos.CENTER);
-         * 
-         * Label applicationArea = new Label("Application Area");
-         * applicationArea.setFont(new Font(14));
-         * applicationArea.setMaxWidth(1000);
-         * applicationArea.setBackground(new Background(new
-         * BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
-         * applicationArea.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(applicationArea, HPos.CENTER);
-         * 
-         * Label advisor = new Label("Advisor");
-         * advisor.setFont(new Font(14));
-         * advisor.setMaxWidth(1000);
-         * advisor.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * advisor.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(advisor, HPos.CENTER);
-         * 
-         * Label gpa = new Label("GPA");
-         * gpa.setFont(new Font(14));
-         * gpa.setMaxWidth(1000);
-         * gpa.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * gpa.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(gpa, HPos.CENTER);
-         * 
-         * Label phoneNumber = new Label("Phone Number");
-         * phoneNumber.setFont(new Font(14));
-         * phoneNumber.setMaxWidth(1000);
-         * phoneNumber.setBackground(new Background(new BackgroundFill(Color.DARKRED,
-         * CornerRadii.EMPTY, Insets.EMPTY)));
-         * phoneNumber.setMaxHeight(grid_studentInfo.getMaxHeight());
-         * GridPane.setHalignment(phoneNumber, HPos.CENTER);
-         */
-
-        // grid_studentInfo.add(name, 0,0);
-        // grid_studentInfo.add(id,0,1);
-        // grid_studentInfo.add(classification,0,2);
-        // grid_studentInfo.add(major,0,3);
         grid_studentInfo.add(studentTitle, 1, 0);
         grid_studentInfo.add(studentID, 1, 1);
         grid_studentInfo.add(studentClassification, 1, 2);
         grid_studentInfo.add(studentMajor, 1, 3);
-        // grid_studentInfo.add(applicationArea, 2, 0);
-        // grid_studentInfo.add(advisor, 2, 1);
-        // grid_studentInfo.add(gpa, 2, 2);
-        // grid_studentInfo.add(phoneNumber,2,3);
         grid_studentInfo.add(studentApplicationArea, 3, 0);
         grid_studentInfo.add(studentAdvisor, 3, 1);
         grid_studentInfo.add(studentGPA, 3, 2);
