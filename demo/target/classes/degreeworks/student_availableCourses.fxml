@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,15 +15,23 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.student_availableCoursesController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="677.0" fitWidth="1109.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/library.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="330.0" prefWidth="1000.0" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <!-- Header -->
             <HBox prefHeight="50.0" prefWidth="800.0" spacing="700.0" style="-fx-background-color: rgb(0, 0, 0);">
+               <!-- University logo -->
                <children>
                   <ImageView fitHeight="47.0" fitWidth="200.0">
                      <image>
                         <Image url="@../images/uOfSc.png" />
                      </image>
                   </ImageView>
+                  <!-- Logout button and page title -->
                   <VBox alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="100.0" spacing="5.0">
                      <children>
                         <Button mnemonicParsing="false" onMouseClicked="#onLogOutClicked" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #000000;" styleClass="logoutButton" text="Log Out" textFill="WHITE" />
@@ -31,6 +40,7 @@
                   </VBox>
                </children>
             </HBox>
+            <!-- Navigation buttons -->
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="1000.0" spacing="15.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
                   <Button mnemonicParsing="false" onAction="#homeClicked" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: rgb(255, 255, 255);" text="Home" />
@@ -42,32 +52,35 @@
                   <Button mnemonicParsing="false" onAction="#commentsClicked" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
                </children>
             </HBox>
-            <ScrollPane fx:id="allCoursesScrollPane" maxHeight="373.0" maxWidth="557.0" minHeight="50.0" minWidth="50.0" prefHeight="373.0" prefWidth="557.0" translateX="150.0" translateY="100.0">
-               <content>
-                  <AnchorPane>
-                     <children>
-                        <GridPane fx:id="allCoursesPane" alignment="CENTER" prefHeight="90.0" prefWidth="557.0">
-                            <!-- Add your GridPane content here -->
-                            <!-- Ensure your GridPane content fills up appropriately -->
-                            <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="163.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </ScrollPane>
-            <!--<ImageView fitHeight="504.0" fitWidth="1000.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../images/library.jpg" />
-               </image>
-            </ImageView>-->
+            <!-- Search bar -->
+            <HBox alignment="CENTER" prefHeight="109.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: rgb(115, 0, 10);">
+               <children>
+                  <TextField fx:id="searchTextField" alignment="CENTER" prefHeight="50.0" prefWidth="190.0" promptText="Search for classes..." />
+                  <Button onAction="#searchButtonClicked" prefHeight="25.0" prefWidth="114.0" text="Search" />
+               </children>
+            </HBox>
          </children>
       </VBox>
+      <!-- Scrollable content area -->
+      <ScrollPane fx:id="allCoursesScrollPane" layoutX="222.0" layoutY="213.0" maxHeight="373.0" maxWidth="557.0" minHeight="50.0" minWidth="50.0" prefHeight="373.0" prefWidth="557.0">
+         <content>
+            <AnchorPane>
+               <children>
+                  <GridPane fx:id="allCoursesPane" alignment="CENTER" prefHeight="90.0" prefWidth="557.0">
+                      <!-- Add your GridPane content here -->
+                      <!-- Ensure your GridPane content fills up appropriately -->
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="163.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
