@@ -3,7 +3,7 @@
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "95379828-55e3-4dd9-b353-0da9a02ca7bb",
+        "degree": "c97994e8-9454-424c-8e36-4050eeee7e85",
         "current_semester": {
             "credit_limit": 7,
             "season": "FALL",
@@ -29,13 +29,13 @@
         "first_name": "Brax",
         "username": "bwest1",
         "usc_id": "X33457891",
-        "advising_notes": "nullnullnullnullnullnullnullnullnull"
+        "advising_notes": ""
     },
     {
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "5be5053b-6431-48f0-823c-59eeef5f1b0a",
+        "degree": "0e43e119-b5ed-4b70-809f-854378fb0d67",
         "current_semester": {
             "credit_limit": 7,
             "season": "SPRING",
@@ -61,13 +61,13 @@
         "first_name": "James",
         "username": "bwest",
         "usc_id": "X33457891",
-        "advising_notes": "nullnullnullnullnullnullnullnullnull"
+        "advising_notes": ""
     },
     {
         "completed_courses": {},
         "year": "Freshman",
         "total_credits": "0",
-        "degree": "d8e867db-22db-484a-b6c4-1d39d3623598",
+        "degree": "2b995899-199a-4e84-83be-9ee9298c2395",
         "current_semester": {
             "credit_limit": 120,
             "season": "FALL",
@@ -86,6 +86,31 @@
         "first_name": "asdf",
         "username": "adsf",
         "usc_id": "unassigned",
-        "advising_notes": "nullnullnullnullnullnullnullno comments"
+        "advising_notes": ""
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "spatafora",
+        "type": "Student",
+        "uuid": "8a3edf40-2d14-4cf2-bd10-5273c8d410fd",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "df1ebc91-9c0b-4df8-bb34-3e8f4ae72a40",
+        "password": "123",
+        "phone": "1",
+        "gpa": 0.0,
+        "first_name": "vito",
+        "username": "vspat",
+        "usc_id": "unassigned",
+        "advising_notes": "no comments"
     }
 ]
