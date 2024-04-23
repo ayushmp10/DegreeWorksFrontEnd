@@ -144,10 +144,6 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONObject createCompletedCoursesObject(HashMap<Course, String> completedCourses) {
-        if (completedCourses == null) {
-            return new JSONObject();
-        }
-
         HashMap<String, String> completedCoursesUUID = new HashMap<String, String>();
         // get each entry in the hashmap while holding the course and the grade together
         for (Map.Entry<Course, String> completedCourse : completedCourses.entrySet()) {

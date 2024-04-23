@@ -178,6 +178,8 @@ public class Student extends User {
     public void setCompletedCourses(HashMap<Course, String> completedCourses) {
         if (completedCourses != null)
             this.completedCourses = completedCourses;
+        else 
+            this.completedCourses = new HashMap<Course, String>();
     }
 
     public void setDegree(Degree degree) {
