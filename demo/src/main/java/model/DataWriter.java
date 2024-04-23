@@ -151,9 +151,6 @@ public class DataWriter extends DataConstants {
         HashMap<String, String> completedCoursesUUID = new HashMap<String, String>();
         // get each entry in the hashmap while holding the course and the grade together
         for (Map.Entry<Course, String> completedCourse : completedCourses.entrySet()) {
-            if (completedCourse.getKey() == null) {
-                break;
-            }
             String courseUUID = completedCourse.getKey().getUUID().toString();
             String grade = completedCourse.getValue();
             completedCoursesUUID.put(courseUUID, grade);
@@ -182,9 +179,6 @@ public class DataWriter extends DataConstants {
             JSONArray coursesArray = new JSONArray();
             ArrayList<Course> semesterCourses = semester.getCourses();
             for (Course course : semesterCourses) {
-                if (course == null) {
-                    break;
-                }
                 coursesArray.add(course.getUUID().toString());
             }
             semesterMap.put(SEMESTER_COURSES, coursesArray);

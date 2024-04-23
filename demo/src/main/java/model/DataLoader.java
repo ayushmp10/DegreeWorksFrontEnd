@@ -46,8 +46,8 @@ public class DataLoader extends DataConstants {
 						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
 						Advisor advisor = (Advisor) allUsers.get(0);
 						// Guardian guardian = (Guardian) allUsers.get(1);
-						String completedCredits = Long.toString((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS));
-						String totalCredits = Long.toString((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS));
+						String completedCredits = (String) userJSONObject.get(STUDENT_COMPLETED_CREDITS);
+						String totalCredits = (String) userJSONObject.get(STUDENT_TOTAL_CREDITS);
 						Double gpa = (Double) userJSONObject.get(STUDENT_GPA);
 						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
 						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
