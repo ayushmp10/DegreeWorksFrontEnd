@@ -1,1 +1,91 @@
-[]
+[
+    {
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "dc6028bf-a8e4-45ef-933d-a9e895b94a92",
+        "current_semester": {
+            "credit_limit": 7,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2025
+        },
+        "last_name": "james",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
+        "all_semesters": [
+            {
+                "credit_limit": 7,
+                "season": "FALL",
+                "courses": [],
+                "semester_year": 2024
+            }
+        ],
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "password": "password",
+        "phone": "bwest@email.sc.edu",
+        "gpa": 3.0,
+        "first_name": "Brax",
+        "username": "bwest1",
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnull"
+    },
+    {
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "2514d10f-4208-43e7-be87-bb571771b430",
+        "current_semester": {
+            "credit_limit": 7,
+            "season": "SPRING",
+            "courses": [],
+            "semester_year": 2025
+        },
+        "last_name": "West",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
+        "all_semesters": [
+            {
+                "credit_limit": 7,
+                "season": "FALL",
+                "courses": [],
+                "semester_year": 2024
+            }
+        ],
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "password": "password",
+        "phone": "bwest@email.sc.edu",
+        "gpa": 3.0,
+        "first_name": "James",
+        "username": "bwest",
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnull"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "e9875296-e3f0-471a-be11-8ebbc3d1854f",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "asdf",
+        "type": "Student",
+        "uuid": "06c84d60-22e2-4965-9d54-f6339d07cc37",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "34b5fdf2-e84a-473f-bf40-283be9b8ff0d",
+        "password": "123",
+        "phone": "ad",
+        "gpa": 0.0,
+        "first_name": "asdf",
+        "username": "adsf",
+        "usc_id": "unassigned",
+        "advising_notes": "nullno comments"
+    }
+]
