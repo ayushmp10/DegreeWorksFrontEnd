@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -57,7 +58,7 @@ public class student_homeController implements Initializable {
 
         Label studentClassification = new Label(currStudent.getYear());
         studentClassification.setFont(new Font(20));
-        studentClassification.setMaxWidth(1000);
+        studentClassification.setMaxWidth(grid_studentInfo.getMaxWidth());
         studentClassification.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentClassification.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentClassification, HPos.CENTER);
