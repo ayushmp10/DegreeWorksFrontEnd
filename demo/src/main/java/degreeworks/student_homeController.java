@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -43,9 +42,7 @@ public class student_homeController implements Initializable {
         studentTitle.setFont(new Font(20));
         studentTitle.setMaxWidth(1000);
         studentTitle.setMaxHeight(grid_studentInfo.getMaxHeight());
-        studentTitle.setMinHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentTitle, HPos.CENTER);
-        studentTitle.setAlignment(Pos.CENTER);
 
         Label studentID = new Label(currStudent.getUSCID());
         studentID.setFont(new Font(20));
@@ -53,7 +50,6 @@ public class student_homeController implements Initializable {
         studentID.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentID.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentID, HPos.CENTER);
-        studentID.setAlignment(Pos.CENTER);
 
         Label studentClassification = new Label(currStudent.getYear());
         studentClassification.setFont(new Font(20));
@@ -61,8 +57,6 @@ public class student_homeController implements Initializable {
         studentClassification.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentClassification.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentClassification, HPos.CENTER);
-        studentClassification.setAlignment(Pos.CENTER);
-
 
         Label studentMajor = new Label(currStudent.getDegree().getSubject());
         studentMajor.setFont(new Font(20));
@@ -70,8 +64,6 @@ public class student_homeController implements Initializable {
         studentMajor.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentMajor.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentMajor, HPos.CENTER);
-        studentMajor.setAlignment(Pos.CENTER);
-
 
         Label studentApplicationArea = new Label(currStudent.getApplicationArea());
         studentApplicationArea.setFont(new Font(20));
@@ -79,8 +71,6 @@ public class student_homeController implements Initializable {
         studentApplicationArea.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentApplicationArea.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentApplicationArea, HPos.CENTER);
-        studentApplicationArea.setAlignment(Pos.CENTER);
-
 
         String studentAdvisorName = "none";
         for (Advisor advisor : allAdvisors) {
@@ -95,8 +85,6 @@ public class student_homeController implements Initializable {
         studentAdvisor.setMaxHeight(grid_studentInfo.getMaxHeight());
         studentAdvisor.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         GridPane.setHalignment(studentAdvisor, HPos.CENTER);
-        studentAdvisor.setAlignment(Pos.CENTER);
-
 
         Label studentGPA = new Label(Double.toString(currStudent.getGPA()));
         studentGPA.setFont(new Font(20));
@@ -104,8 +92,6 @@ public class student_homeController implements Initializable {
         studentGPA.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentGPA.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentGPA, HPos.CENTER);
-        studentGPA.setAlignment(Pos.CENTER);
-
 
         Label studentPhoneNumber = new Label(currStudent.getPhoneNumber());
         studentPhoneNumber.setFont(new Font(20));
@@ -113,10 +99,7 @@ public class student_homeController implements Initializable {
         studentPhoneNumber.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         studentPhoneNumber.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(studentPhoneNumber, HPos.CENTER);
-        studentPhoneNumber.setAlignment(Pos.CENTER);
 
-
-        /* 
         Label name = new Label("Student Name");
         name.setFont(new Font(20));
         name.setMaxWidth(1000);
@@ -172,25 +155,23 @@ public class student_homeController implements Initializable {
         phoneNumber.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
         phoneNumber.setMaxHeight(grid_studentInfo.getMaxHeight());
         GridPane.setHalignment(phoneNumber, HPos.CENTER);
-        */
 
-        //grid_studentInfo.add(name, 0,0);
-        //grid_studentInfo.add(id,0,1);
-        //grid_studentInfo.add(classification,0,2);
-        //grid_studentInfo.add(major,0,3);
+        grid_studentInfo.add(name, 0,0);
+        grid_studentInfo.add(id,0,1);
+        grid_studentInfo.add(classification,0,2);
+        grid_studentInfo.add(major,0,3);
         grid_studentInfo.add(studentTitle, 1, 0);
         grid_studentInfo.add(studentID, 1, 1);
         grid_studentInfo.add(studentClassification, 1, 2);
         grid_studentInfo.add(studentMajor, 1, 3);
-        //grid_studentInfo.add(applicationArea, 2, 0);
-        //grid_studentInfo.add(advisor, 2, 1);
-        //grid_studentInfo.add(gpa, 2, 2);
-        //grid_studentInfo.add(phoneNumber,2,3);
+        grid_studentInfo.add(applicationArea, 2, 0);
+        grid_studentInfo.add(advisor, 2, 1);
+        grid_studentInfo.add(gpa, 2, 2);
+        grid_studentInfo.add(phoneNumber,2,3);
         grid_studentInfo.add(studentApplicationArea,3,0);
         grid_studentInfo.add(studentAdvisor,3,1);
         grid_studentInfo.add(studentGPA,3,2);
         grid_studentInfo.add(studentPhoneNumber,3,3);
-        
     }
 
     private Advisor findAdvisorByID(ArrayList<Advisor> allAdvisors, UUID advisorID) {
