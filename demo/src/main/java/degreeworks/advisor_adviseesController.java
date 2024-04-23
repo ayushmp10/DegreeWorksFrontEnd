@@ -70,7 +70,14 @@ public class advisor_adviseesController implements Initializable {
         studentName.setStyle("-fx-font-weight: bold");
         studentName.setAlignment(Pos.CENTER);
         studentInfo.getChildren().add(studentName);
+        String imagePath = "/images/student2.jpg";
     
+        // Create image view with hardcoded image path
+        ImageView imageView = new ImageView(new Image(getClass().getResource(imagePath).toExternalForm()));
+        imageView.setFitWidth(150); // Set the width of the image
+        imageView.setFitHeight(150); // Set the height of the image
+        studentInfo.getChildren().add(imageView);
+
         Label studentUSCID = new Label("USC ID: " + student.getUSCID());
         studentInfo.getChildren().add(studentUSCID);
         studentInfo.setAlignment(Pos.CENTER);
@@ -80,13 +87,7 @@ public class advisor_adviseesController implements Initializable {
         studentInfo.setAlignment(Pos.CENTER);
     
         // Hardcoded image path
-        String imagePath = "/images/student2.jpg";
-    
-        // Create image view with hardcoded image path
-        ImageView imageView = new ImageView(new Image(getClass().getResource(imagePath).toExternalForm()));
-        imageView.setFitWidth(100); // Set the width of the image
-        imageView.setFitHeight(100); // Set the height of the image
-        studentInfo.getChildren().add(imageView);
+        
     
         // Add more student information as needed
     
