@@ -93,6 +93,7 @@ public class DataWriter extends DataConstants {
         studentMap.put(STUDENT_GPA, student.getGPA());
         studentMap.put(STUDENT_COMPLETED_COURSES, createCompletedCoursesObject(student.getCompletedCourses()));
         studentMap.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
+        studentMap.put(STUDENT_TOTAL_CREDITS, student.getTotalCredits());
         studentMap.put(STUDENT_ALL_SEMESTERS, createAllSemestersObject(student.getAllSemesters()));
         studentMap.put(STUDENT_CURRENT_SEMESTER, createSemesterObject(student.getCurrSemester()));
     }
