@@ -89,7 +89,10 @@
             <Label fx:id="numberStudents" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="Number Students" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ImageView fitHeight="398.0" fitWidth="436.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" translateX="525.0" translateY="125.0" />
+      <ImageView fx:id="profileImage" fitHeight="398.0" fitWidth="436.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" translateX="525.0" translateY="125.0">
+         <image>
+            <Image url="@../images/wandaMujica.jpg" />
+         </image></ImageView>
       <Text fill="WHITE" layoutX="957.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
    </children>
 </AnchorPane>

@@ -10,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import model.Advisor;
@@ -63,26 +65,34 @@ public class advisor_adviseesController implements Initializable {
         VBox studentInfo = new VBox();
         studentInfo.setSpacing(10);
         studentInfo.setStyle("-fx-background-color: #FFFFFF");
-
+    
         Label studentName = new Label(student.getFirstName() + " " + student.getLastName());
         studentName.setStyle("-fx-font-weight: bold");
         studentName.setAlignment(Pos.CENTER);
         studentInfo.getChildren().add(studentName);
-
+    
         Label studentUSCID = new Label("USC ID: " + student.getUSCID());
         studentInfo.getChildren().add(studentUSCID);
         studentInfo.setAlignment(Pos.CENTER);
-
-
+    
         Label studentDegree = new Label("Degree: " + student.getDegree().getSubject());
         studentInfo.getChildren().add(studentDegree);
         studentInfo.setAlignment(Pos.CENTER);
-
-
+    
+        // Hardcoded image path
+        String imagePath = "/images/student2.jpg";
+    
+        // Create image view with hardcoded image path
+        ImageView imageView = new ImageView(new Image(getClass().getResource(imagePath).toExternalForm()));
+        imageView.setFitWidth(100); // Set the width of the image
+        imageView.setFitHeight(100); // Set the height of the image
+        studentInfo.getChildren().add(imageView);
+    
         // Add more student information as needed
-        
+    
         return studentInfo;
     }
+    
 
     @FXML
     private void viewAdvisees() throws IOException {
