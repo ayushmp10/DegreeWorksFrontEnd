@@ -31,6 +31,7 @@ public class student_planGeneratorController implements Initializable {
     // create 8 semester plan for a student object
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        /*
         userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         ArrayList<Semester> eightSemesterPlan = currStudent.getEightSemesterPlan();
@@ -79,6 +80,7 @@ public class student_planGeneratorController implements Initializable {
             }
             count++;
         }
+         */
     }
     @FXML
     void availableCoursesClicked() throws IOException{

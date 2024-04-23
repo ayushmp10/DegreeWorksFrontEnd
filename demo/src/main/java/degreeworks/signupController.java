@@ -80,7 +80,7 @@ public class signupController implements Initializable {
             currUser = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
             userList.addUser(currUser);
             userList.setCurrUser(currUser);
-            userList.saveUsers();
+            //userList.saveUsers();
             Utility.showAlert("Info", "User Creation", "User " + userName + " successfully created");
             clearFields();
             navigateToHomePage(profileType);

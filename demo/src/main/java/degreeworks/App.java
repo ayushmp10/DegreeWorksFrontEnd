@@ -1,6 +1,7 @@
 package degreeworks;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +37,12 @@ public class App extends Application {
 
     @Override
     public void stop() {
+        ArrayList<User> users = UserList.getInstance().getUsers();
+        for(User user : users){
+            System.out.println(user.getFirstName());
+        }
         userList.saveUsers();
+        
     }
 
     public static void main(String[] args) {
