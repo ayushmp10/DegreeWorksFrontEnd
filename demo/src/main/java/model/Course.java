@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Course {
     private UUID id;
     private String subject;
-    private int number; // section number
+    private String number; // section number
     private String name;
     private String description;
     private int creditHours;
@@ -53,15 +53,10 @@ public class Course {
 
     public void setNumber(String number) {
         if (number.isBlank()) {
-            this.number = 0 ;
+            this.number = "101";
         }
-
-        String strNumber[] = number.split(".");
-        if (strNumber.length > 0) {
-            this.number = Integer.valueOf(strNumber[0]);
-        } else {
-            this.number = Integer.valueOf(number);
-        }
+        this.number = number;
+        
     }
 
     public void setPrequisites(ArrayList<Prerequisites> prereqs) {
@@ -118,7 +113,7 @@ public class Course {
         return this.id;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return this.number;
     }
 
