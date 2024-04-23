@@ -3,7 +3,7 @@
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "1a3cf8c6-077c-4cbb-aa22-51e3819e1909",
+        "degree": "95379828-55e3-4dd9-b353-0da9a02ca7bb",
         "current_semester": {
             "credit_limit": 7,
             "season": "FALL",
@@ -29,13 +29,13 @@
         "first_name": "Brax",
         "username": "bwest1",
         "usc_id": "X33457891",
-        "advising_notes": "nullnull"
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
     },
     {
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "ee33aa97-2c36-433d-991f-072d9e57e6ac",
+        "degree": "5be5053b-6431-48f0-823c-59eeef5f1b0a",
         "current_semester": {
             "credit_limit": 7,
             "season": "SPRING",
@@ -61,13 +61,13 @@
         "first_name": "James",
         "username": "bwest",
         "usc_id": "X33457891",
-        "advising_notes": "nullnull"
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
     },
     {
         "completed_courses": {},
         "year": "Freshman",
         "total_credits": "0",
-        "degree": "9e1e76f1-19fb-4fe9-a741-639f551df89a",
+        "degree": "d8e867db-22db-484a-b6c4-1d39d3623598",
         "current_semester": {
             "credit_limit": 120,
             "season": "FALL",
@@ -86,6 +86,6 @@
         "first_name": "asdf",
         "username": "adsf",
         "usc_id": "unassigned",
-        "advising_notes": "no comments"
+        "advising_notes": "nullnullnullnullnullnullnullno comments"
     }
 ]
