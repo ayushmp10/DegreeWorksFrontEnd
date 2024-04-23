@@ -33,6 +33,7 @@ public class student_commentsController implements Initializable {
         if(comment.getText()!=null){
             currStudent.setAdvisorNotes(comment.getText());
             submit.setText("Submitted");
+            comment.clear();
         }
     }
 
