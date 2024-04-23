@@ -304,11 +304,11 @@ public class Student extends User {
     }
 
     public String getEightSemesterPlanToString() {
-        String eightSemesterPlan = "";
+        String eightSemesterPlanString = "";
         for (Semester semester : this.eightSemesterPlan) {
-            eightSemesterPlan += "\n" + semester.toString();
+            eightSemesterPlanString += "\n" + semester.toString();
         }
-        return eightSemesterPlan;
+        return eightSemesterPlanString;
     }
 
     public ArrayList<Semester> getEightSemesterPlan() {
