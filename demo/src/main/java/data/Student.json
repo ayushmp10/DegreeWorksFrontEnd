@@ -1,6 +1,9 @@
 [
     {
-        "last_name": "james",
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "95379828-55e3-4dd9-b353-0da9a02ca7bb",
         "current_semester": {
             "season": "Fall",
             "credit_limit": 7,
@@ -45,12 +48,14 @@
         "phone": "bwest@email.sc.edu",
         "status": "active",
         "username": "bwest1",
-        "total_credits": 123,
-        "completed_credits": 20,
-        "guardian": "e6dd99ae-68d5-4fc2-aa72-f339cdc1c920"
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
     },
     {
-        "last_name": "West",
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "5be5053b-6431-48f0-823c-59eeef5f1b0a",
         "current_semester": {
             "season": "SPRING",
             "credit_limit": 7,
@@ -95,8 +100,32 @@
         "phone": "bwest@email.sc.edu",
         "status": "active",
         "username": "bwest",
-        "total_credits": 123,
-        "completed_credits": 20,
-        "guardian": "e6dd99ae-68d5-4fc2-aa72-f339cdc1c920"
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "d8e867db-22db-484a-b6c4-1d39d3623598",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "asdf",
+        "type": "Student",
+        "uuid": "06c84d60-22e2-4965-9d54-f6339d07cc37",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "34b5fdf2-e84a-473f-bf40-283be9b8ff0d",
+        "password": "123",
+        "phone": "ad",
+        "gpa": 0.0,
+        "first_name": "asdf",
+        "username": "adsf",
+        "usc_id": "unassigned",
+        "advising_notes": "nullnullnullnullnullnullnullno comments"
     }
 ]
