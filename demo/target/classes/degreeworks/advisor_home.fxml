@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-600" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.advisor_homeController">
@@ -56,21 +57,42 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: gray;" text="Name" />
-            <Label alignment="CENTER" prefHeight="88.0" prefWidth="218.0" style="-fx-background-color: gray;" text="Building" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="82.0" prefWidth="218.0" style="-fx-background-color: gray;" text="Number of Students" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" prefHeight="82.0" prefWidth="218.0" style="-fx-background-color: gray;" text="Majors Advising" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" prefHeight="88.0" prefWidth="218.0" style="-fx-background-color: gray;" text="Room Number" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" prefHeight="98.0" prefWidth="218.0" style="-fx-background-color: gray;" text="College" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="College of Engineering and Computing" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="CS, CIS, IIT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="advisorName" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="Advisor Name" GridPane.columnIndex="1" />
-            <Label fx:id="buildingName" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="Building Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="roomNumber" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="Room Number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="numberStudents" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" text="Number Students" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="80.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="Name:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="88.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="Building:" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="82.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="Number of Students:" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="82.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="Majors Advising:" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="88.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="Room Number:" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="98.0" prefWidth="218.0" style="-fx-background-color: rgb(115, 0, 10);" text="College:" textFill="WHITE" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font></Label>
+            <Label alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="College of Engineering and Computing" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="CS, CIS, IIT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="advisorName" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="Advisor Name" GridPane.columnIndex="1" />
+            <Label fx:id="buildingName" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="Building Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="roomNumber" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="Room Number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="numberStudents" alignment="CENTER" prefHeight="70.0" prefWidth="241.0" style="-fx-background-color: #FFFFFF;" text="Number Students" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ImageView fitHeight="398.0" fitWidth="436.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" translateX="525.0" translateY="125.0" />
+      <ImageView fx:id="profileImage" fitHeight="398.0" fitWidth="436.0" layoutX="24.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" translateX="525.0" translateY="125.0">
+         <image>
+            <Image url="@../images/wandaMujica.jpg" />
+         </image></ImageView>
       <Text fill="WHITE" layoutX="957.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
    </children>
 </AnchorPane>

@@ -32,6 +32,7 @@ public class test {
         //System.out.println(allAdvisors.size());
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
+        System.out.println(users.size());
         for (User user : users) {
             System.out.println(user.getFirstName());
         }

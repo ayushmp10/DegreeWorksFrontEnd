@@ -2,6 +2,7 @@ package degreeworks;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
@@ -78,9 +79,17 @@ public class signupController implements Initializable {
         // create user and handle exceptions
         try {
             currUser = createUser(firstName, lastName, phoneNumber, VIPId, userName, password, profileType);
-            userList.addUser(currUser);
+            if (currUser instanceof Student) {
+                Student tempStudent = (Student) currUser;
+                HashMap<Course, String> completedCourses = new HashMap<Course, String>();
+                tempStudent.setCompletedCourses(completedCourses);
+                userList.addUser(tempStudent);
+            }
+            else {
+                userList.addUser(currUser);
+            }
             userList.setCurrUser(currUser);
-            userList.saveUsers();
+            //userList.saveUsers();
             Utility.showAlert("Info", "User Creation", "User " + userName + " successfully created");
             clearFields();
             navigateToHomePage(profileType);

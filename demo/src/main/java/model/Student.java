@@ -41,6 +41,8 @@ public class Student extends User {
     private ArrayList<Semester> eightSemesterPlan = new ArrayList<Semester>();
     private double gpa;
 
+    private CourseList courseList;
+
     // need to add advisor and guardian
     public Student(UUID id, String username, String password, String firstName,
             String lastName, String year, Degree degree,
@@ -80,8 +82,13 @@ public class Student extends User {
         this.applicationArea = "none";
         this.USCid = "unassigned";
         this.adviseeNotes = "no comments";
-        this.currSemester = null;
-        this.allSemesters = null;
+
+        // set up default values for datawriter
+        this.currSemester = new Semester("Fall", 2024, 120, new ArrayList<Course>());
+        this.allSemesters = new ArrayList<Semester>();
+        courseList = CourseList.getInstance();
+        completedCourses = new HashMap<Course, String>();
+        completedCourses.put(courseList.getCourse("554472ab-c7cb-4ac6-bf69-0d8b58a99d3d"), "A");
     }
 
     private ArrayList<Course> getCurrentCourses() {
@@ -107,6 +114,9 @@ public class Student extends User {
     }
 
     public Degree getDegree() {
+        if (degree == null) {
+            degree = new Degree();
+        }
         return this.degree;
     }
 
@@ -178,6 +188,8 @@ public class Student extends User {
     public void setCompletedCourses(HashMap<Course, String> completedCourses) {
         if (completedCourses != null)
             this.completedCourses = completedCourses;
+        else 
+            this.completedCourses = new HashMap<Course, String>();
     }
 
     public void setDegree(Degree degree) {

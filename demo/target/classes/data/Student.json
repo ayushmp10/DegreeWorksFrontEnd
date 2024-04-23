@@ -1,102 +1,91 @@
 [
     {
-        "last_name": "james",
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "95379828-55e3-4dd9-b353-0da9a02ca7bb",
         "current_semester": {
-            "season": "Fall",
             "credit_limit": 7,
-            "courses": [
-                "732e0849-4531-43d5-ae8e-363b59958631",
-                "66089424-f471-402b-93de-660c04a87675",
-                "fd91716d-1525-4d0a-a7ef-1a17b505d76a"
-            ],
+            "season": "FALL",
+            "courses": [],
             "semester_year": 2025
         },
-        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
-        "notes": [
-            "Brax is a great student",
-            "Brax is a hard worker",
-            "Brax should consider taking more classes next semester"
-        ],
+        "last_name": "james",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
         "all_semesters": [
             {
-                "season": "FALL",
                 "credit_limit": 7,
-                "courses": [
-                    "0ee3fc1c-ec19-4637-aeb5-614577b6d22f",
-                    "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd",
-                    "3cca9c4e-a195-4759-a761-cfe09adb20b8"
-                ],
+                "season": "FALL",
+                "courses": [],
                 "semester_year": 2024
             }
         ],
-        "degree": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
-        "gpa": 3.0,
-        "type": "Student",
-        "year": "JUNIOR",
-        "usc_id": "X33457891",
-        "first_name": "Brax",
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
         "password": "password",
-        "completed_courses": {
-            "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd": "A",
-            "0ee3fc1c-ec19-4637-aeb5-614577b6d22f": "C",
-            "3cca9c4e-a195-4759-a761-cfe09adb20b8": "F"
-        },
-        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
         "phone": "bwest@email.sc.edu",
-        "status": "active",
-        "username": "bwest",
-        "total_credits": 123,
-        "completed_credits": 20,
-        "guardian": "e6dd99ae-68d5-4fc2-aa72-f339cdc1c920"
+        "gpa": 3.0,
+        "first_name": "Brax",
+        "username": "bwest1",
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
     },
     {
-        "last_name": "West",
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "5be5053b-6431-48f0-823c-59eeef5f1b0a",
         "current_semester": {
-            "season": "SPRING",
             "credit_limit": 7,
-            "courses": [
-                "732e0849-4531-43d5-ae8e-363b59958631",
-                "66089424-f471-402b-93de-660c04a87675",
-                "fd91716d-1525-4d0a-a7ef-1a17b505d76a"
-            ],
+            "season": "SPRING",
+            "courses": [],
             "semester_year": 2025
         },
-        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
-        "notes": [
-            "Brax is a great student",
-            "Brax is a hard worker",
-            "Brax should consider taking more classes next semester"
-        ],
+        "last_name": "West",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
         "all_semesters": [
             {
-                "season": "FALL",
                 "credit_limit": 7,
-                "courses": [
-                    "0ee3fc1c-ec19-4637-aeb5-614577b6d22f",
-                    "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd",
-                    "3cca9c4e-a195-4759-a761-cfe09adb20b8"
-                ],
+                "season": "FALL",
+                "courses": [],
                 "semester_year": 2024
             }
         ],
-        "degree": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
-        "gpa": 3.0,
-        "type": "Student",
-        "year": "JUNIOR",
-        "usc_id": "X33457891",
-        "first_name": "James",
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
         "password": "password",
-        "completed_courses": {
-            "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd": "A",
-            "0ee3fc1c-ec19-4637-aeb5-614577b6d22f": "C",
-            "3cca9c4e-a195-4759-a761-cfe09adb20b8": "F"
-        },
-        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
         "phone": "bwest@email.sc.edu",
-        "status": "active",
+        "gpa": 3.0,
+        "first_name": "James",
         "username": "bwest",
-        "total_credits": 123,
-        "completed_credits": 20,
-        "guardian": "e6dd99ae-68d5-4fc2-aa72-f339cdc1c920"
+        "usc_id": "X33457891",
+        "advising_notes": "nullnullnullnullnullnullnullnullnull"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "d8e867db-22db-484a-b6c4-1d39d3623598",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "asdf",
+        "type": "Student",
+        "uuid": "06c84d60-22e2-4965-9d54-f6339d07cc37",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "34b5fdf2-e84a-473f-bf40-283be9b8ff0d",
+        "password": "123",
+        "phone": "ad",
+        "gpa": 0.0,
+        "first_name": "asdf",
+        "username": "adsf",
+        "usc_id": "unassigned",
+        "advising_notes": "nullnullnullnullnullnullnullno comments"
     }
 ]
