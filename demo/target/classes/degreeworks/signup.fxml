@@ -17,12 +17,12 @@
             <Image url="@../images/LoginImagePage.jpg" />
          </image>
       </ImageView>
-      <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="65.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="329.0" layoutX="352.0" layoutY="105.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" width="296.0" />
       <Text layoutX="385.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="115.6865234375" />
-      <Text layoutX="385.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIP ID:" wrappingWidth="115.6865234375" />
+      <Text layoutX="385.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USC ID:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Type:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="115.6865234375" />
       <Text layoutX="385.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="115.6865234375" />
@@ -39,7 +39,7 @@
       <PasswordField id="txt_password" fx:id="txt_password" layoutX="500.0" layoutY="316.0" prefHeight="26.0" prefWidth="116.0" promptText="1234" />
       <PasswordField id="txt_confirmPassword" fx:id="txt_confirmPassword" layoutX="500.0" layoutY="349.0" prefHeight="26.0" prefWidth="116.0" promptText="1234" />
       <Button fx:id="btnSignUp" layoutX="424.0" layoutY="393.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="153.0" text="Sign Up" />
-      <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="7.0" layoutY="9.0">
+      <ImageView fitHeight="47.0" fitWidth="200.0" layoutY="2.0">
          <image>
             <Image url="@../images/uOfSc.png" />
          </image>
