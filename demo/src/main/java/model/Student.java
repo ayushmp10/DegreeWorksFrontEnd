@@ -114,6 +114,9 @@ public class Student extends User {
     }
 
     public Degree getDegree() {
+        if (degree == null) {
+            degree = new Degree();
+        }
         return this.degree;
     }
 
