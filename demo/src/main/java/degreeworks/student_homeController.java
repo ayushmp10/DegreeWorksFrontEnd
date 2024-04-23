@@ -55,6 +55,7 @@ public class student_homeController implements Initializable {
         GridPane.setHalignment(studentID, HPos.CENTER);
         studentID.setAlignment(Pos.CENTER);
 
+
         Label studentClassification = new Label(currStudent.getYear());
         studentClassification.setFont(new Font(20));
         studentClassification.setMaxWidth(1000);
@@ -115,7 +116,6 @@ public class student_homeController implements Initializable {
         GridPane.setHalignment(studentPhoneNumber, HPos.CENTER);
         studentPhoneNumber.setAlignment(Pos.CENTER);
 
-
         /* 
         Label name = new Label("Student Name");
         name.setFont(new Font(20));
@@ -174,9 +174,9 @@ public class student_homeController implements Initializable {
         GridPane.setHalignment(phoneNumber, HPos.CENTER);
         */
 
-        //grid_studentInfo.add(name, 0,0);
-        //grid_studentInfo.add(id,0,1);
-        //grid_studentInfo.add(classification,0,2);
+       //grid_studentInfo.add(name, 0,0);
+       // grid_studentInfo.add(id,0,1);
+       // grid_studentInfo.add(classification,0,2);
         //grid_studentInfo.add(major,0,3);
         grid_studentInfo.add(studentTitle, 1, 0);
         grid_studentInfo.add(studentID, 1, 1);
