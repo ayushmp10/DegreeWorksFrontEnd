@@ -51,6 +51,7 @@ public class DataWriter extends DataConstants {
             userObject.put(USER_PHONE_NUMBER, user.getPhoneNumber());
             userObject.put(USER_FIRST_NAME, user.getFirstName());
             userObject.put(USER_LAST_NAME, user.getLastName());
+            userObject.put(USER_TYPE, user.getType());
             // get specific information for students, advisors and guardians
             if (user instanceof Student) {
                 getStudentInformation(userObject, (Student) user);
@@ -80,8 +81,7 @@ public class DataWriter extends DataConstants {
             studentMap.put(STUDENT_ADVISOR, "none");
         }
         // get the advisor notes for the student
-        JSONArray notes = new JSONArray();
-        notes.add(student.getAdvisorNotes());
+        String notes = student.getAdvisorNotes();
         studentMap.put(STUDENT_ADVISING_NOTES, notes);
 
         if (student.getDegree() != null) {
@@ -93,6 +93,7 @@ public class DataWriter extends DataConstants {
         studentMap.put(STUDENT_GPA, student.getGPA());
         studentMap.put(STUDENT_COMPLETED_COURSES, createCompletedCoursesObject(student.getCompletedCourses()));
         studentMap.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
+        studentMap.put(STUDENT_TOTAL_CREDITS, student.getTotalCredits());
         studentMap.put(STUDENT_ALL_SEMESTERS, createAllSemestersObject(student.getAllSemesters()));
         studentMap.put(STUDENT_CURRENT_SEMESTER, createSemesterObject(student.getCurrSemester()));
     }

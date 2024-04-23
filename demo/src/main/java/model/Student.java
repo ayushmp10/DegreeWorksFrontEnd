@@ -27,8 +27,8 @@ public class Student extends User {
     // private ArrayList<String> passedCourses = new ArrayList<String>(); // the
     // UUIDs will be stored as strings
     private String year;
-    private int completedCredits;
-    private int totalCredits;
+    private String completedCredits;
+    private String totalCredits;
     private UUID advisor;
     private UUID guardian;
     private String applicationArea;
@@ -44,13 +44,13 @@ public class Student extends User {
     // need to add advisor and guardian
     public Student(UUID id, String username, String password, String firstName,
             String lastName, String year, Degree degree,
-            int completedCredits, int totalCredits, double gpa, String phoneNumber, UUID advisor, UUID guardian,
+            String completedCredits, String totalCredits, double gpa, String phoneNumber, UUID advisor, UUID guardian,
             String USCid,
             String applicationArea, String adviseeNotes, HashMap<Course, String> completedCourses,
             Semester currSemester,
             ArrayList<Semester> allSemesters) {
 
-        super(id, username, password, firstName, lastName, phoneNumber); // Call User constructor
+        super(id, username, password, firstName, lastName, phoneNumber, "student"); // Call User constructor
         setCompletedCourses(completedCourses);
         this.year = year;
         setDegree(degree);
@@ -69,12 +69,12 @@ public class Student extends User {
     // another constructor - used for signing up
     public Student(String firstName, String lastName, String phoneNumber, String VIPid, String userName,
             String password) {
-        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber);
+        super(UUID.randomUUID(), userName, password, firstName, lastName, phoneNumber, "student");
         this.year = "Freshman";
         this.degree = new Degree();
         this.gpa = 0.0;
-        this.completedCredits = 0;
-        this.totalCredits = 0;
+        this.completedCredits = "0";
+        this.totalCredits = "0";
         this.advisor = UUID.randomUUID();
         this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
@@ -99,10 +99,10 @@ public class Student extends User {
         return this.gpa;
     }
 
-    public int getCompletedCredits() {
+    public String getCompletedCredits() {
         return this.completedCredits;
     }
-    public int getTotalCredits() {
+    public String getTotalCredits() {
         return this.totalCredits;
     }
 

@@ -12,14 +12,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
+	//public static ArrayList<Student> allStudents = new ArrayList<>();
 
 	public static ArrayList<User> loadUser() {
 		CourseList courseList = CourseList.getInstance();
 		DegreeList degreeList = DegreeList.getInstance();
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
+		
 		// HashMap<UUID, Integer> advisorToStudentMap = new HashMap<>();
-		String[] files = {ADVISOR_FILE_NAME, PARENT_FILE_NAME, STUDENT_FILE_NAME};
+		String[] files = {ADVISOR_FILE_NAME, STUDENT_FILE_NAME, PARENT_FILE_NAME};
 		for (String file : files) {
 			try {
 				FileReader fileReader = new FileReader(file);
@@ -44,9 +46,9 @@ public class DataLoader extends DataConstants {
 						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
 						Advisor advisor = (Advisor) allUsers.get(0);
 						// Guardian guardian = (Guardian) allUsers.get(1);
-						int completedCredits = ((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS)).intValue();
-						int totalCredits = ((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS)).intValue();
-						double gpa = ((Long) userJSONObject.get(STUDENT_GPA)).doubleValue();
+						String completedCredits = Long.toString((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS));
+						String totalCredits = Long.toString((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS));
+						Double gpa = (Double) userJSONObject.get(STUDENT_GPA);
 						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
 						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
 						
@@ -95,6 +97,7 @@ public class DataLoader extends DataConstants {
 														totalCredits, gpa, phoneNumber, advisorUUID, guardianUUID, studentUSCID, applicationArea,
 														notes, completedCourse, currSemester, allSemesters);
 						allUsers.add(student);
+						// allStudents.add(student);
 						advisor.addStudent(student);
 					} 
 					else if (userType.equalsIgnoreCase("advisor")) {
@@ -112,6 +115,9 @@ public class DataLoader extends DataConstants {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		for (User user : allUsers) {
+			System.out.println(user.getFirstName());
 		}
 		return allUsers;
 	}
