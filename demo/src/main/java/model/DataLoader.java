@@ -17,7 +17,6 @@ public class DataLoader extends DataConstants {
 	public static ArrayList<User> loadUser() {
 		CourseList courseList = CourseList.getInstance();
 		DegreeList degreeList = DegreeList.getInstance();
-		System.out.println();
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
 		
@@ -42,13 +41,13 @@ public class DataLoader extends DataConstants {
 						// load student information
 						String yearClass = (String) userJSONObject.get(STUDENT_YEAR);
 						UUID advisorUUID = UUID.fromString((String) userJSONObject.get(STUDENT_ADVISOR));
-						UUID guardianUUID = UUID.fromString((String) userJSONObject.get(STUDENT_GUARDIAN));
+						UUID guardianUUID = UUID.randomUUID();
 						String studentUSCID = (String) userJSONObject.get(STUDENT_USC_ID);
 						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
 						Advisor advisor = (Advisor) allUsers.get(0);
 						// Guardian guardian = (Guardian) allUsers.get(1);
-						String completedCredits = Long.toString((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS));
-						String totalCredits = Long.toString((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS));
+						String completedCredits = (String) userJSONObject.get(STUDENT_COMPLETED_CREDITS);
+						String totalCredits = (String) userJSONObject.get(STUDENT_TOTAL_CREDITS);
 						Double gpa = (Double) userJSONObject.get(STUDENT_GPA);
 						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
 						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
@@ -117,9 +116,9 @@ public class DataLoader extends DataConstants {
 				e.printStackTrace();
 			}
 		}
-		for (User user : allUsers) {
-			System.out.println(user.getFirstName());
-		}
+		// for (User user : allUsers) {
+		// 	System.out.println(user.getFirstName());
+		// }
 		return allUsers;
 	}
 	public static ArrayList<Advisor> getAdvisors() {
@@ -161,7 +160,7 @@ public class DataLoader extends DataConstants {
 			FileReader reader = new FileReader(COURSE_FILE_NAME);
 			JSONParser parser = new JSONParser();
 			JSONArray courseJSONArray = (JSONArray) new JSONParser().parse(reader);
-
+			System.out.println(courseJSONArray.size());
 			for (int i = 0; i < courseJSONArray.size(); i++) {
 				JSONObject courseJSON = (JSONObject) courseJSONArray.get(i);
 				UUID id = UUID.fromString((String) courseJSON.get(COURSE_SET_UUID));
@@ -206,7 +205,7 @@ public class DataLoader extends DataConstants {
 			e.printStackTrace(); // couldn't load the file
 		}
 
-		// empty out the queue
+		// empty out the queue - gets stuck in this loop infinitely
 		while (!courseQueue.isEmpty()) {
 			// get the first course in the queue which is tied to the prereq array
 			Pair<Course, Object> coursePair = courseQueue.poll();
@@ -218,10 +217,7 @@ public class DataLoader extends DataConstants {
 
 			for (int i = 0; i < prereqJSON.size(); i++) {
 				JSONObject prereqObject = (JSONObject) prereqJSON.get(i);
-				int choices = 0;
-				if (prereqObject.get(COURSE_PREREQUISITES) != null) {
-					choices = ((Long) prereqObject.get(COURSE_PREREQUISITES)).intValue();
-				}
+				int choices = ((Long) prereqObject.get(COURSE_PREREQUISITE_CHOICES)).intValue();
 				String minGrade = (String) prereqObject.get(COURSE_PREREQUISITES_MIN_GRADE);
 
 				ArrayList<Course> courseOptions = new ArrayList<Course>();
