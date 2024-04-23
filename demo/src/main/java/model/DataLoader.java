@@ -26,7 +26,6 @@ public class DataLoader extends DataConstants {
 			try {
 				FileReader fileReader = new FileReader(file);
 				JSONArray readerJSON = (JSONArray) new JSONParser().parse(fileReader);
-				System.out.println(file + "\n" + readerJSON.size());
 				for (int i = 0; i < readerJSON.size(); i++) {
 					// read basic user information
 					JSONObject userJSONObject = (JSONObject) readerJSON.get(i);
@@ -38,19 +37,17 @@ public class DataLoader extends DataConstants {
 					String password = (String) userJSONObject.get(USER_PASSWORD);
 					String userType = (String) userJSONObject.get(USER_TYPE);
 					if (userType.equalsIgnoreCase("student")) {
-						System.out.println(firstName);
 						// assume god advisor is the first user in the list
 						// load student information
 						String yearClass = (String) userJSONObject.get(STUDENT_YEAR);
 						UUID advisorUUID = UUID.fromString((String) userJSONObject.get(STUDENT_ADVISOR));
-						//UUID guardianUUID = UUID.fromString((String) userJSONObject.get(STUDENT_GUARDIAN));
-						UUID guardianUUID = UUID.randomUUID();
+						UUID guardianUUID = UUID.fromString((String) userJSONObject.get(STUDENT_GUARDIAN));
 						String studentUSCID = (String) userJSONObject.get(STUDENT_USC_ID);
 						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
 						Advisor advisor = (Advisor) allUsers.get(0);
 						// Guardian guardian = (Guardian) allUsers.get(1);
-						String completedCredits = (String) userJSONObject.get(STUDENT_COMPLETED_CREDITS);
-						String totalCredits = (String) userJSONObject.get(STUDENT_TOTAL_CREDITS);
+						String completedCredits = Long.toString((Long) userJSONObject.get(STUDENT_COMPLETED_CREDITS));
+						String totalCredits = Long.toString((Long) userJSONObject.get(STUDENT_TOTAL_CREDITS));
 						Double gpa = (Double) userJSONObject.get(STUDENT_GPA);
 						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
 						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
@@ -102,7 +99,6 @@ public class DataLoader extends DataConstants {
 						allUsers.add(student);
 						// allStudents.add(student);
 						advisor.addStudent(student);
-						System.out.println("adding" + student.getFirstName());
 					} 
 					else if (userType.equalsIgnoreCase("advisor")) {
 						// get advisor information
