@@ -23,7 +23,7 @@
             {
                 "type": "AIU",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "277c57bf-d5b8-4a69-941f-0f494c30d99e": 1,
                     "5844e157-e966-4ca8-a60b-a86f76903c6d": 1,
                     "c08a8c04-7729-401a-820f-6c737c196344": 1,
@@ -39,7 +39,7 @@
             {
                 "type": "CMW",
                 "credit_required": 6,
-                "couse_choice": {
+                "course_options": {
                     "12224407-e656-4fe7-9078-88f1d9dc8325": 1,
                     "980e1056-4ed2-4459-b0e7-56d78eca5d73": 2
                 }
@@ -47,7 +47,7 @@
             {
                 "type": "ARP",
                 "credit_required": 6,
-                "couse_choice": {
+                "course_options": {
                     "0ee3fc1c-ec19-4637-aeb5-614577b6d22f": 1,
                     "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd": 1,
                     "f8e10b3a-146b-4d43-a3d8-647028c98641": 2,
@@ -58,7 +58,7 @@
             {
                 "type": "SCI",
                 "credit_required": 7,
-                "couse_choice": {
+                "course_options": {
                     "732e0849-4531-43d5-ae8e-363b59958631": 1,
                     "66089424-f471-402b-93de-660c04a87675": 1,
                     "29da7b4f-2964-4c06-9280-d3227effb4a3": 2,
@@ -70,7 +70,7 @@
             {
                 "type": "GHS",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "d9ee653d-4c4f-4943-857c-9ad95bea5264": 8,
                     "a95abe13-0083-437a-8cd0-1a1b6d9a2489": 8,
                     "be9a6e7b-96a7-44b4-ba47-f21a9423d912": 8,
@@ -84,7 +84,7 @@
             {
                 "type": "GSS",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "193087e4-a523-4b5f-9ce2-3aa1b5e614b3": 4,
                     "bc972a06-0b71-448b-b80f-66ffd3633ca5": 4,
                     "4506ec04-ba37-4485-8ead-fe49292ebcbf": 4,
@@ -97,7 +97,7 @@
             {
                 "type": "INF",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "980e1056-4ed2-4459-b0e7-56d78eca5d73": 1,
                     "5484763f-4dd9-4efe-86fb-b901153d75c1": 1,
                     "b3babeb4-15a1-47ba-b192-36b2e4a4bc84": 1,
@@ -108,7 +108,7 @@
             {
                 "type": "VSR",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "76964cab-f5e3-4889-9aa5-570f7f66b925": 1,
                     "ff184e9a-7b3e-4d57-92c2-3d67608e5833": 1,
                     "5373fc69-1e41-4570-a723-99e6581a4a4c": 1,
@@ -143,7 +143,7 @@
             {
                 "type": "AIU",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "277c57bf-d5b8-4a69-941f-0f494c30d99e": 1,
                     "5844e157-e966-4ca8-a60b-a86f76903c6d": 1,
                     "c08a8c04-7729-401a-820f-6c737c196344": 1,
@@ -159,7 +159,7 @@
             {
                 "type": "CMW",
                 "credit_required": 6,
-                "couse_choice": {
+                "course_options": {
                     "12224407-e656-4fe7-9078-88f1d9dc8325": 1,
                     "980e1056-4ed2-4459-b0e7-56d78eca5d73": 2
                 }
@@ -167,7 +167,7 @@
             {
                 "type": "ARP",
                 "credit_required": 6,
-                "couse_choice": {
+                "course_options": {
                     "0ee3fc1c-ec19-4637-aeb5-614577b6d22f": 1,
                     "ceb7cd60-abcc-4bc1-a3b1-a30b81a824cd": 1,
                     "f8e10b3a-146b-4d43-a3d8-647028c98641": 2,
@@ -178,7 +178,7 @@
             {
                 "type": "SCI",
                 "credit_required": 7,
-                "couse_choice": {
+                "course_options": {
                     "732e0849-4531-43d5-ae8e-363b59958631": 1,
                     "66089424-f471-402b-93de-660c04a87675": 1,
                     "29da7b4f-2964-4c06-9280-d3227effb4a3": 2,
@@ -190,7 +190,7 @@
             {
                 "type": "GHS",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "d9ee653d-4c4f-4943-857c-9ad95bea5264": 8,
                     "a95abe13-0083-437a-8cd0-1a1b6d9a2489": 8,
                     "be9a6e7b-96a7-44b4-ba47-f21a9423d912": 8,
@@ -204,7 +204,7 @@
             {
                 "type": "GSS",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "193087e4-a523-4b5f-9ce2-3aa1b5e614b3": 4,
                     "bc972a06-0b71-448b-b80f-66ffd3633ca5": 4,
                     "4506ec04-ba37-4485-8ead-fe49292ebcbf": 4,
@@ -217,7 +217,7 @@
             {
                 "type": "INF",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "980e1056-4ed2-4459-b0e7-56d78eca5d73": 1,
                     "5484763f-4dd9-4efe-86fb-b901153d75c1": 1,
                     "b3babeb4-15a1-47ba-b192-36b2e4a4bc84": 1,
@@ -228,7 +228,7 @@
             {
                 "type": "VSR",
                 "credit_required": 3,
-                "couse_choice": {
+                "course_options": {
                     "76964cab-f5e3-4889-9aa5-570f7f66b925": 1,
                     "ff184e9a-7b3e-4d57-92c2-3d67608e5833": 1,
                     "5373fc69-1e41-4570-a723-99e6581a4a4c": 1,

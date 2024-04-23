@@ -17,6 +17,7 @@ public class DataLoader extends DataConstants {
 	public static ArrayList<User> loadUser() {
 		CourseList courseList = CourseList.getInstance();
 		DegreeList degreeList = DegreeList.getInstance();
+		System.out.println();
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
 		
