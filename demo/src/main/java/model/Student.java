@@ -159,8 +159,12 @@ public class Student extends User {
     }
 
     public void setAdvisorNotes(String advisorNotes) {
-        this.adviseeNotes = this.adviseeNotes + advisorNotes;
-
+        if(this.adviseeNotes!=null){
+            this.adviseeNotes = this.adviseeNotes + advisorNotes;
+        }
+        else{
+            this.adviseeNotes= advisorNotes;
+        }
     }
 
     public void setGuardian(UUID guardian) {

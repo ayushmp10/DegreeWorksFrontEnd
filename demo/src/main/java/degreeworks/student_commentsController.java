@@ -30,9 +30,10 @@ public class student_commentsController implements Initializable {
     @FXML
     private void submitComment() {
         // do null checks
-        currStudent.setAdvisorNotes(comment.getText());
-        System.out.println(currStudent.getAdvisorNotes());
-        submit.setText("Your request has been sent to your advisor");
+        if(comment.getText()!=null){
+            currStudent.setAdvisorNotes(comment.getText());
+            submit.setText("Submitted");
+        }
     }
 
     @FXML
