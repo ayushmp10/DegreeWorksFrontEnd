@@ -78,10 +78,15 @@ public class Student extends User {
         this.advisor = UUID.randomUUID();
         this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
-        this.USCid = "unassigned";
-        this.adviseeNotes = "no comments";
-        this.currSemester = null;
-        this.allSemesters = null;
+        this.USCid = VIPid;
+        this.adviseeNotes = "";
+
+        // set up default values for datawriter
+        this.currSemester = new Semester("Fall", 2024, 120, new ArrayList<Course>());
+        this.allSemesters = new ArrayList<Semester>();
+        courseList = CourseList.getInstance();
+        completedCourses = new HashMap<Course, String>();
+        completedCourses.put(courseList.getCourse("554472ab-c7cb-4ac6-bf69-0d8b58a99d3d"), "A");
     }
 
     private ArrayList<Course> getCurrentCourses() {

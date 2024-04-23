@@ -3,7 +3,7 @@
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "c97994e8-9454-424c-8e36-4050eeee7e85",
+        "degree": "e084ea28-839d-4a91-8e97-64330e97876d",
         "current_semester": {
             "credit_limit": 7,
             "season": "FALL",
@@ -35,7 +35,7 @@
         "completed_courses": {},
         "year": "JUNIOR",
         "total_credits": "123",
-        "degree": "0e43e119-b5ed-4b70-809f-854378fb0d67",
+        "degree": "6bbd52fa-2a18-44ef-a6ce-e35e1057f7b0",
         "current_semester": {
             "credit_limit": 7,
             "season": "SPRING",
@@ -67,7 +67,7 @@
         "completed_courses": {},
         "year": "Freshman",
         "total_credits": "0",
-        "degree": "2b995899-199a-4e84-83be-9ee9298c2395",
+        "degree": "f5a607c1-0490-4789-8d52-d92647917241",
         "current_semester": {
             "credit_limit": 120,
             "season": "FALL",
@@ -111,6 +111,31 @@
         "first_name": "vito",
         "username": "vspat",
         "usc_id": "unassigned",
-        "advising_notes": "no comments"
+        "advising_notes": "\nvito spatafora: I would like to change my major to math\nvito spatafora: I would like to change my major to math"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "160a947b-8e38-4cc8-9fff-bc8c48f95455",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "Ash",
+        "type": "Student",
+        "uuid": "833c03bb-899d-4618-80e4-76cb140aab1e",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "4a4d2345-c705-45bf-bbbe-656c3cfae0ab",
+        "password": "1234",
+        "phone": "11111",
+        "gpa": 0.0,
+        "first_name": "Evan",
+        "username": "Eash09",
+        "usc_id": "9999999",
+        "advising_notes": ""
     }
 ]

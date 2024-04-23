@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.*;
@@ -18,6 +19,8 @@ public class student_changeMajorController implements Initializable {
     private TextField newMajor;
     @FXML
     private Label message;
+    @FXML
+    private Button submitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -27,23 +30,14 @@ public class student_changeMajorController implements Initializable {
 
     @FXML
     void sendMajorChangeRequest() {
-        // add a comment that the advisor can see that you want to change your major
         userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
         currStudent.setAdvisorNotes("\n" + currStudent.getFirstName() + " " + currStudent.getLastName() +
                 ": I would like to change my major to " + newMajor.getText());
         System.out.println(currStudent.getAdvisorNotes());
         newMajor.clear();
-        // get the students advisor
+        submitButton.setText("Submitted");
 
-        // ArrayList<Advisor> allAdvisors = DataLoader.getAdvisors();
-        // String advisorName = "";
-        // for (Advisor advisor : allAdvisors) {
-        // if (advisor.getUUID().equals(currStudent.getAdvisor())) {
-        // advisorName = advisor.getName();
-        // }
-        // }
-        message = new Label("Your request has been sent");
     }
 
     @FXML
