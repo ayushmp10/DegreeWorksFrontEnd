@@ -3,9 +3,7 @@ package degreeworks;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,9 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
-import model.*;
+import model.Course;
+import model.CourseList;
+import model.Student;
+import model.UserList;
 
 public class student_availableCoursesController implements Initializable {
     private CourseList courseList;
@@ -26,6 +25,28 @@ public class student_availableCoursesController implements Initializable {
     @FXML GridPane majorCoursesPane;
     @FXML ScrollPane majorCoursesScrollPane;
     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // Initialize CourseList
+        courseList = CourseList.getInstance();
+
+        // Retrieve all available courses from CourseList
+        ArrayList<Course> allCourses = courseList.getCourses();
+
+        // Set up formatting for the GridPane
+        allCoursesPane.getColumnConstraints().add(new ColumnConstraints(200)); // Adjust width as needed
+        allCoursesPane.getColumnConstraints().add(new ColumnConstraints(100)); // Adjust width as needed
+
+        // Iterate through all courses and add them to the GridPane
+        int row = 0;
+        for (Course course : allCourses) {
+            Label courseNameLabel = new Label(course.getFullName());
+            Label courseCreditsLabel = new Label(String.valueOf(course.getCredits()));
+
+            allCoursesPane.addRow(row, courseNameLabel, courseCreditsLabel);
+            row++;
+        }
+    }
+    /* 
     public void initialize(URL url, ResourceBundle rb) {
         userList = UserList.getInstance();
         // there should a current user at this point
@@ -61,7 +82,7 @@ public class student_availableCoursesController implements Initializable {
             rowCount++;
         }
     }
-    
+    */
     @FXML
     void availableCoursesClicked() throws IOException{
         App.setRoot("student_availableCourses");
