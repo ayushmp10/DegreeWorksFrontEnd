@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeworks.LoginController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true">
          <image>
@@ -26,7 +26,7 @@
                         <Image url="@../images/uOfSc.png" />
                      </image>
                   </ImageView>
-                  <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="47.0" stroke="BLACK" strokeType="INSIDE" width="801.0" />
+                  <Rectangle id="topBar" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="801.0" />
                </children></HBox>
             <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
