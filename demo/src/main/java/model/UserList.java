@@ -10,10 +10,7 @@ public class UserList {
     private User currUser;
 
     private UserList() {
-<<<<<<< HEAD
-=======
         users = DataLoader.loadUser();
->>>>>>> 8f52058ca7e7623cca97a684c03f047257c3aa79
         this.users = DataLoader.loadUser();
     }
 
