@@ -41,6 +41,8 @@ public class Student extends User {
     private ArrayList<Semester> eightSemesterPlan = new ArrayList<Semester>();
     private double gpa;
 
+    private CourseList courseList;
+
     // need to add advisor and guardian
     public Student(UUID id, String username, String password, String firstName,
             String lastName, String year, Degree degree,
@@ -190,6 +192,8 @@ public class Student extends User {
     public void setCompletedCourses(HashMap<Course, String> completedCourses) {
         if (completedCourses != null)
             this.completedCourses = completedCourses;
+        else 
+            this.completedCourses = new HashMap<Course, String>();
     }
 
     public void setDegree(Degree degree) {
