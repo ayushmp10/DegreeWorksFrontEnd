@@ -80,8 +80,8 @@ public class Student extends User {
         this.advisor = UUID.randomUUID();
         this.guardian = UUID.randomUUID();
         this.applicationArea = "none";
-        this.USCid = "unassigned";
-        this.adviseeNotes = "no comments";
+        this.USCid = VIPid;
+        this.adviseeNotes = "";
 
         // set up default values for datawriter
         this.currSemester = new Semester("Fall", 2024, 120, new ArrayList<Course>());

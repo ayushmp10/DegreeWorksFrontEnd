@@ -43,7 +43,7 @@
                   <Button mnemonicParsing="false" onAction="#commentsClicked" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: rgb(255, 255, 255);" text="Comments" />
                </children>
             </HBox>
-            <ImageView fitHeight="504.0" fitWidth="1000.0" opacity="0.5" pickOnBounds="true">
+            <ImageView fitHeight="504.0" fitWidth="1000.0" opacity="0.75" pickOnBounds="true">
                <image>
                   <Image url="@../images/library.jpg" />
                </image>
