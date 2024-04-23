@@ -24,28 +24,34 @@ public class student_availableCoursesController implements Initializable {
     @FXML ScrollPane allCoursesScrollPane;
     @FXML GridPane majorCoursesPane;
     @FXML ScrollPane majorCoursesScrollPane;
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // Initialize CourseList
-        courseList = CourseList.getInstance();
-
-        // Retrieve all available courses from CourseList
-        ArrayList<Course> allCourses = courseList.getCourses();
-
-        // Set up formatting for the GridPane
-        allCoursesPane.getColumnConstraints().add(new ColumnConstraints(200)); // Adjust width as needed
-        allCoursesPane.getColumnConstraints().add(new ColumnConstraints(100)); // Adjust width as needed
-
-        // Iterate through all courses and add them to the GridPane
-        int row = 0;
-        for (Course course : allCourses) {
-            Label courseNameLabel = new Label(course.getFullName());
-            Label courseCreditsLabel = new Label(String.valueOf(course.getCredits()));
-
-            allCoursesPane.addRow(row, courseNameLabel, courseCreditsLabel);
-            row++;
-        }
+public void initialize(URL url, ResourceBundle rb) {
+    userList = UserList.getInstance();
+    // there should a current user at this point
+    currStudent = (Student) userList.getCurrUser();
+    courseList = CourseList.getInstance();
+    // get all available courses
+    ArrayList<Course> allCourses = courseList.getCourses();
+    
+    // Clear existing column constraints and set new ones
+    allCoursesPane.getColumnConstraints().clear();
+    ColumnConstraints column = new ColumnConstraints();
+    column.setPercentWidth(90.0); // Occupy entire width
+    allCoursesPane.getColumnConstraints().add(column);
+    
+    // display them in a scroll pane with a search box
+    int rowCount = 0;
+    for (Course course : allCourses) {
+        Label courseName = new Label(course.getFullName());
+        Label courseCredits = new Label(String.valueOf(course.getCredits()));
+        allCoursesPane.add(courseName, 0, rowCount);
+        allCoursesPane.add(courseCredits, 1, rowCount);
+        rowCount++;
     }
+}
+
+
     /* 
     public void initialize(URL url, ResourceBundle rb) {
         userList = UserList.getInstance();
