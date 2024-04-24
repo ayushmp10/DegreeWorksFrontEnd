@@ -184,6 +184,7 @@ public class DataLoader extends DataConstants {
 				// load all courses to queue and then load them to courses array list
 				Course course = new Course(id, subject, number, name, description, credits,
 						semestersOffered, prerequisites); // remove implementation for core categories and corequisites
+
 				if (prereqJSONArray.size() == 0) {
 					courses.add(course);
 					int index = courses.indexOf(course);
@@ -223,13 +224,14 @@ public class DataLoader extends DataConstants {
 				ArrayList<Course> courseOptions = new ArrayList<Course>();
 				JSONArray courseOptionArray = (JSONArray) prereqObject.get(COURSE_PREREQUISITES_COURSE_OPTION);
 				// load all the prereq options
+				//System.out.println("Prereq size " + courseOptionArray.size()); 
 				for (int j = 0; j < courseOptionArray.size(); j++) {
 					UUID courseID = UUID.fromString((String) courseOptionArray.get(j));
 					if (courseMap.containsKey(courseID)) {
 						courseOptions.add(courses.get(courseMap.get(courseID)));
+						System.out.println("adding a course as an option");
 					}
 				}
-				//------ SO FAR SO GOOD
 
 				// are all the options loaded?
 				if (courseOptions.size() == courseOptionArray.size()) {
