@@ -53,16 +53,16 @@
                </children>
             </HBox>
             <!-- Search bar -->
-            <HBox alignment="CENTER" prefHeight="109.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: rgb(115, 0, 10);">
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="1000.0" spacing="10.0" style="-fx-background-color: rgb(115, 0, 10);">
                <children>
-                  <TextField fx:id="searchTextField" alignment="CENTER" prefHeight="50.0" prefWidth="190.0" promptText="Search for classes..." />
+                  <TextField fx:id="searchTextField" alignment="CENTER" prefHeight="30.0" prefWidth="190.0" promptText="Search for classes..." />
                   <Button onAction="#searchButtonClicked" prefHeight="25.0" prefWidth="114.0" text="Search" />
                </children>
             </HBox>
          </children>
       </VBox>
       <!-- Scrollable content area -->
-      <ScrollPane fx:id="allCoursesScrollPane" layoutX="222.0" layoutY="213.0" maxHeight="373.0" maxWidth="557.0" minHeight="50.0" minWidth="50.0" prefHeight="373.0" prefWidth="557.0">
+      <ScrollPane fx:id="allCoursesScrollPane" layoutX="222.0" layoutY="177.0" maxHeight="373.0" maxWidth="557.0" minHeight="50.0" minWidth="50.0" prefHeight="373.0" prefWidth="557.0">
          <content>
             <AnchorPane>
                <children>
