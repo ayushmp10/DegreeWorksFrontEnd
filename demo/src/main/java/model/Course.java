@@ -44,7 +44,7 @@ public class Course {
         setDescription(description);
         setCredits(creditHours);
         setSemestersOffered(semestersOffered);
-        setPrequisites(prerequisites);
+        setPrerequisites(prerequisites);
     }
     // Accessors and Mutators
     public void setName(String name) {
@@ -59,9 +59,8 @@ public class Course {
         
     }
 
-    public void setPrequisites(ArrayList<Prerequisites> prereqs) {
-        if (prereqs != null)
-            this.prerequisites = prereqs;
+    public void setPrerequisites(ArrayList<Prerequisites> prereqs) {
+        this.prerequisites = prereqs;
     }
 
     public void setCredits(int credits) {
@@ -157,6 +156,13 @@ public class Course {
 
     public void addAttribute(String attribute) {
         // adding attribites to the class if neccessary
+    }
+
+    public void printPrerequisites() {
+        for (Prerequisites prereq : this.prerequisites) {
+            if (prereq.getCourseOptions().size() > 0)
+                System.out.println(prereq.getCourseOptions());
+        }
     }
 
 }
