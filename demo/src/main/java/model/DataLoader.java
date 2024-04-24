@@ -60,7 +60,7 @@ public class DataLoader extends DataConstants {
 						for (Object courseID : completedCoursesObject.keySet()) {
 							UUID courseUUID = UUID.fromString((String) courseID);
 							Course course = courseList.getCourse(courseUUID);
-							String grade = (String) completedCoursesObject.get(courseUUID);
+							String grade = (String) completedCoursesObject.get(courseID);
 							completedCourse.put(course, grade);
 						}
 
@@ -229,19 +229,25 @@ public class DataLoader extends DataConstants {
 						courseOptions.add(courses.get(courseMap.get(courseID)));
 					}
 				}
+				//------ SO FAR SO GOOD
 
 				// are all the options loaded?
 				if (courseOptions.size() == courseOptionArray.size()) {
-					allPrereqs.add(new Prerequisites(choices, minGrade, courseOptions));
+					Prerequisites tempPrereq = new Prerequisites(choices, minGrade, courseOptions);
+					allPrereqs.add(tempPrereq);
+					
+					// SO FAR SO GOOD STILL IS GETTING ALL THE PREREQS
 				} else {
 					load = false;
+					// never gets here
 					break;
 				}
 
 			}
 
 			if (load) {
-				course.setPrequisites(allPrereqs);
+				courses.remove(course);
+				course.setPrerequisites(allPrereqs);
 				courses.add(course);
 				courseMap.put(course.getUUID(), courses.indexOf(course));
 			} else {
@@ -281,7 +287,7 @@ public class DataLoader extends DataConstants {
 		try {
 			FileReader reader = new FileReader(DEGREE_FILE_NAME);
 			JSONArray degreeJSON = (JSONArray) new JSONParser().parse(reader);
-			System.out.println("size: " + degreeJSON.size());
+			
 			for (int i = 0; i < degreeJSON.size(); i++) {
 				JSONObject degreeObject = (JSONObject) degreeJSON.get(i);
 				// get basic degree information
