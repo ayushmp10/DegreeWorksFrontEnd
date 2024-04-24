@@ -1,340 +1,353 @@
-
 package model;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;;
 
-public class DataWriter extends DataConstants {
-    // store everything into HashMaps and then write them as objects
-    public static void saveDegrees(ArrayList<Degree> degrees) {
-        JSONArray degreesArray = new JSONArray();
-        for (Degree degree : degrees) {
-            HashMap<String, Object> degreeObject = new HashMap<String, Object>();
-            // fill in generic degree information
-            degreeObject.put(DEGREE_UUID, degree.getUUID().toString());
-            degreeObject.put(DEGREE_TOTAL_REQ_CREDIT, degree.getTotalCreditsRequired());
-            degreeObject.put(DEGREE_MAJOR_COURSE, createCoursePrefSemObject(degree.getMajorCourses()));
-            degreeObject.put(DEGREE_SUBJECT_NAME, degree.getSubject());
-            // get all electives relating to degree
-            JSONArray electivesArray = new JSONArray();
-            ArrayList<Elective> electives = degree.getElectives();
-            for (Elective elective : electives) {
-                electivesArray.add(createElectiveObject(elective));
+public class DataLoader extends DataConstants {
+	//public static ArrayList<Student> allStudents = new ArrayList<>();
+
+	public static ArrayList<User> loadUser() {
+		CourseList courseList = CourseList.getInstance();
+		DegreeList degreeList = DegreeList.getInstance();
+		
+		ArrayList<User> allUsers = new ArrayList<User>();
+		
+		// HashMap<UUID, Integer> advisorToStudentMap = new HashMap<>();
+		String[] files = {ADVISOR_FILE_NAME, STUDENT_FILE_NAME, PARENT_FILE_NAME};
+		for (String file : files) {
+			try {
+				FileReader fileReader = new FileReader(file);
+				JSONArray readerJSON = (JSONArray) new JSONParser().parse(fileReader);
+				for (int i = 0; i < readerJSON.size(); i++) {
+					// read basic user information
+					JSONObject userJSONObject = (JSONObject) readerJSON.get(i);
+					UUID id = UUID.fromString((String) userJSONObject.get(USER_UUID));
+					String firstName = (String) userJSONObject.get(USER_FIRST_NAME);
+					String lastName = (String) userJSONObject.get(USER_LAST_NAME);
+					String phoneNumber = (String) userJSONObject.get(USER_PHONE_NUMBER);
+					String username = (String) userJSONObject.get(USER_USERNAME);
+					String password = (String) userJSONObject.get(USER_PASSWORD);
+					String userType = (String) userJSONObject.get(USER_TYPE);
+					if (userType.equalsIgnoreCase("student")) {
+						// assume god advisor is the first user in the list
+						// load student information
+						String yearClass = (String) userJSONObject.get(STUDENT_YEAR);
+						UUID advisorUUID = UUID.fromString((String) userJSONObject.get(STUDENT_ADVISOR));
+						UUID guardianUUID = UUID.randomUUID();
+						String studentUSCID = (String) userJSONObject.get(STUDENT_USC_ID);
+						// int advisorIndex = advisorToStudentMap.get(advisorUUID);
+						Advisor advisor = (Advisor) allUsers.get(0);
+						// Guardian guardian = (Guardian) allUsers.get(1);
+						String completedCredits = (String) userJSONObject.get(STUDENT_COMPLETED_CREDITS);
+						String totalCredits = (String) userJSONObject.get(STUDENT_TOTAL_CREDITS);
+						Double gpa = (Double) userJSONObject.get(STUDENT_GPA);
+						String applicationArea = (String) userJSONObject.get(STUDENT_APPLICATION_AREA);
+						String notes = (String) userJSONObject.get(STUDENT_ADVISING_NOTES);
+						
+						UUID degreeUUID = UUID.fromString((String) userJSONObject.get(STUDENT_DEGREE_ID));
+						Degree degree = degreeList.getDegree(degreeUUID);
+
+						HashMap<Course, String> completedCourse = new HashMap<>();
+						JSONObject completedCoursesObject = (JSONObject) userJSONObject.get(STUDENT_COMPLETED_COURSES);
+						for (Object courseID : completedCoursesObject.keySet()) {
+							UUID courseUUID = UUID.fromString((String) courseID);
+							Course course = courseList.getCourse(courseUUID);
+							String grade = (String) completedCoursesObject.get(courseID);
+							completedCourse.put(course, grade);
+						}
+
+						JSONObject currSemesterObject = (JSONObject) userJSONObject.get(STUDENT_CURRENT_SEMESTER);
+						String season = (String) currSemesterObject.get(SEMESTER_SEASON);
+						int year = ((Long) currSemesterObject.get(SEMESTER_YEAR)).intValue();
+						int creditLimit = ((Long) currSemesterObject.get(SEMESTER_LIMIT)).intValue();
+						ArrayList<Course> courses = new ArrayList<>();
+						JSONArray coursesJSONArray = (JSONArray) currSemesterObject.get(SEMESTER_COURSES);
+						for (int j = 0; j < coursesJSONArray.size(); j++) {
+							Course course = courseList.getCourse(UUID.fromString((String) coursesJSONArray.get(j)));
+							courses.add(course);
+						}
+						Semester currSemester = new Semester(season, year, creditLimit, courses);
+
+						ArrayList<Semester> allSemesters = new ArrayList<>();
+						JSONArray allSemestersJSONArray = (JSONArray) userJSONObject.get(STUDENT_ALL_SEMESTERS);
+						for (int j = 0; j < allSemestersJSONArray.size(); j++) {
+							JSONObject allSemestersJSONObject = (JSONObject) allSemestersJSONArray.get(j);
+							String tempSeason = (String) allSemestersJSONObject.get(SEMESTER_SEASON);
+							int tempYear = ((Long) allSemestersJSONObject.get(SEMESTER_YEAR)).intValue();
+							int tempCreditLimit = ((Long) allSemestersJSONObject.get(SEMESTER_LIMIT)).intValue();
+							ArrayList<Course> tempCourses = new ArrayList<>();
+							JSONArray tempCoursesJSONArray = (JSONArray) allSemestersJSONObject.get(SEMESTER_COURSES);
+							for (int k = 0; k < tempCoursesJSONArray.size(); k++) {
+								Course course = courseList.getCourse(UUID.fromString((String) tempCoursesJSONArray.get(k)));
+								tempCourses.add(course);
+							}
+							Semester tempSemester = new Semester(tempSeason, tempYear, tempCreditLimit, tempCourses);
+							allSemesters.add(tempSemester);
+						}
+
+						Student student = new Student(id, username, password, firstName, lastName, yearClass, degree, completedCredits,
+														totalCredits, gpa, phoneNumber, advisorUUID, guardianUUID, studentUSCID, applicationArea,
+														notes, completedCourse, currSemester, allSemesters);
+						allUsers.add(student);
+						// allStudents.add(student);
+						advisor.addStudent(student);
+					} 
+					else if (userType.equalsIgnoreCase("advisor")) {
+						// get advisor information
+						String building = (String) userJSONObject.get(ADVISOR_BUILDING);
+						String roomNumber = (String) userJSONObject.get(ADVISOR_ROOM_NUMBER);
+						ArrayList<Student> students = new ArrayList<Student>();
+
+						Advisor advisor = new Advisor(id, username, password, firstName, lastName, students, phoneNumber, building, roomNumber);
+
+						allUsers.add(advisor);
+						//advisorToStudentMap.put(advisor.getUUID(), allUsers.indexOf(advisor));
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// for (User user : allUsers) {
+		// 	System.out.println(user.getFirstName());
+		// }
+		return allUsers;
+	}
+	public static ArrayList<Advisor> getAdvisors() {
+        ArrayList<Advisor> advisors = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(ADVISOR_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray advisorJSONArray = (JSONArray) new JSONParser().parse(reader);
+
+            for (int i = 0; i < advisorJSONArray.size(); i++) {
+                JSONObject advisorJSON = (JSONObject) advisorJSONArray.get(i);
+                UUID id = UUID.fromString((String) advisorJSON.get(USER_UUID));
+                String username = (String) advisorJSON.get(USER_USERNAME);
+                String password = (String) advisorJSON.get(USER_PASSWORD);
+                String firstName = (String) advisorJSON.get(USER_FIRST_NAME);
+                String lastName = (String) advisorJSON.get(USER_LAST_NAME);
+                String phoneNumber = (String) advisorJSON.get(USER_PHONE_NUMBER);
+                String building = (String) advisorJSON.get(ADVISOR_BUILDING);
+                String roomNumber = (String) advisorJSON.get(ADVISOR_ROOM_NUMBER);
+                
+                // You may need to handle the list of assigned students here
+                
+                Advisor advisor = new Advisor(id, username, password, firstName, lastName, advisorJSONArray, phoneNumber, building, roomNumber);
+                advisors.add(advisor);
             }
-            degreeObject.put(DEGREE_ELECTIVES, electives);
-            degreesArray.add(degreeObject);
-        }
-
-        // write to the file
-        writeData(DEGREE_FILE_NAME, degreesArray);
-    }
-
-    // save user
-    public static void saveUsers(ArrayList<User> allUsers) {
-        // separate objects for students, advisors, and guardians
-        JSONArray allStudentsArray = new JSONArray();
-        JSONArray allAdvisorsArray = new JSONArray();
-        JSONArray allGuardiansArray = new JSONArray();
-        for (User user : allUsers) {
-            // generic user information
-            HashMap<String, Object> userObject = new HashMap<String, Object>();
-            userObject.put(USER_UUID, user.getID().toString());
-            userObject.put(USER_USERNAME, user.getUsername());
-            userObject.put(USER_PASSWORD, user.getPassword());
-            userObject.put(USER_PHONE_NUMBER, user.getPhoneNumber());
-            userObject.put(USER_FIRST_NAME, user.getFirstName());
-            userObject.put(USER_LAST_NAME, user.getLastName());
-            userObject.put(USER_TYPE, user.getType());
-            // get specific information for students, advisors and guardians
-            if (user instanceof Student) {
-                getStudentInformation(userObject, (Student) user);
-                allStudentsArray.add(new JSONObject(userObject));
-            } else if (user instanceof Advisor) {
-                getAdvisorInformation(userObject, (Advisor) user);
-                allAdvisorsArray.add(new JSONObject(userObject));
-            } else if (user instanceof Guardian) {
-                getGuardianInformation(userObject, (Guardian) user);
-                allGuardiansArray.add(new JSONObject(userObject));
-            }
-        }
-
-        writeData(STUDENT_FILE_NAME, allStudentsArray);
-        writeData(ADVISOR_FILE_NAME, allAdvisorsArray);
-        writeData(PARENT_FILE_NAME, allGuardiansArray);
-    }
-
-    private static void getStudentInformation(HashMap<String, Object> studentMap, Student student) {
-        studentMap.put("type", "Student");
-        studentMap.put(STUDENT_USC_ID, student.getUSCID());
-        studentMap.put(STUDENT_YEAR, student.getYear());
-        // assign an advisor to a student if they don't have one
-        if (student.getAdvisor() != null) {
-            studentMap.put(STUDENT_ADVISOR, student.getAdvisor().toString());
-        } else {
-            studentMap.put(STUDENT_ADVISOR, "none");
-        }
-        // get the advisor notes for the student
-        String notes = student.getAdvisorNotes();
-        studentMap.put(STUDENT_ADVISING_NOTES, notes);
-
-        if (student.getDegree() != null) {
-            studentMap.put(STUDENT_DEGREE_ID, student.getDegree().getUUID().toString());
-        } else {
-            studentMap.put(STUDENT_DEGREE_ID, UUID.randomUUID().toString());
-        }
-
-        studentMap.put(STUDENT_GPA, student.getGPA());
-        studentMap.put(STUDENT_COMPLETED_COURSES, createCompletedCoursesObject(student.getCompletedCourses()));
-        studentMap.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
-        studentMap.put(STUDENT_TOTAL_CREDITS, student.getTotalCredits());
-        studentMap.put(STUDENT_ALL_SEMESTERS, createAllSemestersObject(student.getAllSemesters()));
-        studentMap.put(STUDENT_CURRENT_SEMESTER, createSemesterObject(student.getCurrSemester()));
-    }
-
-    private static void getAdvisorInformation(HashMap<String, Object> advisorMap, Advisor advisor) {
-        advisorMap.put(ADVISOR_BUILDING, advisor.getBuilding());
-        advisorMap.put(ADVISOR_ROOM_NUMBER, advisor.getRoomNumber());
-        // store all of the advisor's students
-        ArrayList<Student> advisorStudentList = advisor.getStudents();
-        JSONArray studentsArray = new JSONArray();
-        for (Student student : advisorStudentList) {
-            studentsArray.add(student.getID().toString());
-        }
-        advisorMap.put(ADVISOR_ASSIGNED_STUDENTS, studentsArray);
-    }
-
-    private static void getGuardianInformation(HashMap<String, Object> guardianMap, Guardian guardian) {
-        // need implementation
-    }
-
-    private static JSONObject createCoursePrefSemObject(HashMap<Course, Integer> coursePrefSem) {
-        if (coursePrefSem == null) {
-            return new JSONObject();
-        }
-
-        JSONObject coursePrefSemObject = new JSONObject();
-        coursePrefSem.forEach((Course, prefSemester) -> {
-            coursePrefSemObject.put(Course.getUUID().toString(), prefSemester);
-        });
-        return coursePrefSemObject;
-    }
-
-    private static JSONObject createElectiveObject(Elective elective) {
-        HashMap<String, Object> electiveObject = new HashMap<String, Object>();
-        electiveObject.put(ELECTIVE_TYPE, elective.getType());
-        electiveObject.put(ELECTIVE_CREDIT_REQ, elective.getReqCredits());
-        electiveObject.put(ELECTIVE_COURSE_OPTIONS, createCoursePrefSemObject(elective.getCourseOptions()));
-        return new JSONObject(electiveObject);
-    }
-
-    private static void writeData(String file, JSONArray jsonArray) {
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(jsonArray.toJSONString());
-            fileWriter.flush();
-        } catch (IOException e) {
+            return advisors;
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    private static JSONObject createCompletedCoursesObject(HashMap<Course, String> completedCourses) {
-        if (completedCourses == null) {
-            return new JSONObject();
-        }
+	public static ArrayList<Course> getCourses() {
+		ArrayList<Course> courses = new ArrayList<Course>();
+		HashMap<UUID, Integer> courseMap = new HashMap<>();
+		Queue<Pair<Course, Object>> courseQueue = new LinkedList<>();
 
-        HashMap<String, String> completedCoursesUUID = new HashMap<String, String>();
-        // get each entry in the hashmap while holding the course and the grade together
-        for (Map.Entry<Course, String> completedCourse : completedCourses.entrySet()) {
-            String courseUUID = completedCourse.getKey().getUUID().toString();
-            String grade = completedCourse.getValue();
-            completedCoursesUUID.put(courseUUID, grade);
-        }
-        return new JSONObject(completedCoursesUUID);
-    }
+		try {
+			FileReader reader = new FileReader(COURSE_FILE_NAME);
+			JSONParser parser = new JSONParser();
+			JSONArray courseJSONArray = (JSONArray) new JSONParser().parse(reader);
+			System.out.println(courseJSONArray.size());
+			for (int i = 0; i < courseJSONArray.size(); i++) {
+				JSONObject courseJSON = (JSONObject) courseJSONArray.get(i);
+				UUID id = UUID.fromString((String) courseJSON.get(COURSE_SET_UUID));
+				String subject = (String) courseJSON.get(COURSE_SET_SUBJECT);
+				String number = (String) courseJSON.get(COURSE_NUMBER);
+				String name = (String) courseJSON.get(COURSE_NAME);
+				String description = (String) courseJSON.get(COURSE_DESCRIPTION);
+				int credits = ((Long) courseJSON.get(COURSE_CREDIT_HOURS)).intValue();
+				// TODO check if this is a valid way of reading an array from the json file
+				ArrayList<Season> semestersOffered = new ArrayList<Season>();
+				JSONArray semesterJSON = (JSONArray) courseJSON.get(COURSE_SEMESTER_OFFERED);
+				for (int j = 0; j < semesterJSON.size(); j++) {
+					semestersOffered.add(Season.valueOf(((String) semesterJSON.get(j)).toUpperCase()));
+				}
+				// the array list type needs to be determined (don't know what object is used to
+				// store the information in the scraped file)
+				// temporarily we are saving it as course but it isn't that
+				ArrayList<Prerequisites> prerequisites = new ArrayList<Prerequisites>();
+				JSONArray prereqJSONArray = (JSONArray) courseJSON.get(COURSE_PREREQUISITES);
+				// loading prerequisites
+				// load all courses to queue and then load them to courses array list
+				Course course = new Course(id, subject, number, name, description, credits,
+						semestersOffered, prerequisites); // remove implementation for core categories and corequisites
 
-    private static JSONArray createAllSemestersObject(ArrayList<Semester> allSemesters) {
-        if (allSemesters == null) {
-            return new JSONArray();
-        }
+				if (prereqJSONArray.size() == 0) {
+					courses.add(course);
+					int index = courses.indexOf(course);
+					courseMap.put(course.getUUID(), index);
+				} else {
+					courseQueue.add(new Pair<Course, Object>(course, prereqJSONArray));
+				}
 
-        JSONArray allSemestersArray = new JSONArray();
-        for (Semester semester : allSemesters) {
-            allSemestersArray.add(createSemesterObject(semester));
-        }
-        return allSemestersArray;
-    }
+				// ArrayList<String> corequisites =
+				// (ArrayList<String>)courseJSON.get(COURSE_COREQUISITES);
 
-    private static JSONObject createSemesterObject(Semester semester) {
-        if (semester != null) {
-            LinkedHashMap<String, Object> semesterMap = new LinkedHashMap<String, Object>();
-            semesterMap.put(SEMESTER_SEASON, semester.getSeason().toString());
-            semesterMap.put(SEMESTER_YEAR, semester.getYear());
-            semesterMap.put(SEMESTER_LIMIT, semester.getCreditLimit());
-            JSONArray coursesArray = new JSONArray();
-            ArrayList<Course> semesterCourses = semester.getCourses();
-            for (Course course : semesterCourses) {
-                coursesArray.add(course.getUUID().toString());
-            }
-            semesterMap.put(SEMESTER_COURSES, coursesArray);
-            return new JSONObject(semesterMap);
-        }
-        return new JSONObject();
-    }
-    // writing courses
-    public static void saveCourses(ArrayList<Course> allCourses) {
-        if (allCourses == null) {
-            return;
-        }
+				// ArrayList<String> courseCoreCategories =
+				// (ArrayList<String>)courseJSON.get(COURSE_CORE_CATEGORIES);
 
-        JSONArray allCoursesArray = new JSONArray();
-        for (Course course : allCourses) {
-            // get all relevant course information for each course
-            // map it to the hashmap
-            HashMap<String, Object> courseObject = new HashMap<String, Object>();
-            courseObject.put(COURSE_SET_UUID, course.getUUID().toString());
-            courseObject.put(COURSE_SET_SUBJECT, course.getSubject());
-            courseObject.put(COURSE_NUMBER, course.getNumber());
-            courseObject.put(COURSE_DESCRIPTION, course.getDescription());
-            courseObject.put(COURSE_CREDIT_HOURS, course.getCredits());
-            // get semester offering information
-            JSONArray semestersOfferedArray = new JSONArray();
-            ArrayList<Season> semestersOffered = course.getSemestersOffered();
-            for (Season season : semestersOffered) {
-                semestersOfferedArray.add(season.toString());
-            }
-            courseObject.put(COURSE_SEMESTER_OFFERED, semestersOfferedArray);
-            // get all prerequisite information
-            JSONArray prereqArray = new JSONArray();
-            ArrayList<Prerequisites> prereqs = course.getPrerequisites();
-            for (Prerequisites prereq : prereqs) {
-                prereqArray.add(createPrerequisiteObject(prereq));
-            }
-            courseObject.put(COURSE_PREREQUISITES, prereqArray);
-            allCoursesArray.add(new JSONObject(courseObject));
-        }
-        writeData("./jsonfiles/Course.java", allCoursesArray);
-    }
+				// courses.add(new Course(id, subject, number, name, description, credits,
+				// semestersOffered, prerequisites, corequisites, courseCoreCategories));
+			}
+		} catch (Exception e) {
+			e.printStackTrace(); // couldn't load the file
+		}
 
-    private static JSONObject createPrerequisiteObject(Prerequisites prereqs) {
-        if (prereqs == null) {
-            return new JSONObject();
-        }
+		// empty out the queue - gets stuck in this loop infinitely
+		while (!courseQueue.isEmpty()) {
+			// get the first course in the queue which is tied to the prereq array
+			Pair<Course, Object> coursePair = courseQueue.poll();
+			Course course = coursePair.getKey();
+			JSONArray prereqJSON = (JSONArray) coursePair.getValue();
 
-        HashMap<String, Object> prereqMap = new HashMap<String, Object>();
-        prereqMap.put(COURSE_PREREQUISITES_COURSE_OPTION, prereqs.getChoices());
-        prereqMap.put(COURSE_PREREQUISITES_MIN_GRADE, prereqs.getMinGrade());
-        // load all the possible course options
-        JSONArray courseOptionsArray = new JSONArray();
-        ArrayList<Course> courseOptions = prereqs.getCourseOptions();
-        for (Course course : courseOptions) {
-            courseOptionsArray.add(course.getUUID().toString());
-        }
-        prereqMap.put(COURSE_PREREQUISITES_COURSE_OPTION, courseOptionsArray);
-        return new JSONObject(prereqMap);
-    }
+			ArrayList<Prerequisites> allPrereqs = new ArrayList<Prerequisites>();
+			boolean load = true;
 
-    // public static void saveUsers() {
-    // UserList users = UserList.getInstance();
-    // ArrayList<User> userList = users.getUsers();
-    // JSONArray jsonUsers = new JSONArray();
+			for (int i = 0; i < prereqJSON.size(); i++) {
+				JSONObject prereqObject = (JSONObject) prereqJSON.get(i);
+				int choices = ((Long) prereqObject.get(COURSE_PREREQUISITE_CHOICES)).intValue();
+				String minGrade = (String) prereqObject.get(COURSE_PREREQUISITES_MIN_GRADE);
 
-    // //creating all the json objects
-    // for(int i=0; i< userList.size(); i++) {
-    // jsonUsers.add(getUserJSON(userList.get(i)));
-    // }
-    // //Write JSON file
-    // try (FileWriter file = new FileWriter(STUDENT_FILE_NAME)) {
+				ArrayList<Course> courseOptions = new ArrayList<Course>();
+				JSONArray courseOptionArray = (JSONArray) prereqObject.get(COURSE_PREREQUISITES_COURSE_OPTION);
+				// load all the prereq options
+				//System.out.println("Prereq size " + courseOptionArray.size()); 
+				for (int j = 0; j < courseOptionArray.size(); j++) {
+					UUID courseID = UUID.fromString((String) courseOptionArray.get(j));
+					if (courseMap.containsKey(courseID)) {
+						courseOptions.add(courses.get(courseMap.get(courseID)));
+						System.out.println("adding a course as an option");
+					}
+				}
 
-    // file.write(jsonUsers.toJSONString());
-    // file.flush();
+				// are all the options loaded?
+				if (courseOptions.size() == courseOptionArray.size()) {
+					Prerequisites tempPrereq = new Prerequisites(choices, minGrade, courseOptions);
+					allPrereqs.add(tempPrereq);
+					
+					// SO FAR SO GOOD STILL IS GETTING ALL THE PREREQS
+				} else {
+					load = false;
+					// never gets here
+					break;
+				}
 
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
+			}
 
-    // public static void saveStudents() {
-    // UserList userList = UserList.getInstance();
-    // ArrayList<Student> studentList = userList.getStudents();
-    // JSONArray jsonStudents = new JSONArray();
-    // for (int i = 0; i < studentList.size(); i++) {
-    // jsonStudents.add(getUserJSON(studentList.get(i)));
-    // }
-    // try (FileWriter file = new FileWriter(STUDENT_FILE_NAME)) {
-    // file.write(jsonStudents.toJSONString());
-    // file.flush();
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
+			if (load) {
+				courses.remove(course);
+				course.setPrerequisites(allPrereqs);
+				courses.add(course);
+				courseMap.put(course.getUUID(), courses.indexOf(course));
+			} else {
+				courseQueue.add(coursePair);
+			}
+		}
 
-    // public static void saveAdvisors() {
-    // UserList userList = UserList.getInstance();
-    // ArrayList<Advisor> advisorList = userList.getAdvisors();// make sure this
-    // method is created in UserList
-    // JSONArray jsonAdvisors = new JSONArray();
-    // for (int i = 0; i < advisorList.size(); i++) {
-    // jsonAdvisors.add(getUserJSON(advisorList.get(i)));
-    // }
-    // try (FileWriter file = new FileWriter(ADVISOR_FILE_NAME)) {
-    // file.write(jsonAdvisors.toJSONString());
-    // file.flush();
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
+		return courses;
+	}
 
-    // public static void saveGuardians() {
-    // UserList userList = UserList.getInstance();
-    // ArrayList<Guardian> guardianList = userList.getGuardians();// make sure this
-    // method is created in UserList
-    // JSONArray jsonGuardians = new JSONArray();
-    // for (int i = 0; i < guardianList.size(); i++) {
-    // jsonGuardians.add(getUserJSON(guardianList.get(i)));
-    // }
-    // try (FileWriter file = new FileWriter(PARENT_FILE_NAME, true)) {
-    // file.write(jsonGuardians.toJSONString());
-    // file.flush();
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-    // }
+	private static class Pair<K, V> {
+		private final K key;
+		private final V value;
 
-    // public static JSONObject getUserJSON(User user) {
-    // JSONObject userDetails = new JSONObject();
-    // userDetails.put(USER_UUID, user.getID().toString());
-    // userDetails.put(USER_USERNAME, user.getUsername());
-    // userDetails.put(USER_FIRST_NAME, user.getFirstName());
-    // userDetails.put(USER_LAST_NAME, user.getLastName());
-    // userDetails.put(USER_PASSWORD, user.getPassword());
-    // userDetails.put(USER_PHONE_NUMBER, user.getPhoneNumber());
-    // if (user instanceof Student) {
-    // Student student = (Student) user;
-    // userDetails.put(STUDENT_COMPLETED_COURSES, student.getCompletedCourses());
-    // userDetails.put(STUDENT_YEAR, student.getYear());
-    // userDetails.put(STUDENT_MAJOR, student.getMajor());
-    // userDetails.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
-    // userDetails.put(STUDENT_TOTAL_CREDITS, student.getTotalCredits());
-    // userDetails.put(STUDENT_ADVISOR, student.getAdvisor().toString());
-    // userDetails.put(STUDENT_GUARDIAN, student.getGuardian().toString());
-    // userDetails.put(STUDENT_APPLICATION_AREA, student.getApplicationArea());
-    // userDetails.put(STUDENT_USC_ID, student.getUSCID());
-    // userDetails.put(STUDENT_ADVISING_NOTES, student.getAdvisorNotes());
-    // }
-    // else if (user instanceof Advisor) {
-    // Advisor advisor = (Advisor) user;
-    // // userDetails.put(ADVISOR_ASSIGNED_STUDENTS, advisor.getStudents());
-    // userDetails.put(ADVISOR_BUILDING, advisor.getBuilding());
-    // userDetails.put(ADVISOR_ROOM_NUMBER, advisor.getRoomNumber());
-    // }
+		public Pair(K key, V value) {
+			this.key = key;
+			this.value = value;
+		}
 
-    // return userDetails;
-    // }
+		public K getKey() {
+			return key;
+		}
+
+		public V getValue() {
+			return value;
+		}
+
+		public String toString() {
+			return "(" + key + ", " + value + ")";
+		}
+	}
+
+	public static ArrayList<Degree> getDegrees() {
+		CourseList courseList = CourseList.getInstance();
+		ArrayList<Degree> degrees = new ArrayList<Degree>();
+
+		try {
+			FileReader reader = new FileReader(DEGREE_FILE_NAME);
+			JSONArray degreeJSON = (JSONArray) new JSONParser().parse(reader);
+			
+			for (int i = 0; i < degreeJSON.size(); i++) {
+				JSONObject degreeObject = (JSONObject) degreeJSON.get(i);
+				// get basic degree information
+
+				UUID degreeUUID = UUID.fromString((String)degreeObject.get(DEGREE_UUID));
+				if (degreeObject.get(DEGREE_UUID) != null) {
+					degreeUUID = UUID.fromString((String) degreeObject.get(DEGREE_UUID));
+				}
+
+				// need to make it a primitive type so that it can be casted
+				int requiredCredits = ((Long)degreeObject.get(DEGREE_CREDITS)).intValue();
+				if (degreeObject.get(DEGREE_TOTAL_REQ_CREDIT) != null) {
+					requiredCredits = (int) ((long) degreeObject.get(DEGREE_TOTAL_REQ_CREDIT));
+				}
+
+				String subject = (String) degreeObject.get(DEGREE_SUBJECT_NAME);
+
+				// get major courses with degree
+				HashMap<Course, Integer> majorCourses = new HashMap<Course, Integer>();
+				JSONObject majorCoursesObject = (JSONObject) degreeObject.get(DEGREE_MAJOR_COURSE);
+				if (majorCoursesObject != null) {
+					for (Object courseUUID : majorCoursesObject.keySet()) {
+						UUID uuid = UUID.fromString((String) courseUUID);
+						Course tempCourse = courseList.getCourse(uuid);
+						// need to make it a primitive type so that it can be casted
+						int prefSemester = (int) ((long) majorCoursesObject.get(courseUUID));
+						majorCourses.put(tempCourse, prefSemester);
+					}
+				}
+
+				// load all electives
+				ArrayList<Elective> electiveList = new ArrayList<Elective>();
+				JSONArray electiveArray = (JSONArray) degreeObject.get(DEGREE_ELECTIVES);
+				if (electiveArray != null) {
+					for (int j = 0; j < electiveArray.size(); j++) {
+						JSONObject electivesObject = (JSONObject) electiveArray.get(j);
+						String type = (String) electivesObject.get(ELECTIVE_TYPE);
+						int electiveCreditReq = (int) ((long) electivesObject.get(ELECTIVE_CREDIT_REQ));
+						JSONObject courseObject = (JSONObject) electivesObject.get(ELECTIVE_COURSE_OPTIONS);
+						HashMap<Course, Integer> courseOptions = new HashMap<Course, Integer>();
+						// load the electives and add them to the options
+						for (Object courseUUID : courseObject.keySet()) {
+							UUID uuid = UUID.fromString((String) courseUUID);
+							Course tempCourse = courseList.getCourse(uuid);
+							int prefSemester = (int) ((long) courseObject.get(courseUUID));
+							courseOptions.put(tempCourse, prefSemester);
+						}
+						electiveList.add(new Elective(type, electiveCreditReq, courseOptions));
+					}
+				}
+
+				Degree degree = new Degree(degreeUUID, subject, subject, requiredCredits, majorCourses, electiveList);
+				degrees.add(degree);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return degrees;
+	}
 }
