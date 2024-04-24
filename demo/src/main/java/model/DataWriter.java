@@ -318,7 +318,7 @@ public class DataWriter extends DataConstants {
     // if (user instanceof Student) {
     // Student student = (Student) user;
     // userDetails.put(STUDENT_COMPLETED_COURSES, student.getCompletedCourses());
-    // userDetails.put(STUDENT_YEAR, student.getYear());
+    // userDetails.put(STUDENT_YEAR, student.getYear())
     // userDetails.put(STUDENT_MAJOR, student.getMajor());
     // userDetails.put(STUDENT_COMPLETED_CREDITS, student.getCompletedCredits());
     // userDetails.put(STUDENT_TOTAL_CREDITS, student.getTotalCredits());
