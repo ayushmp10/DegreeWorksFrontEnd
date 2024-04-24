@@ -162,7 +162,10 @@ public class Student extends User {
     }
 
     public void setApplicationArea(String appArea) {
-        this.applicationArea = appArea;
+        if (appArea == null)
+            this.applicationArea = "none";
+        else
+            this.applicationArea = appArea;
     }
 
     public void setAdvisorNotes(String advisorNotes) {
