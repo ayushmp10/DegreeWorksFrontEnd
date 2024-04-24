@@ -51,7 +51,7 @@
                <font>
                   <Font name="Impact" size="20.0" />
                </font></Label>
-            <TextField fx:id="newMajor" maxWidth="150.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex: Math" translateX="425.0" translateY="150.0">
+            <TextField fx:id="newMajor" maxWidth="150.0" prefHeight="25.0" prefWidth="200.0" promptText="Ex: Gender Studies" translateX="425.0" translateY="150.0">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets></TextField>
