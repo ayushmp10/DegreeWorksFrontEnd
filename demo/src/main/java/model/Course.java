@@ -165,4 +165,8 @@ public class Course {
         }
     }
 
+    public String toStringShort() {
+        return this.subject + " " + this.number;
+    }
+
 }
