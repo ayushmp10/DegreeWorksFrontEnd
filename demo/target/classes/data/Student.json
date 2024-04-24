@@ -1,1 +1,143 @@
-[{"completed_courses":{},"year":"JUNIOR","total_credits":"123","degree":"836347e1-a829-4140-9992-69872980dba2","current_semester":{"credit_limit":7,"season":"FALL","courses":[],"semester_year":2025},"last_name":"james","type":"Student","uuid":"465ff326-776a-4d98-af63-3b57551bb3b4","all_semesters":[{"credit_limit":7,"season":"FALL","courses":[],"semester_year":2024}],"completed_credits":"20","advisor":"a6e0a427-72fd-490d-85df-5933c0ddb081","password":"password","phone":"bwest@email.sc.edu","gpa":3.0,"first_name":"Brax","username":"bwest1","usc_id":"X33457891","advising_notes":""},{"completed_courses":{},"year":"JUNIOR","total_credits":"123","degree":"3241b374-2ec1-4ddb-a040-fc3b97b74dc1","current_semester":{"credit_limit":7,"season":"SPRING","courses":[],"semester_year":2025},"last_name":"West","type":"Student","uuid":"465ff326-776a-4d98-af63-3b57551bb3b4","all_semesters":[{"credit_limit":7,"season":"FALL","courses":[],"semester_year":2024}],"completed_credits":"20","advisor":"a6e0a427-72fd-490d-85df-5933c0ddb081","password":"password","phone":"bwest@email.sc.edu","gpa":3.0,"first_name":"James","username":"bwest","usc_id":"X33457891","advising_notes":""},{"completed_courses":{},"year":"Freshman","total_credits":"0","degree":"947bd41f-3086-4caf-9340-caf49a8e8776","current_semester":{"credit_limit":120,"season":"FALL","courses":[],"semester_year":2024},"last_name":"asdf","type":"Student","uuid":"06c84d60-22e2-4965-9d54-f6339d07cc37","all_semesters":[],"completed_credits":"0","advisor":"34b5fdf2-e84a-473f-bf40-283be9b8ff0d","password":"123","phone":"ad","gpa":0.0,"first_name":"asdf","username":"adsf","usc_id":"unassigned","advising_notes":""},{"completed_courses":{},"year":"Freshman","total_credits":"0","degree":"dfa84645-4278-44a3-8b3b-c6b4fc6257c5","current_semester":{"credit_limit":120,"season":"FALL","courses":[],"semester_year":2024},"last_name":"spatafora","type":"Student","uuid":"8a3edf40-2d14-4cf2-bd10-5273c8d410fd","all_semesters":[],"completed_credits":"0","advisor":"df1ebc91-9c0b-4df8-bb34-3e8f4ae72a40","password":"123","phone":"1","gpa":0.0,"first_name":"vito","username":"vspat","usc_id":"unassigned","advising_notes":"\nvito spatafora: I would like to change my major to math\nvito spatafora: I would like to change my major to math"},{"completed_courses":{},"year":"Freshman","total_credits":"0","degree":"c63dab4e-85cd-4fe3-937c-09eabc496c5a","current_semester":{"credit_limit":120,"season":"FALL","courses":[],"semester_year":2024},"last_name":"Ash","type":"Student","uuid":"833c03bb-899d-4618-80e4-76cb140aab1e","all_semesters":[],"completed_credits":"0","advisor":"4a4d2345-c705-45bf-bbbe-656c3cfae0ab","password":"1234","phone":"11111","gpa":0.0,"first_name":"Evan","username":"Eash09","usc_id":"9999999","advising_notes":""}]
+[
+    {
+        "completed_courses": {
+            "145a02ba-0a74-4eb3-87fb-8c3ecf91f240": null
+        },
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
+        "current_semester": {
+            "credit_limit": 7,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2025
+        },
+        "last_name": "james",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
+        "all_semesters": [
+            {
+                "credit_limit": 7,
+                "season": "SPRING",
+                "courses": [],
+                "semester_year": 2024
+            }
+        ],
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "password": "password",
+        "phone": "bwest@email.sc.edu",
+        "gpa": 3.0,
+        "first_name": "Brax",
+        "username": "bwest1",
+        "usc_id": "X33457891",
+        "advising_notes": ""
+    },
+    {
+        "completed_courses": {},
+        "year": "JUNIOR",
+        "total_credits": "123",
+        "degree": "0c280b3f-5c97-4b19-b0ba-5442a7a3fefb",
+        "current_semester": {
+            "credit_limit": 7,
+            "season": "SPRING",
+            "courses": [],
+            "semester_year": 2025
+        },
+        "last_name": "West",
+        "type": "Student",
+        "uuid": "465ff326-776a-4d98-af63-3b57551bb3b4",
+        "all_semesters": [
+            {
+                "credit_limit": 7,
+                "season": "FALL",
+                "courses": [],
+                "semester_year": 2024
+            }
+        ],
+        "completed_credits": "20",
+        "advisor": "a6e0a427-72fd-490d-85df-5933c0ddb081",
+        "password": "password",
+        "phone": "bwest@email.sc.edu",
+        "gpa": 3.0,
+        "first_name": "James",
+        "username": "bwest",
+        "usc_id": "X33457891",
+        "advising_notes": ""
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "6beedacc-90e0-488c-8da7-f102168d6617",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "asdf",
+        "type": "Student",
+        "uuid": "06c84d60-22e2-4965-9d54-f6339d07cc37",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "34b5fdf2-e84a-473f-bf40-283be9b8ff0d",
+        "password": "123",
+        "phone": "ad",
+        "gpa": 0.0,
+        "first_name": "asdf",
+        "username": "adsf",
+        "usc_id": "unassigned",
+        "advising_notes": ""
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "dfa84645-4278-44a3-8b3b-c6b4fc6257c5",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "spatafora",
+        "type": "Student",
+        "uuid": "8a3edf40-2d14-4cf2-bd10-5273c8d410fd",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "df1ebc91-9c0b-4df8-bb34-3e8f4ae72a40",
+        "password": "123",
+        "phone": "1",
+        "gpa": 0.0,
+        "first_name": "vito",
+        "username": "vspat",
+        "usc_id": "unassigned",
+        "advising_notes": "\nvito spatafora: I would like to change my major to math\nvito spatafora: I would like to change my major to math"
+    },
+    {
+        "completed_courses": {},
+        "year": "Freshman",
+        "total_credits": "0",
+        "degree": "00cb4536-dfd8-41dd-a372-14cb3d7a2f80",
+        "current_semester": {
+            "credit_limit": 120,
+            "season": "FALL",
+            "courses": [],
+            "semester_year": 2024
+        },
+        "last_name": "Ash",
+        "type": "Student",
+        "uuid": "833c03bb-899d-4618-80e4-76cb140aab1e",
+        "all_semesters": [],
+        "completed_credits": "0",
+        "advisor": "4a4d2345-c705-45bf-bbbe-656c3cfae0ab",
+        "password": "1234",
+        "phone": "11111",
+        "gpa": 0.0,
+        "first_name": "Evan",
+        "username": "Eash09",
+        "usc_id": "9999999",
+        "advising_notes": ""
+    }
+]

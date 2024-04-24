@@ -232,32 +232,47 @@ public class Student extends User {
     }
 
     public void generateEightSemesterPlan() {
+        // clear previous plan
         this.eightSemesterPlan.clear();
+        // get total credits
+        int creditsRequired = this.degree.getTotalCreditsRequired();
         // account for all the completed courses
         for (Semester completedSemester : this.allSemesters) {
-            this.eightSemesterPlan.add(completedSemester);
+            System.out.println("adding completed semester");
+            if (completedSemester.getCourses().size() > 0) {
+                this.eightSemesterPlan.add(completedSemester);
+                //System.out.println(completedSemester.toString());
+                creditsRequired -= completedSemester.getCreditLimit();
+            }
         }
+        //System.out.println("Credits required after adding completed semester: " + creditsRequired);
 
         HashMap<UUID, Integer> toTakeCourses = new HashMap<UUID, Integer>();
         ArrayList<Course> courseQueue = new ArrayList<Course>();
 
         // load all the courses that need to be taken
         HashMap<Course, Integer> majorCourses = this.degree.getMajorCourses();
+        //System.out.println("degree: " + this.degree.getSubject() + " courses: " + majorCourses.size());
         for (Course course : majorCourses.keySet()) {
-            if (this.completedCourses.keySet().stream().anyMatch(c -> !c.equals(course))) {
+            if (!this.completedCourses.keySet().contains(course) && !toTakeCourses.keySet().contains(course.getUUID())) {
                 toTakeCourses.put(course.getUUID(), majorCourses.get(course));
                 courseQueue.add(course);
+                //System.out.println("loading major courses");
             }
+            
         }
-
+        // Run through all electives and categorize them
         ArrayList<Elective> electives = this.degree.getElectives();
         for (Elective elective : electives) {
             for (Course course : elective.getCourseOptions().keySet()) {
-                if (this.completedCourses.keySet().stream().anyMatch(c -> !c.equals(course))) {
+                if (!this.completedCourses.keySet().contains(course) && !toTakeCourses.keySet().contains(course.getUUID())) {
                     toTakeCourses.put(course.getUUID(), elective.getCourseOptions().get(course));
                     courseQueue.add(course);
+                    //System.out.println("loading electives");
                 }
             }
+            creditsRequired += elective.getReqCredits();
+            
         }
 
         // determine what course is next
@@ -276,28 +291,49 @@ public class Student extends User {
 
         int creditLimit = 18;
         for (int sem = 1; sem <= 8; sem++) {
+            if (creditsRequired < 0) {
+                break;
+            }
             for (int i = courseQueue.size() - 1; i >= 0; i--) {
                 // empty out the queue every semester from the bottom
                 Course course = courseQueue.get(i);
                 int prefSemester = toTakeCourses.get(course.getUUID());
+                // check if this semester is the semester to take this class
                 if (prefSemester != sem) {
                     continue;
                 }
 
                 int courseCredit = course.getCredits();
+                if (creditsRequired < courseCredit) {
+                    continue;
+                } else if (creditsRequired == courseCredit) {
+                    semesterCourses.add(course);
+                    courseQueue.remove(course);
+                    Semester tempSem = new Semester(currSeason, currYear, courseCredit,
+                            new ArrayList<>(semesterCourses));
+                    this.eightSemesterPlan.add(tempSem);
+                    //System.out.println("adding tempSem");
+                }
+
                 if (courseCredit <= creditLimit) {
                     // taking this course update the credits remaining
                     creditLimit -= courseCredit;
                     semesterCourses.add(course);
                     courseQueue.remove(course);
                 } else {
-                    Semester tempSem = new Semester(currSeason, currYear, 18 - creditLimit,
-                            new ArrayList<>(semesterCourses));
-                    this.eightSemesterPlan.add(tempSem);
+                    // passed semester credit limit therefore moving to next semester
                     if (currSeason.equalsIgnoreCase("fall")) {
                         currSeason = "Spring";
                         currYear += 1;
+                    } else {
+                        currSeason = "Fall";
                     }
+                    int currCredit = 18 - creditLimit;
+                    Semester tempSem = new Semester(currSeason, currYear, currCredit,
+                            new ArrayList<>(semesterCourses));
+                    this.eightSemesterPlan.add(tempSem);
+                    //System.out.println("Adding tempsem");
+                    creditsRequired -= currCredit;
 
                     semesterCourses.clear();
                     creditLimit = 18;
@@ -316,9 +352,7 @@ public class Student extends User {
     }
 
     public ArrayList<Semester> getEightSemesterPlan() {
-        if (this.eightSemesterPlan == null) {
-            generateEightSemesterPlan();
-        }
+        generateEightSemesterPlan();
         return eightSemesterPlan;
     }
 }

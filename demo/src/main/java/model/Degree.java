@@ -92,6 +92,9 @@ public class Degree {
         if (electives != null) {
             this.electives = electives;
         }
+        else {
+            electives = new ArrayList<Elective>();
+        }
     }
 
     public boolean addMajorCourse(Course course, int prefSemester) {
