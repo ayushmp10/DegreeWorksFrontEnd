@@ -21,7 +21,7 @@
 
         },
         "subject_name": "Computer Science",
-        "electiveList": [
+        "elective_list": [
             {
                 "type": "AIU",
                 "credit_required": 3,

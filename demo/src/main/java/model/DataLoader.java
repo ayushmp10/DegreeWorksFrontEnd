@@ -286,13 +286,13 @@ public class DataLoader extends DataConstants {
 				JSONObject degreeObject = (JSONObject) degreeJSON.get(i);
 				// get basic degree information
 
-				UUID degreeUUID = UUID.fromString("dfa84645-4278-44a3-8b3b-c6b4fc6257c5");
+				UUID degreeUUID = UUID.fromString((String)degreeObject.get(DEGREE_UUID));
 				if (degreeObject.get(DEGREE_UUID) != null) {
 					degreeUUID = UUID.fromString((String) degreeObject.get(DEGREE_UUID));
 				}
 
 				// need to make it a primitive type so that it can be casted
-				int requiredCredits = 128;
+				int requiredCredits = ((Long)degreeObject.get(DEGREE_CREDITS)).intValue();
 				if (degreeObject.get(DEGREE_TOTAL_REQ_CREDIT) != null) {
 					requiredCredits = (int) ((long) degreeObject.get(DEGREE_TOTAL_REQ_CREDIT));
 				}
