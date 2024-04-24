@@ -58,8 +58,7 @@ public class Prerequisites {
             // display all the courses
             for (int i = 0; i < courseOptions.size(); i++) {
                 Course course = this.courseOptions.get(i);
-                toReturn += i + ": ";
-                toReturn += course.toString() + "\n";
+                toReturn += course.toStringShort() + "\n";
             }
         } 
         return toReturn;
