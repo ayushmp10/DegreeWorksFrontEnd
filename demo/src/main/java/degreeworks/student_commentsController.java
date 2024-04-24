@@ -25,6 +25,7 @@ public class student_commentsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         userList = UserList.getInstance();
         currStudent = (Student) userList.getCurrUser();
+        comment.clear();
     }
 
     @FXML
@@ -34,6 +35,9 @@ public class student_commentsController implements Initializable {
             currStudent.setAdvisorNotes(comment.getText());
             submit.setText("Submitted");
             comment.clear();
+        }
+        if (currStudent.getAdvisorNotes() != null) {
+            comment.setText(currStudent.getAdvisorNotes());
         }
     }
 
